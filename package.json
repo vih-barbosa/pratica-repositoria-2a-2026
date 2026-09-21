@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/html-elements": "^0.12.5",
+    "@expo/metro-runtime": "~6.1.2",
     "@gluestack-ui/core": "^5.0.0-alpha.0",
     "@gluestack-ui/utils": "^5.0.1-alpha.0",
     "@legendapp/motion": "^2.4.0",
