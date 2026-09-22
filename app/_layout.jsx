@@ -1,19 +1,15 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import '@/global.css';
-import { Button, buttonText } from "@/components/ui/button"
+import { Link, Stack} from "expo-router"
+import { Button, ButtonText } from '@/components/ui/button';
+import { Divider } from '@/components/ui/divider';
 
 export default function App() {
   return (
-    
     <GluestackUIProvider mode="dark">
-      <View style={styles.container}>
-<Button className= "bg-fuchsia-500">
-  <buttonTexty>primeiro botão </buttonTexty>
-</Button>
-    </View>
+      <Stack />
     </GluestackUIProvider>
-  
   );
 }
 
