@@ -1,7 +1,12 @@
 {
   "expo": {
+<<<<<<< HEAD
     "name": "pratica-repositoria-2a-2026",
     "scheme": "pratica-repositoria-2a-2026",
+=======
+    "name": "gravacao-expo-revisao-2026",
+    "slug": "gravacao-expo-revisao-2026",
+>>>>>>> 22995bc8a82fed36b351f002badcc81f8db6ae59
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,11 +28,16 @@
       "edgeToEdgeEnabled": true
     },
     "web": {
+<<<<<<< HEAD
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
     "plugins": [
       "expo-router"
     ]
+=======
+      "favicon": "./assets/favicon.png"
+    }
+>>>>>>> 22995bc8a82fed36b351f002badcc81f8db6ae59
   }
 }

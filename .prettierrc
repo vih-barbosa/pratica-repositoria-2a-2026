@@ -1,4 +1,11 @@
 module.exports = {
+<<<<<<< HEAD
   plugins: ['prettier-plugin-tailwindcss'],
   tailwindFunctions: ['tva'],
+=======
+  plugins: ['prettier-plugin-tailwindcss'
+    ],
+  tailwindFunctions: ['tva'
+    ],
+>>>>>>> 22995bc8a82fed36b351f002badcc81f8db6ae59
 };
