@@ -1,14 +1,18 @@
 import { StyleSheet, View, Text } from 'react-native';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import '@/global.css';
-import { Link, Stack} from "expo-router"
 import { Button, ButtonText } from '@/components/ui/button';
 import { Divider } from '@/components/ui/divider';
-
+import { Link, Stack, Tabs} from "expo-router"
 export default function App() {
   return (
+
     <GluestackUIProvider mode="dark">
-      <Stack />
+      <Tabs>
+        <Tabs.Screen name='Pagina1'/>
+         <Tabs.Screen name='Pagina2'/>
+          <Tabs.Screen name='Pagina3'/>
+          </Tabs>
     </GluestackUIProvider>
   );
 }

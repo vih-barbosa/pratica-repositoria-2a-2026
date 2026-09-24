@@ -1,10 +1,8 @@
 import { StyleSheet, View, Text } from 'react-native';
-import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
-import '@/global.css';
-
-import { Link } from 'expo-router';
 import { Button, ButtonText } from '@/components/ui/button';
 import { Divider } from '@/components/ui/divider';
+import { Link } from 'expo-router';
+
 
 export default function App() {
   return (
