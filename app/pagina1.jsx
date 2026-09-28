@@ -19,14 +19,14 @@ export default function Pagina1() {
       {/* CAMADA ESCURA */}
       <View style={styles.overlay} />
 
-      {/* LUA */}
+      {/* LUA / LUZ */}
       <View style={styles.fullMoon}>
-        <Text style={styles.moonSymbol}>🌕</Text>
+        <Text style={styles.moonSymbol}>🔴</Text>
       </View>
 
-      {/* SILHUETA DO LOBO */}
-      <Text style={styles.wolfSilhouette}>
-        🐺
+      {/* SILHUETA SOBRENATURAL */}
+      <Text style={styles.monsterSilhouette}>
+        👾
       </Text>
 
       {/* NÉVOA */}
@@ -42,47 +42,47 @@ export default function Pagina1() {
 
         <Text style={styles.symbol1}>✦</Text>
         <Text style={styles.symbol2}>✧</Text>
-        <Text style={styles.symbol3}>☽</Text>
+        <Text style={styles.symbol3}>☾</Text>
 
         {/* CABEÇALHO */}
 
         <Text style={styles.welcome}>
-          BEM-VINDO A BEACON HILLS
+          BEM-VINDO A HAWKINS
         </Text>
 
         <Text style={styles.title}>
-          Teen
+          Stranger
         </Text>
 
-        <Text style={styles.titleBlue}>
-          Wolf
+        <Text style={styles.titleRed}>
+          Things
         </Text>
 
         <Text style={styles.description}>
-          Uma cidade aparentemente normal,
-          escondendo lobisomens, caçadores,
-          criaturas e muitos segredos.
+          Uma pequena cidade escondendo
+          experimentos secretos, criaturas
+          e mistérios do Mundo Invertido.
         </Text>
 
         {/* ÁREA PRINCIPAL */}
 
-        <View style={styles.wolfArea}>
+        <View style={styles.strangerArea}>
 
           <View style={styles.glow} />
 
           <View style={styles.mainCircle}>
 
-            <Text style={styles.wolfEmoji}>
-              🐺
+            <Text style={styles.strangerEmoji}>
+              🔦
             </Text>
 
-            <Text style={styles.beacon}>
-              BEACON HILLS
+            <Text style={styles.hawkins}>
+              HAWKINS
             </Text>
 
           </View>
 
-          {/* OLHO SOBRENATURAL */}
+          {/* ELEMENTO SOBRENATURAL */}
 
           <View style={styles.eyeBadge}>
             <Text style={styles.eye}>
@@ -90,10 +90,10 @@ export default function Pagina1() {
             </Text>
           </View>
 
-          {/* LUA */}
+          {/* LUZ */}
 
-          <Text style={styles.miniMoon}>
-            🌕
+          <Text style={styles.miniLight}>
+            💡
           </Text>
 
         </View>
@@ -107,22 +107,22 @@ export default function Pagina1() {
           </Text>
 
           <Text style={styles.quote}>
-            Algumas coisas não podem ser
-            explicadas. Apenas sentidas.
+            Amigos não mentem. Algumas coisas,
+            porém, vivem no outro lado.
           </Text>
 
           <View style={styles.quoteLine} />
 
           <Text style={styles.quoteAuthor}>
-            — Teen Wolf
+            — Stranger Things
           </Text>
 
         </View>
 
-        {/* PERSONAGENS / ELEMENTOS */}
+        {/* ELEMENTOS */}
 
         <Text style={styles.exploreTitle}>
-          O universo sobrenatural
+          O universo de Hawkins
         </Text>
 
         <View style={styles.cardsRow}>
@@ -130,15 +130,15 @@ export default function Pagina1() {
           <View style={styles.smallCard}>
 
             <Text style={styles.smallIcon}>
-              🐺
+              🧪
             </Text>
 
             <Text style={styles.smallTitle}>
-              Lobisomens
+              Laboratório
             </Text>
 
             <Text style={styles.smallText}>
-              Instinto
+              Experimentos
             </Text>
 
           </View>
@@ -146,15 +146,15 @@ export default function Pagina1() {
           <View style={styles.smallCard}>
 
             <Text style={styles.smallIcon}>
-              🏹
+              👾
             </Text>
 
             <Text style={styles.smallTitle}>
-              Caçadores
+              Criaturas
             </Text>
 
             <Text style={styles.smallText}>
-              Coragem
+              Mundo Invertido
             </Text>
 
           </View>
@@ -162,11 +162,11 @@ export default function Pagina1() {
           <View style={styles.smallCard}>
 
             <Text style={styles.smallIcon}>
-              👁️
+              🚲
             </Text>
 
             <Text style={styles.smallTitle}>
-              Sobrenatural
+              Hawkins
             </Text>
 
             <Text style={styles.smallText}>
@@ -189,22 +189,22 @@ const styles = StyleSheet.create({
 
   background: {
     flex: 1,
-    backgroundColor: '#05070A',
+    backgroundColor: '#050307',
   },
 
   backgroundImage: {
-    opacity: 0.75,
+    opacity: 0.45,
   },
 
   overlay: {
     ...StyleSheet.absoluteFillObject,
 
-    backgroundColor: '#030609',
+    backgroundColor: '#080107',
 
-    opacity: 0.62,
+    opacity: 0.78,
   },
 
-  /* LUA GRANDE */
+  /* LUZ VERMELHA */
 
   fullMoon: {
     position: 'absolute',
@@ -220,22 +220,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    backgroundColor: 'rgba(210, 235, 255, 0.12)',
+    backgroundColor: 'rgba(150, 0, 20, 0.15)',
 
-    shadowColor: '#9DDCFF',
-    shadowOpacity: 0.8,
+    shadowColor: '#FF1725',
+    shadowOpacity: 0.9,
     shadowRadius: 35,
 
     elevation: 15,
   },
 
   moonSymbol: {
-    fontSize: 72,
+    fontSize: 55,
   },
 
-  /* LOBO */
+  /* CRIATURA */
 
-  wolfSilhouette: {
+  monsterSilhouette: {
     position: 'absolute',
 
     top: 125,
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
 
     fontSize: 95,
 
-    opacity: 0.10,
+    opacity: 0.08,
   },
 
   /* NÉVOA */
@@ -257,9 +257,9 @@ const styles = StyleSheet.create({
     left: -100,
     top: 390,
 
-    backgroundColor: '#B8D7E8',
+    backgroundColor: '#6B1020',
 
-    opacity: 0.06,
+    opacity: 0.08,
 
     borderRadius: 100,
   },
@@ -273,9 +273,9 @@ const styles = StyleSheet.create({
     right: -100,
     top: 520,
 
-    backgroundColor: '#B8D7E8',
+    backgroundColor: '#49105C',
 
-    opacity: 0.05,
+    opacity: 0.08,
 
     borderRadius: 100,
   },
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     top: 250,
     left: 30,
 
-    color: '#63D7FF',
+    color: '#FF2538',
 
     fontSize: 25,
   },
@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
     top: 510,
     left: 35,
 
-    color: '#63D7FF',
+    color: '#FF2538',
 
     fontSize: 28,
   },
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
   /* TÍTULO */
 
   welcome: {
-    color: '#63D7FF',
+    color: '#FF2638',
 
     fontSize: 11,
 
@@ -349,10 +349,19 @@ const styles = StyleSheet.create({
     fontWeight: '900',
 
     lineHeight: 45,
+
+    textShadowColor: '#7A0010',
+
+    textShadowOffset: {
+      width: 2,
+      height: 2,
+    },
+
+    textShadowRadius: 8,
   },
 
-  titleBlue: {
-    color: '#63D7FF',
+  titleRed: {
+    color: '#E50914',
 
     fontSize: 47,
 
@@ -360,7 +369,7 @@ const styles = StyleSheet.create({
 
     lineHeight: 50,
 
-    textShadowColor: '#168CB8',
+    textShadowColor: '#FF1A2A',
 
     textShadowOffset: {
       width: 0,
@@ -371,7 +380,7 @@ const styles = StyleSheet.create({
   },
 
   description: {
-    color: '#B8C7D2',
+    color: '#B9AEB2',
 
     textAlign: 'center',
 
@@ -384,9 +393,9 @@ const styles = StyleSheet.create({
     maxWidth: 310,
   },
 
-  /* LOBO CENTRAL */
+  /* ÁREA CENTRAL */
 
-  wolfArea: {
+  strangerArea: {
     width: 310,
 
     height: 280,
@@ -409,13 +418,13 @@ const styles = StyleSheet.create({
 
     borderRadius: 120,
 
-    backgroundColor: '#10415A',
+    backgroundColor: '#3D0710',
 
-    opacity: 0.65,
+    opacity: 0.75,
 
-    shadowColor: '#4DD5FF',
+    shadowColor: '#FF1A2A',
 
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.7,
 
     shadowRadius: 40,
   },
@@ -427,37 +436,37 @@ const styles = StyleSheet.create({
 
     borderRadius: 90,
 
-    backgroundColor: 'rgba(220, 240, 255, 0.94)',
+    backgroundColor: 'rgba(20, 7, 10, 0.96)',
 
     borderWidth: 4,
 
-    borderColor: '#63D7FF',
+    borderColor: '#E50914',
 
     alignItems: 'center',
 
     justifyContent: 'center',
 
-    shadowColor: '#63D7FF',
+    shadowColor: '#FF1A2A',
 
-    shadowOpacity: 0.6,
+    shadowOpacity: 0.8,
 
     shadowRadius: 25,
 
     elevation: 15,
   },
 
-  wolfEmoji: {
+  strangerEmoji: {
     fontSize: 70,
   },
 
-  beacon: {
-    color: '#17232D',
+  hawkins: {
+    color: '#FFFFFF',
 
     fontSize: 9,
 
     fontWeight: '900',
 
-    letterSpacing: 2,
+    letterSpacing: 3,
 
     marginTop: 6,
   },
@@ -477,19 +486,19 @@ const styles = StyleSheet.create({
 
     borderRadius: 35,
 
-    backgroundColor: '#080D12',
+    backgroundColor: '#090306',
 
     borderWidth: 2,
 
-    borderColor: '#63D7FF',
+    borderColor: '#E50914',
 
     alignItems: 'center',
 
     justifyContent: 'center',
 
-    shadowColor: '#63D7FF',
+    shadowColor: '#FF1725',
 
-    shadowOpacity: 0.6,
+    shadowOpacity: 0.7,
 
     shadowRadius: 12,
 
@@ -500,7 +509,7 @@ const styles = StyleSheet.create({
     fontSize: 31,
   },
 
-  miniMoon: {
+  miniLight: {
     position: 'absolute',
 
     right: 15,
@@ -515,7 +524,7 @@ const styles = StyleSheet.create({
   quoteCard: {
     width: '100%',
 
-    backgroundColor: 'rgba(8, 15, 22, 0.92)',
+    backgroundColor: 'rgba(12, 5, 8, 0.94)',
 
     borderRadius: 22,
 
@@ -525,13 +534,13 @@ const styles = StyleSheet.create({
 
     borderWidth: 1,
 
-    borderColor: '#244252',
+    borderColor: '#4B1720',
 
     marginTop: 5,
   },
 
   quoteMark: {
-    color: '#63D7FF',
+    color: '#E50914',
 
     fontSize: 40,
 
@@ -559,13 +568,13 @@ const styles = StyleSheet.create({
 
     height: 2,
 
-    backgroundColor: '#63D7FF',
+    backgroundColor: '#E50914',
 
     marginVertical: 12,
   },
 
   quoteAuthor: {
-    color: '#718999',
+    color: '#806D72',
 
     fontSize: 12,
   },
@@ -597,7 +606,7 @@ const styles = StyleSheet.create({
   smallCard: {
     width: '31%',
 
-    backgroundColor: 'rgba(9, 18, 26, 0.92)',
+    backgroundColor: 'rgba(15, 7, 10, 0.94)',
 
     borderRadius: 17,
 
@@ -607,7 +616,7 @@ const styles = StyleSheet.create({
 
     borderWidth: 1,
 
-    borderColor: '#244252',
+    borderColor: '#4B1720',
   },
 
   smallIcon: {
@@ -627,7 +636,7 @@ const styles = StyleSheet.create({
   },
 
   smallText: {
-    color: '#7894A5',
+    color: '#8F777D',
 
     fontSize: 10,
 
@@ -637,3 +646,4 @@ const styles = StyleSheet.create({
   },
 
 });
+

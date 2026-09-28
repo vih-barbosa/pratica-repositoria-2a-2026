@@ -11,31 +11,34 @@ export default function Pagina2() {
       {/* ELEMENTOS DECORATIVOS */}
       <Text style={styles.decor1}>☾</Text>
       <Text style={styles.decor2}>✦</Text>
-      <Text style={styles.decor3}>🐾</Text>
+      <Text style={styles.decor3}>🔴</Text>
 
       {/* TÍTULO */}
-      <Text style={styles.moon}>
-        🌕
+
+      <Text style={styles.light}>
+        💡
       </Text>
 
       <Text style={styles.title}>
         Sobre
       </Text>
 
-      <Text style={styles.titleBlue}>
-        Teen Wolf
+      <Text style={styles.titleRed}>
+        Stranger Things
       </Text>
 
       <Text style={styles.subtitle}>
-        Conheça o universo sobrenatural de Beacon Hills,
-        seus personagens e os mistérios que cercam a cidade.
+        Conheça o universo de Hawkins, seus personagens,
+        o Mundo Invertido e os mistérios que transformaram
+        uma pequena cidade em palco de acontecimentos sobrenaturais.
       </Text>
 
       {/* CARD — A SÉRIE */}
+
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          🐺
+          📺
         </Text>
 
         <View style={styles.cardContent}>
@@ -45,128 +48,137 @@ export default function Pagina2() {
           </Text>
 
           <Text style={styles.cardText}>
-            Teen Wolf acompanha Scott McCall, um adolescente
-            que passa por uma transformação sobrenatural e
-            precisa aprender a lidar com seus novos poderes
-            enquanto protege seus amigos.
+            Stranger Things acompanha um grupo de amigos
+            que começa a investigar acontecimentos estranhos
+            após o desaparecimento de Will Byers. A busca
+            revela experimentos secretos, poderes sobrenaturais
+            e uma dimensão assustadora.
           </Text>
 
         </View>
 
       </View>
 
-      {/* CARD — BEACON HILLS */}
+      {/* CARD — HAWKINS */}
+
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          🌲
+          🏘️
         </Text>
 
         <View style={styles.cardContent}>
 
           <Text style={styles.cardTitle}>
-            Beacon Hills
+            Hawkins
           </Text>
 
           <Text style={styles.cardText}>
-            A cidade é o principal cenário da história.
-            Por trás de sua aparência tranquila, existem
-            criaturas sobrenaturais, antigos mistérios e
-            conflitos entre diferentes grupos.
+            Hawkins é uma pequena cidade aparentemente comum.
+            Porém, por trás de sua tranquilidade existem
+            experimentos secretos, acontecimentos sobrenaturais
+            e uma conexão misteriosa com outra dimensão.
           </Text>
 
         </View>
 
       </View>
 
-      {/* CARD — SCOTT */}
+      {/* CARD — ELEVEN */}
+
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          🔴
+          🧇
         </Text>
 
         <View style={styles.cardContent}>
 
           <Text style={styles.cardTitle}>
-            Scott McCall
+            Eleven
           </Text>
 
           <Text style={styles.cardText}>
-            Scott é o protagonista da série. Depois de ser
-            mordido por um lobisomem, ele começa a descobrir
-            habilidades sobrenaturais e aprende que ser um
-            verdadeiro líder também significa proteger os outros.
+            Eleven é uma garota com habilidades psíquicas
+            extraordinárias. Depois de escapar do laboratório,
+            ela encontra novos amigos e passa a descobrir
+            mais sobre seu passado e seus poderes.
           </Text>
 
         </View>
 
       </View>
 
-      {/* CARD ESPECIAL — SOBRENATURAL */}
+      {/* CARD ESPECIAL — MUNDO INVERTIDO */}
+
       <View style={styles.supernaturalCard}>
 
-        <Text style={styles.wolf}>
-          🐺
+        <Text style={styles.upsideDown}>
+          👁️
         </Text>
 
         <Text style={styles.supernaturalTitle}>
-          O Universo Sobrenatural
+          O Mundo Invertido
         </Text>
 
         <Text style={styles.supernaturalText}>
-          Lobisomens, caçadores, banshees, kitsunes e outras
-          criaturas fazem parte do universo de Teen Wolf.
+          Uma dimensão sombria e perigosa conectada a Hawkins.
+          O Mundo Invertido é habitado por criaturas e possui
+          uma versão distorcida da cidade.
         </Text>
 
-        <View style={styles.lineBlue} />
+        <View style={styles.lineRed} />
 
         <Text style={styles.supernaturalSmall}>
-          NADA É O QUE PARECE EM BEACON HILLS
+          O OUTRO LADO ESTÁ MAIS PERTO DO QUE PARECE
         </Text>
 
       </View>
 
-      {/* CARD — CAÇADORES */}
+      {/* CARD — LABORATÓRIO */}
+
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          🏹
+          🧪
         </Text>
 
         <View style={styles.cardContent}>
 
           <Text style={styles.cardTitle}>
-            Os Caçadores
+            Laboratório de Hawkins
           </Text>
 
           <Text style={styles.cardText}>
-            Algumas famílias dedicam gerações a caçar
-            criaturas sobrenaturais. A família Argent é
-            uma das mais importantes nesse contexto.
+            O laboratório é um dos principais pontos ligados
+            aos mistérios da cidade. Experimentos realizados
+            no local estão relacionados aos poderes de Eleven
+            e à abertura de uma passagem para outra dimensão.
           </Text>
 
         </View>
 
       </View>
 
-      {/* CARD — AMIZADE */}
+      {/* CARD — O GRUPO */}
+
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          🐾
+          🚲
         </Text>
 
         <View style={styles.cardContent}>
 
           <Text style={styles.cardTitle}>
-            A Alcateia
+            O Grupo
           </Text>
 
           <Text style={styles.cardText}>
-            A amizade e a lealdade são fundamentais.
-            Scott conta com seus amigos para enfrentar
-            ameaças e proteger as pessoas que ama.
+            Mike, Dustin, Lucas, Will, Eleven e seus amigos
+            enfrentam juntos os perigos que surgem em Hawkins.
+            A amizade e a união são essenciais para enfrentar
+            as ameaças do Mundo Invertido.
           </Text>
 
         </View>
@@ -174,6 +186,7 @@ export default function Pagina2() {
       </View>
 
       {/* FRASE */}
+
       <View style={styles.quoteCard}>
 
         <Text style={styles.quoteMark}>
@@ -181,14 +194,14 @@ export default function Pagina2() {
         </Text>
 
         <Text style={styles.quote}>
-          Você não precisa enfrentar
-          o sobrenatural sozinho.
+          Em Hawkins, o estranho
+          nunca está muito longe.
         </Text>
 
         <View style={styles.quoteLine} />
 
         <Text style={styles.quoteAuthor}>
-          — Beacon Hills
+          — Hawkins, Indiana
         </Text>
 
       </View>
@@ -203,7 +216,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#07090D',
+    backgroundColor: '#050307',
   },
 
   content: {
@@ -218,15 +231,22 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     right: 30,
-    color: '#63D7FF',
+
+    color: '#E50914',
+
     fontSize: 28,
+
+    textShadowColor: '#FF1A2A',
+    textShadowRadius: 10,
   },
 
   decor2: {
     position: 'absolute',
     top: 170,
     right: 22,
+
     color: '#FFFFFF',
+
     fontSize: 22,
   },
 
@@ -234,43 +254,68 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 120,
     left: 25,
-    color: '#63D7FF',
+
     fontSize: 25,
+
+    opacity: 0.8,
   },
 
   /* TÍTULO */
 
-  moon: {
+  light: {
     fontSize: 40,
+
     marginBottom: 5,
+
+    textShadowColor: '#FF1A2A',
+    textShadowRadius: 15,
   },
 
   title: {
     color: '#FFFFFF',
+
     fontSize: 34,
+
     fontWeight: '900',
+
     lineHeight: 39,
+
+    textShadowColor: '#7A0010',
+    textShadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    textShadowRadius: 7,
   },
 
-  titleBlue: {
-    color: '#63D7FF',
+  titleRed: {
+    color: '#E50914',
+
     fontSize: 39,
+
     fontWeight: '900',
+
     lineHeight: 44,
 
-    textShadowColor: '#168CB8',
+    textShadowColor: '#FF1725',
+
     textShadowOffset: {
       width: 0,
       height: 0,
     },
+
     textShadowRadius: 12,
   },
 
   subtitle: {
-    color: '#A8B7C3',
+    color: '#B9AEB2',
+
     fontSize: 15,
+
     lineHeight: 22,
+
     marginTop: 10,
+
     marginBottom: 28,
   },
 
@@ -278,23 +323,29 @@ const styles = StyleSheet.create({
 
   card: {
     width: '100%',
+
     minHeight: 125,
 
-    backgroundColor: '#0E151C',
+    backgroundColor: '#10070A',
 
     borderRadius: 20,
 
     padding: 17,
+
     marginBottom: 15,
 
     flexDirection: 'row',
+
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#263B4A',
+
+    borderColor: '#4B1720',
 
     shadowColor: '#000000',
-    shadowOpacity: 0.35,
+
+    shadowOpacity: 0.45,
+
     shadowRadius: 8,
 
     elevation: 4,
@@ -302,8 +353,11 @@ const styles = StyleSheet.create({
 
   cardIcon: {
     fontSize: 35,
+
     width: 52,
+
     textAlign: 'center',
+
     marginRight: 12,
   },
 
@@ -312,24 +366,33 @@ const styles = StyleSheet.create({
   },
 
   cardTitle: {
-    color: '#63D7FF',
+    color: '#E50914',
+
     fontSize: 18,
+
     fontWeight: '900',
+
     marginBottom: 6,
+
+    textShadowColor: '#7A0010',
+
+    textShadowRadius: 5,
   },
 
   cardText: {
-    color: '#D1DCE3',
+    color: '#D8CCCF',
+
     fontSize: 13,
+
     lineHeight: 19,
   },
 
-  /* CARD SOBRENATURAL */
+  /* CARD MUNDO INVERTIDO */
 
   supernaturalCard: {
     width: '100%',
 
-    backgroundColor: '#0B202B',
+    backgroundColor: '#18070D',
 
     borderRadius: 22,
 
@@ -340,49 +403,79 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#28718D',
 
-    shadowColor: '#4DD5FF',
-    shadowOpacity: 0.18,
-    shadowRadius: 15,
+    borderColor: '#7A1A28',
+
+    shadowColor: '#E50914',
+
+    shadowOpacity: 0.22,
+
+    shadowRadius: 18,
 
     elevation: 7,
   },
 
-  wolf: {
+  upsideDown: {
     fontSize: 52,
+
     marginBottom: 8,
+
+    textShadowColor: '#FF1725',
+
+    textShadowRadius: 12,
   },
 
   supernaturalTitle: {
     color: '#FFFFFF',
+
     fontSize: 21,
+
     fontWeight: '900',
+
     textAlign: 'center',
+
+    textShadowColor: '#E50914',
+
+    textShadowRadius: 8,
   },
 
   supernaturalText: {
-    color: '#AFC3CE',
+    color: '#C5AEB3',
+
     fontSize: 13,
+
     lineHeight: 20,
+
     textAlign: 'center',
+
     marginTop: 8,
   },
 
-  lineBlue: {
+  lineRed: {
     width: 50,
+
     height: 2,
 
-    backgroundColor: '#63D7FF',
+    backgroundColor: '#E50914',
 
     marginVertical: 13,
+
+    shadowColor: '#FF1725',
+
+    shadowRadius: 8,
+
+    shadowOpacity: 0.8,
   },
 
   supernaturalSmall: {
-    color: '#63D7FF',
+    color: '#E50914',
+
     fontSize: 9,
+
     fontWeight: '900',
+
     letterSpacing: 1.5,
+
     textAlign: 'center',
   },
 
@@ -391,7 +484,7 @@ const styles = StyleSheet.create({
   quoteCard: {
     width: '100%',
 
-    backgroundColor: '#101820',
+    backgroundColor: '#12070A',
 
     borderRadius: 20,
 
@@ -400,36 +493,57 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#263B4A',
+
+    borderColor: '#4B1720',
 
     marginTop: 5,
+
+    shadowColor: '#E50914',
+
+    shadowOpacity: 0.12,
+
+    shadowRadius: 12,
+
+    elevation: 4,
   },
 
   quoteMark: {
-    color: '#63D7FF',
+    color: '#E50914',
+
     fontSize: 40,
+
     height: 35,
+
     fontWeight: '900',
   },
 
   quote: {
     color: '#FFFFFF',
+
     fontSize: 18,
+
     fontStyle: 'italic',
+
     textAlign: 'center',
+
     lineHeight: 27,
+
     marginTop: 5,
   },
 
   quoteLine: {
     width: 45,
+
     height: 2,
-    backgroundColor: '#63D7FF',
+
+    backgroundColor: '#E50914',
+
     marginVertical: 12,
   },
 
   quoteAuthor: {
-    color: '#718999',
+    color: '#806D72',
+
     fontSize: 12,
   },
 

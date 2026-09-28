@@ -11,23 +11,42 @@ export default function App() {
         initialRouteName="pagina1"
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: '#E8C96A',
-          tabBarInactiveTintColor: '#7890B8',
+
+          /* CORES DO TEMA STRANGER THINGS */
+
+          tabBarActiveTintColor: '#E50914',
+          tabBarInactiveTintColor: '#806D72',
 
           tabBarStyle: {
-            backgroundColor: '#06152F',
-            borderTopColor: '#1C3761',
+            backgroundColor: '#080306',
+
+            borderTopColor: '#4B1720',
+
+            height: 65,
+
+            paddingBottom: 8,
+
+            paddingTop: 5,
+          },
+
+          tabBarLabelStyle: {
+            fontSize: 11,
+
+            fontWeight: '700',
           },
         }}
       >
+
+        {/* PÁGINA 1 */}
 
         <Tabs.Screen
           name="pagina1"
           options={{
             title: 'Início',
+
             tabBarIcon: ({ color, size }) => (
               <Ionicons
-                name="planet-outline"
+                name="home-outline"
                 size={size}
                 color={color}
               />
@@ -35,24 +54,30 @@ export default function App() {
           }}
         />
 
+        {/* PÁGINA 2 */}
+
         <Tabs.Screen
           name="pagina2"
           options={{
-            title: 'Favoritos',
+            title: 'Hawkins',
+
             tabBarIcon: ({ color, size }) => (
               <Ionicons
-                name="heart-outline"
+                name="flash-outline"
                 size={size}
                 color={color}
               />
             ),
           }}
         />
+
+        {/* PÁGINA 3 */}
 
         <Tabs.Screen
           name="pagina3"
           options={{
             title: 'Perfil',
+
             tabBarIcon: ({ color, size }) => (
               <Ionicons
                 name="person-outline"
@@ -62,6 +87,8 @@ export default function App() {
             ),
           }}
         />
+
+        {/* ESCONDE O INDEX */}
 
         <Tabs.Screen
           name="index"
@@ -75,16 +102,3 @@ export default function App() {
     </GluestackUIProvider>
   );
 }
-<Tabs.Screen
-  name="pagina3"
-  options={{
-    title: 'Perfil',
-    tabBarIcon: ({ color, size }) => (
-      <Ionicons
-        name="person-outline"
-        size={size}
-        color={color}
-      />
-    ),
-  }}
-/>
