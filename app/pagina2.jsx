@@ -1,94 +1,230 @@
-
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
 export default function Pagina2() {
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      showsVerticalScrollIndicator={false}
+    >
 
-      {/* Estrelas */}
-      <Text style={styles.star1}>✦</Text>
-      <Text style={styles.star2}>✧</Text>
-      <Text style={styles.star3}>⋆</Text>
+      {/* ELEMENTOS DECORATIVOS */}
+      <Text style={styles.formula1}>E = mc²</Text>
+      <Text style={styles.formula2}>⚛</Text>
+      <Text style={styles.formula3}>∞</Text>
 
-      {/* Título */}
-      <Text style={styles.rose}>🌹</Text>
+      {/* TÍTULO */}
+      <Text style={styles.atom}>⚛</Text>
 
       <Text style={styles.title}>
-        Meus Favoritos
+        Sobre Albert
+      </Text>
+
+      <Text style={styles.titleGold}>
+        Einstein
       </Text>
 
       <Text style={styles.subtitle}>
-        Pequenas coisas que se tornaram especiais
+        O cientista que revolucionou a maneira como
+        entendemos o espaço, o tempo e a energia.
       </Text>
 
-      {/* Card 1 */}
+      {/* CARD BIOGRAFIA */}
       <View style={styles.card}>
-        <Text style={styles.cardIcon}>🌹</Text>
+
+        <Text style={styles.cardIcon}>
+          👨🏻‍🔬
+        </Text>
 
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>
-            Minha Rosa
+            Quem foi?
           </Text>
 
           <Text style={styles.cardText}>
-            Única entre tantas estrelas,
-            especial por causa do vínculo criado.
+            Albert Einstein nasceu em 14 de março de
+            1879, em Ulm, no então Império Alemão.
+            Foi um físico conhecido por suas contribuições
+            fundamentais para a física moderna.
           </Text>
         </View>
 
-        <Text style={styles.heart}>♥</Text>
       </View>
 
-      {/* Card 2 */}
+      {/* CARD FORMAÇÃO */}
       <View style={styles.card}>
-        <Text style={styles.cardIcon}>🦊</Text>
+
+        <Text style={styles.cardIcon}>
+          🎓
+        </Text>
 
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>
-            A Raposa
+            Formação
           </Text>
 
           <Text style={styles.cardText}>
-            Uma amizade que ensina sobre
-            criar laços e enxergar além.
+            Einstein estudou no Instituto Politécnico
+            Federal de Zurique, na Suíça, onde se
+            formou em matemática e física em 1900.
           </Text>
         </View>
 
-        <Text style={styles.heart}>♥</Text>
       </View>
 
-      {/* Card 3 */}
+      {/* CARD RELATIVIDADE */}
       <View style={styles.card}>
-        <Text style={styles.cardIcon}>⭐</Text>
+
+        <Text style={styles.cardIcon}>
+          ⚛
+        </Text>
 
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>
-            As Estrelas
+            Teoria da Relatividade
           </Text>
 
           <Text style={styles.cardText}>
-            Cada estrela pode guardar uma
-            lembrança diferente.
+            Em 1905, apresentou a teoria da relatividade
+            especial. Em 1915, desenvolveu a teoria da
+            relatividade geral, transformando a compreensão
+            da gravidade e do espaço-tempo.
           </Text>
         </View>
 
-        <Text style={styles.heart}>♥</Text>
       </View>
 
-    </View>
+      {/* CARD E = MC² */}
+      <View style={styles.equationCard}>
+
+        <Text style={styles.equation}>
+          E = mc²
+        </Text>
+
+        <Text style={styles.equationTitle}>
+          A famosa equação
+        </Text>
+
+        <Text style={styles.equationText}>
+          A equação mostra a relação entre massa e
+          energia e se tornou uma das fórmulas mais
+          conhecidas da ciência.
+        </Text>
+
+      </View>
+
+      {/* CARD NOBEL */}
+      <View style={styles.card}>
+
+        <Text style={styles.cardIcon}>
+          🏆
+        </Text>
+
+        <View style={styles.cardContent}>
+          <Text style={styles.cardTitle}>
+            Prêmio Nobel
+          </Text>
+
+          <Text style={styles.cardText}>
+            Em 1921, Einstein recebeu o Prêmio Nobel
+            de Física, principalmente por sua explicação
+            do efeito fotoelétrico.
+          </Text>
+        </View>
+
+      </View>
+
+      {/* CARD CURIOSIDADE */}
+      <View style={styles.card}>
+
+        <Text style={styles.cardIcon}>
+          💡
+        </Text>
+
+        <View style={styles.cardContent}>
+          <Text style={styles.cardTitle}>
+            Curiosidade
+          </Text>
+
+          <Text style={styles.cardText}>
+            Einstein também era conhecido por seu
+            interesse por filosofia, música e questões
+            relacionadas à paz e à sociedade.
+          </Text>
+        </View>
+
+      </View>
+
+      {/* FRASE */}
+      <View style={styles.quoteCard}>
+
+        <Text style={styles.quoteMark}>
+          “
+        </Text>
+
+        <Text style={styles.quote}>
+          A imaginação é mais importante
+          que o conhecimento.
+        </Text>
+
+        <View style={styles.quoteLine} />
+
+        <Text style={styles.quoteAuthor}>
+          — Albert Einstein
+        </Text>
+
+      </View>
+
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
-    backgroundColor: '#071A3D',
-    paddingHorizontal: 24,
-    paddingTop: 65,
+    backgroundColor: '#101820',
   },
 
-  rose: {
-    fontSize: 42,
+  content: {
+    paddingHorizontal: 24,
+    paddingTop: 60,
+    paddingBottom: 40,
+  },
+
+  /* ELEMENTOS DECORATIVOS */
+
+  formula1: {
+    position: 'absolute',
+    top: 35,
+    right: 30,
+    color: '#F2C14E',
+    fontSize: 18,
+    fontWeight: '800',
+    transform: [{ rotate: '-8deg' }],
+  },
+
+  formula2: {
+    position: 'absolute',
+    top: 155,
+    right: 20,
+    color: '#FFFFFF',
+    fontSize: 24,
+  },
+
+  formula3: {
+    position: 'absolute',
+    bottom: 120,
+    left: 25,
+    color: '#F2C14E',
+    fontSize: 25,
+  },
+
+  /* TÍTULO */
+
+  atom: {
+    color: '#F2C14E',
+    fontSize: 40,
     marginBottom: 5,
   },
 
@@ -96,31 +232,47 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 32,
     fontWeight: '800',
+    lineHeight: 38,
+  },
+
+  titleGold: {
+    color: '#F2C14E',
+    fontSize: 36,
+    fontWeight: '900',
+    lineHeight: 42,
   },
 
   subtitle: {
-    color: '#AFC2E5',
+    color: '#AFC2D6',
     fontSize: 15,
-    marginTop: 8,
+    lineHeight: 22,
+    marginTop: 10,
     marginBottom: 28,
   },
 
+  /* CARDS */
+
   card: {
     width: '100%',
-    minHeight: 105,
-    backgroundColor: '#102A57',
+    minHeight: 120,
+
+    backgroundColor: '#172B3D',
+
     borderRadius: 20,
+
     padding: 17,
     marginBottom: 15,
+
     flexDirection: 'row',
     alignItems: 'center',
+
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#38516A',
   },
 
   cardIcon: {
     fontSize: 35,
-    width: 50,
+    width: 52,
     textAlign: 'center',
     marginRight: 12,
   },
@@ -130,46 +282,107 @@ const styles = StyleSheet.create({
   },
 
   cardTitle: {
-    color: '#E8C96A',
+    color: '#F2C14E',
     fontSize: 18,
     fontWeight: '800',
-    marginBottom: 5,
+    marginBottom: 6,
   },
 
   cardText: {
-    color: '#D2DDF0',
+    color: '#D2DCE8',
     fontSize: 13,
     lineHeight: 19,
   },
 
-  heart: {
-    color: '#E85D75',
-    fontSize: 25,
-    marginLeft: 8,
+  /* EQUAÇÃO */
+
+  equationCard: {
+    width: '100%',
+
+    backgroundColor: '#F2C14E',
+
+    borderRadius: 20,
+
+    padding: 20,
+
+    marginBottom: 15,
+
+    alignItems: 'center',
+
+    shadowColor: '#F2C14E',
+    shadowOpacity: 0.25,
+    shadowRadius: 10,
+
+    elevation: 6,
   },
 
-  star1: {
-    position: 'absolute',
-    top: 45,
-    right: 35,
-    color: '#E8C96A',
-    fontSize: 28,
+  equation: {
+    color: '#101820',
+    fontSize: 32,
+    fontWeight: '900',
+    letterSpacing: 2,
   },
 
-  star2: {
-    position: 'absolute',
-    top: 140,
-    right: 20,
+  equationTitle: {
+    color: '#263746',
+    fontSize: 16,
+    fontWeight: '800',
+    marginTop: 5,
+  },
+
+  equationText: {
+    color: '#354657',
+    fontSize: 13,
+    lineHeight: 19,
+    textAlign: 'center',
+    marginTop: 8,
+  },
+
+  /* FRASE */
+
+  quoteCard: {
+    width: '100%',
+
+    backgroundColor: '#172635',
+
+    borderRadius: 20,
+
+    padding: 22,
+
+    alignItems: 'center',
+
+    borderWidth: 1,
+    borderColor: '#38516A',
+
+    marginTop: 5,
+  },
+
+  quoteMark: {
+    color: '#F2C14E',
+    fontSize: 40,
+    height: 35,
+    fontWeight: '800',
+  },
+
+  quote: {
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: 18,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    lineHeight: 27,
+    marginTop: 5,
   },
 
-  star3: {
-    position: 'absolute',
-    bottom: 130,
-    left: 30,
-    color: '#E8C96A',
-    fontSize: 24,
+  quoteLine: {
+    width: 45,
+    height: 2,
+    backgroundColor: '#F2C14E',
+    marginVertical: 12,
   },
+
+  quoteAuthor: {
+    color: '#91A5BA',
+    fontSize: 12,
+  },
+
 });
-

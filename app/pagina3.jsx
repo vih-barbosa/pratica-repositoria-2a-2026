@@ -8,11 +8,11 @@ export default function Pagina3() {
         contentContainerStyle={styles.content}
       >
 
-        {/* ESTRELAS */}
-        <Text style={styles.star1}>✦</Text>
-        <Text style={styles.star2}>✧</Text>
-        <Text style={styles.star3}>⋆</Text>
-        <Text style={styles.star4}>✦</Text>
+        {/* FÓRMULAS */}
+        <Text style={styles.formula1}>E = mc²</Text>
+        <Text style={styles.formula2}>⚛</Text>
+        <Text style={styles.formula3}>π</Text>
+        <Text style={styles.formula4}>∞</Text>
 
         {/* TÍTULO */}
         <Text style={styles.smallTitle}>
@@ -24,75 +24,150 @@ export default function Pagina3() {
         </Text>
 
         <Text style={styles.subtitle}>
-          Conheça seu cantinho no universo
-          do Pequeno Príncipe.
+          Conheça um pouco da vida e das ideias
+          de Albert Einstein.
         </Text>
 
         {/* AVATAR */}
         <View style={styles.avatarContainer}>
+
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>👑</Text>
+            <Text style={styles.avatarText}>
+              👨🏻‍🔬
+            </Text>
           </View>
 
-          <View style={styles.online}>
-            <View style={styles.onlineDot} />
-            <Text style={styles.onlineText}>No planeta B-612</Text>
+          <View style={styles.status}>
+            <View style={styles.statusDot} />
+
+            <Text style={styles.statusText}>
+              Cientista e físico
+            </Text>
           </View>
+
         </View>
 
         {/* CARD DO PERFIL */}
         <View style={styles.profileCard}>
 
           <Text style={styles.cardTitle}>
-            Pequeno Príncipe
+            Albert Einstein
           </Text>
 
           <Text style={styles.cardDescription}>
-            Viajante de planetas, admirador
-            das estrelas e cuidador de sua rosa.
+            Físico teórico alemão que desenvolveu
+            importantes teorias e contribuiu para
+            transformar a física moderna.
           </Text>
 
+          {/* NASCIMENTO */}
           <View style={styles.infoLine}>
-            <Text style={styles.icon}>🪐</Text>
+
+            <Text style={styles.icon}>
+              🎂
+            </Text>
 
             <View>
               <Text style={styles.label}>
-                PLANETA
+                NASCIMENTO
               </Text>
 
               <Text style={styles.value}>
-                B-612
+                14 de março de 1879
               </Text>
             </View>
+
           </View>
 
+          {/* NACIONALIDADE */}
           <View style={styles.infoLine}>
-            <Text style={styles.icon}>🌹</Text>
+
+            <Text style={styles.icon}>
+              🌍
+            </Text>
 
             <View>
               <Text style={styles.label}>
-                COMPANHEIRA
+                ORIGEM
               </Text>
 
               <Text style={styles.value}>
-                A Rosa
+                Alemanha
               </Text>
             </View>
+
           </View>
 
+          {/* PROFISSÃO */}
           <View style={styles.infoLine}>
-            <Text style={styles.icon}>⭐</Text>
+
+            <Text style={styles.icon}>
+              🔬
+            </Text>
 
             <View>
               <Text style={styles.label}>
-                UNIVERSO
+                PROFISSÃO
               </Text>
 
               <Text style={styles.value}>
-                Entre estrelas
+                Físico e professor
               </Text>
             </View>
+
           </View>
+
+          {/* PRÊMIO */}
+          <View style={styles.infoLine}>
+
+            <Text style={styles.icon}>
+              🏆
+            </Text>
+
+            <View>
+              <Text style={styles.label}>
+                RECONHECIMENTO
+              </Text>
+
+              <Text style={styles.value}>
+                Prêmio Nobel de Física — 1921
+              </Text>
+            </View>
+
+          </View>
+
+          {/* FALECIMENTO */}
+          <View style={styles.infoLine}>
+
+            <Text style={styles.icon}>
+              📚
+            </Text>
+
+            <View>
+              <Text style={styles.label}>
+                FALECIMENTO
+              </Text>
+
+              <Text style={styles.value}>
+                18 de abril de 1955
+              </Text>
+            </View>
+
+          </View>
+
+        </View>
+
+        {/* EQUAÇÃO */}
+        <View style={styles.equationCard}>
+
+          <Text style={styles.equation}>
+            E = mc²
+          </Text>
+
+          <Text style={styles.equationDescription}>
+            Uma das equações mais famosas associadas
+            ao trabalho de Einstein.
+          </Text>
 
         </View>
 
@@ -100,21 +175,21 @@ export default function Pagina3() {
         <View style={styles.quoteCard}>
 
           <Text style={styles.quote}>
-            “Tu te tornas eternamente responsável
-            por aquilo que cativas.”
+            “A imaginação é mais importante
+            que o conhecimento.”
           </Text>
 
           <View style={styles.line} />
 
           <Text style={styles.author}>
-            — O Pequeno Príncipe
+            — Albert Einstein
           </Text>
 
         </View>
 
         {/* RODAPÉ */}
         <Text style={styles.footer}>
-          ✦ Feito com carinho entre as estrelas ✦
+          ⚛ Ciência • Imaginação • Conhecimento ⚛
         </Text>
 
       </ScrollView>
@@ -126,7 +201,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#06152F',
+    backgroundColor: '#101820',
   },
 
   content: {
@@ -136,44 +211,46 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  /* ESTRELAS */
+  /* FÓRMULAS */
 
-  star1: {
+  formula1: {
     position: 'absolute',
-    top: 70,
-    left: 30,
-    color: '#E8C96A',
-    fontSize: 25,
+    top: 65,
+    left: 25,
+    color: '#F2C14E',
+    fontSize: 18,
+    fontWeight: '800',
+    transform: [{ rotate: '-10deg' }],
   },
 
-  star2: {
+  formula2: {
     position: 'absolute',
-    top: 150,
-    right: 35,
+    top: 145,
+    right: 25,
     color: '#FFFFFF',
-    fontSize: 17,
+    fontSize: 24,
   },
 
-  star3: {
+  formula3: {
     position: 'absolute',
     top: 330,
-    left: 30,
-    color: '#E8C96A',
-    fontSize: 22,
+    left: 25,
+    color: '#F2C14E',
+    fontSize: 24,
   },
 
-  star4: {
+  formula4: {
     position: 'absolute',
     top: 500,
-    right: 35,
+    right: 30,
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 22,
   },
 
   /* TÍTULO */
 
   smallTitle: {
-    color: '#E8C96A',
+    color: '#F2C14E',
     fontSize: 11,
     fontWeight: '800',
     letterSpacing: 4,
@@ -187,7 +264,7 @@ const styles = StyleSheet.create({
   },
 
   subtitle: {
-    color: '#AFC2E5',
+    color: '#AFC2D6',
     fontSize: 14,
     textAlign: 'center',
     lineHeight: 21,
@@ -204,19 +281,19 @@ const styles = StyleSheet.create({
   },
 
   avatar: {
-    width: 105,
-    height: 105,
+    width: 110,
+    height: 110,
     borderRadius: 55,
 
-    backgroundColor: '#102A57',
+    backgroundColor: '#172B3D',
 
     borderWidth: 3,
-    borderColor: '#E8C96A',
+    borderColor: '#F2C14E',
 
     alignItems: 'center',
     justifyContent: 'center',
 
-    shadowColor: '#E8C96A',
+    shadowColor: '#F2C14E',
     shadowOpacity: 0.4,
     shadowRadius: 15,
 
@@ -224,25 +301,25 @@ const styles = StyleSheet.create({
   },
 
   avatarText: {
-    fontSize: 55,
+    fontSize: 58,
   },
 
-  online: {
+  status: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
   },
 
-  onlineDot: {
+  statusDot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#E8C96A',
+    backgroundColor: '#F2C14E',
     marginRight: 7,
   },
 
-  onlineText: {
-    color: '#91A8CB',
+  statusText: {
+    color: '#91A5BA',
     fontSize: 12,
   },
 
@@ -250,25 +327,25 @@ const styles = StyleSheet.create({
 
   profileCard: {
     width: '100%',
-    backgroundColor: '#0D244A',
+    backgroundColor: '#172B3D',
 
     borderRadius: 22,
 
     padding: 22,
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#38516A',
   },
 
   cardTitle: {
-    color: '#E8C96A',
+    color: '#F2C14E',
     fontSize: 23,
     fontWeight: '800',
     textAlign: 'center',
   },
 
   cardDescription: {
-    color: '#AFC2E5',
+    color: '#AFC2D6',
     fontSize: 13,
     lineHeight: 20,
     textAlign: 'center',
@@ -283,16 +360,16 @@ const styles = StyleSheet.create({
     paddingVertical: 13,
 
     borderTopWidth: 1,
-    borderTopColor: '#1C3761',
+    borderTopColor: '#294258',
   },
 
   icon: {
-    fontSize: 27,
+    fontSize: 26,
     width: 50,
   },
 
   label: {
-    color: '#7890B8',
+    color: '#7890A8',
     fontSize: 10,
     fontWeight: '800',
     letterSpacing: 1,
@@ -305,12 +382,49 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
 
+  /* EQUAÇÃO */
+
+  equationCard: {
+    width: '100%',
+
+    backgroundColor: '#F2C14E',
+
+    borderRadius: 20,
+
+    padding: 20,
+
+    marginTop: 18,
+
+    alignItems: 'center',
+
+    shadowColor: '#F2C14E',
+    shadowOpacity: 0.25,
+    shadowRadius: 10,
+
+    elevation: 6,
+  },
+
+  equation: {
+    color: '#101820',
+    fontSize: 32,
+    fontWeight: '900',
+    letterSpacing: 2,
+  },
+
+  equationDescription: {
+    color: '#354657',
+    fontSize: 12,
+    lineHeight: 18,
+    textAlign: 'center',
+    marginTop: 8,
+  },
+
   /* FRASE */
 
   quoteCard: {
     width: '100%',
 
-    backgroundColor: '#102A57',
+    backgroundColor: '#172635',
 
     borderRadius: 20,
 
@@ -321,7 +435,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#38516A',
   },
 
   quote: {
@@ -335,17 +449,19 @@ const styles = StyleSheet.create({
   line: {
     width: 45,
     height: 2,
-    backgroundColor: '#E8C96A',
+    backgroundColor: '#F2C14E',
     marginVertical: 12,
   },
 
   author: {
-    color: '#91A8CB',
+    color: '#91A5BA',
     fontSize: 12,
   },
 
+  /* RODAPÉ */
+
   footer: {
-    color: '#7890B8',
+    color: '#7890A8',
     fontSize: 11,
     marginTop: 25,
   },

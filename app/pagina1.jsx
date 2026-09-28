@@ -8,17 +8,17 @@ export default function Pagina1() {
         contentContainerStyle={styles.content}
       >
 
-        {/* ESTRELAS */}
-        <Text style={styles.star1}>✦</Text>
-        <Text style={styles.star2}>✧</Text>
-        <Text style={styles.star3}>⋆</Text>
-        <Text style={styles.star4}>✦</Text>
-        <Text style={styles.star5}>✧</Text>
-        <Text style={styles.star6}>⋆</Text>
+        {/* ELEMENTOS DECORATIVOS */}
+        <Text style={styles.formula1}>E = mc²</Text>
+        <Text style={styles.formula2}>π</Text>
+        <Text style={styles.formula3}>∑</Text>
+        <Text style={styles.formula4}>∞</Text>
+        <Text style={styles.formula5}>λ</Text>
+        <Text style={styles.formula6}>Δt</Text>
 
-        {/* LUA */}
-        <View style={styles.moon}>
-          <Text style={styles.moonText}>☾</Text>
+        {/* ÁTOMO */}
+        <View style={styles.atom}>
+          <Text style={styles.atomText}>⚛</Text>
         </View>
 
         {/* CABEÇALHO */}
@@ -27,42 +27,43 @@ export default function Pagina1() {
         </Text>
 
         <Text style={styles.title}>
-          O Pequeno
+          Albert
         </Text>
 
         <Text style={styles.titleGold}>
-          Príncipe
+          Einstein
         </Text>
 
         <Text style={styles.description}>
-          Uma pequena viagem por um universo
-          cheio de estrelas, planetas e histórias.
+          Uma viagem pelo universo da ciência,
+          da física e das grandes ideias que
+          transformaram o mundo.
         </Text>
 
-        {/* PLANETA B-612 */}
-        <View style={styles.planetArea}>
+        {/* ÁREA PRINCIPAL */}
+        <View style={styles.physicsArea}>
 
-          <View style={styles.planetGlow} />
+          <View style={styles.physicsGlow} />
 
-          <View style={styles.planet}>
-            <Text style={styles.planetText}>
-              B-612
+          <View style={styles.equationCircle}>
+            <Text style={styles.equation}>
+              E = mc²
             </Text>
 
-            <Text style={styles.planetRose}>
-              🌹
-            </Text>
-          </View>
-
-          {/* PEQUENO PRÍNCIPE */}
-          <View style={styles.prince}>
-            <Text style={styles.princeText}>
-              👑
+            <Text style={styles.equationSmall}>
+              RELATIVIDADE
             </Text>
           </View>
 
-          <Text style={styles.planetStar}>
-            ⭐
+          {/* FOTO / REPRESENTAÇÃO */}
+          <View style={styles.einsteinBadge}>
+            <Text style={styles.einsteinIcon}>
+              👨🏻‍🔬
+            </Text>
+          </View>
+
+          <Text style={styles.star}>
+            ⚛
           </Text>
 
         </View>
@@ -75,61 +76,61 @@ export default function Pagina1() {
           </Text>
 
           <Text style={styles.quote}>
-            O essencial é invisível
-            aos olhos.
+            A imaginação é mais importante
+            que o conhecimento.
           </Text>
 
           <View style={styles.quoteLine} />
 
           <Text style={styles.quoteAuthor}>
-            — O Pequeno Príncipe
+            — Albert Einstein
           </Text>
 
         </View>
 
         {/* EXPLORE */}
         <Text style={styles.exploreTitle}>
-          Explore o universo
+          Explore suas ideias
         </Text>
 
         <View style={styles.cardsRow}>
 
-          {/* ROSA */}
+          {/* RELATIVIDADE */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>🌹</Text>
+            <Text style={styles.smallIcon}>⚛</Text>
 
             <Text style={styles.smallTitle}>
-              A Rosa
+              Relatividade
             </Text>
 
             <Text style={styles.smallText}>
-              Amor
+              Espaço e tempo
             </Text>
           </View>
 
-          {/* RAPOSA */}
+          {/* LUZ */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>🦊</Text>
+            <Text style={styles.smallIcon}>💡</Text>
 
             <Text style={styles.smallTitle}>
-              A Raposa
+              Luz
             </Text>
 
             <Text style={styles.smallText}>
-              Amizade
+              Ciência
             </Text>
           </View>
 
-          {/* ESTRELAS */}
+          {/* IMAGINAÇÃO */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>⭐</Text>
+            <Text style={styles.smallIcon}>🧠</Text>
 
             <Text style={styles.smallTitle}>
-              Estrelas
+              Imaginação
             </Text>
 
             <Text style={styles.smallText}>
-              Sonhos
+              Grandes ideias
             </Text>
           </View>
 
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#06152F',
+    backgroundColor: '#101820',
   },
 
   content: {
@@ -154,87 +155,89 @@ const styles = StyleSheet.create({
     paddingBottom: 35,
   },
 
-  /* ESTRELAS */
+  /* FÓRMULAS */
 
-  star1: {
+  formula1: {
     position: 'absolute',
     top: 65,
-    left: 30,
-    color: '#E8C96A',
-    fontSize: 25,
+    left: 25,
+    color: '#F2C14E',
+    fontSize: 18,
+    fontWeight: '800',
+    transform: [{ rotate: '-12deg' }],
   },
 
-  star2: {
+  formula2: {
     position: 'absolute',
-    top: 120,
+    top: 125,
     left: 80,
     color: '#FFFFFF',
-    fontSize: 15,
+    fontSize: 22,
+    fontWeight: '700',
   },
 
-  star3: {
+  formula3: {
     position: 'absolute',
     top: 210,
     right: 30,
-    color: '#E8C96A',
-    fontSize: 23,
+    color: '#F2C14E',
+    fontSize: 25,
+    fontWeight: '700',
   },
 
-  star4: {
+  formula4: {
     position: 'absolute',
     top: 290,
     left: 25,
     color: '#FFFFFF',
-    fontSize: 17,
+    fontSize: 22,
   },
 
-  star5: {
+  formula5: {
     position: 'absolute',
     top: 380,
     right: 40,
-    color: '#E8C96A',
-    fontSize: 20,
+    color: '#F2C14E',
+    fontSize: 25,
   },
 
-  star6: {
+  formula6: {
     position: 'absolute',
     top: 470,
     left: 45,
     color: '#FFFFFF',
-    fontSize: 15,
+    fontSize: 17,
   },
 
-  /* LUA */
+  /* ÁTOMO */
 
-  moon: {
+  atom: {
     position: 'absolute',
     top: 45,
-    right: 45,
-    width: 55,
-    height: 55,
+    right: 38,
+    width: 60,
+    height: 60,
     borderRadius: 30,
-    backgroundColor: '#E8C96A',
+    backgroundColor: '#F2C14E',
     alignItems: 'center',
     justifyContent: 'center',
 
-    shadowColor: '#E8C96A',
-    shadowOpacity: 0.5,
+    shadowColor: '#F2C14E',
+    shadowOpacity: 0.45,
     shadowRadius: 15,
 
     elevation: 10,
   },
 
-  moonText: {
-    color: '#06152F',
+  atomText: {
+    color: '#101820',
     fontSize: 38,
-    marginLeft: -5,
-    marginTop: -3,
   },
 
   /* TÍTULO */
 
   welcome: {
-    color: '#E8C96A',
+    color: '#F2C14E',
     fontSize: 12,
     fontWeight: '800',
     letterSpacing: 5,
@@ -243,30 +246,30 @@ const styles = StyleSheet.create({
 
   title: {
     color: '#FFFFFF',
-    fontSize: 38,
+    fontSize: 40,
     fontWeight: '800',
-    lineHeight: 42,
+    lineHeight: 43,
   },
 
   titleGold: {
-    color: '#E8C96A',
+    color: '#F2C14E',
     fontSize: 42,
-    fontWeight: '800',
+    fontWeight: '900',
     lineHeight: 45,
   },
 
   description: {
-    color: '#AFC2E5',
+    color: '#B8C5D6',
     textAlign: 'center',
     fontSize: 14,
     lineHeight: 21,
     marginTop: 14,
-    maxWidth: 300,
+    maxWidth: 310,
   },
 
-  /* PLANETA */
+  /* FÍSICA */
 
-  planetArea: {
+  physicsArea: {
     width: 310,
     height: 270,
     alignItems: 'center',
@@ -275,76 +278,81 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 
-  planetGlow: {
+  physicsGlow: {
     position: 'absolute',
-    width: 205,
-    height: 205,
+    width: 210,
+    height: 210,
     borderRadius: 110,
-    backgroundColor: '#163B70',
-    opacity: 0.55,
+    backgroundColor: '#193B5A',
+    opacity: 0.7,
   },
 
-  planet: {
+  equationCircle: {
     width: 175,
     height: 175,
     borderRadius: 90,
-    backgroundColor: '#D8B85C',
+
+    backgroundColor: '#F2C14E',
 
     borderWidth: 5,
-    borderColor: '#E8C96A',
+    borderColor: '#FFE08A',
 
     alignItems: 'center',
     justifyContent: 'center',
 
-    shadowColor: '#E8C96A',
+    shadowColor: '#F2C14E',
     shadowOpacity: 0.4,
     shadowRadius: 20,
 
     elevation: 10,
   },
 
-  planetText: {
-    color: '#071A3D',
-    fontSize: 25,
+  equation: {
+    color: '#101820',
+    fontSize: 27,
     fontWeight: '900',
-    letterSpacing: 2,
+    letterSpacing: 1,
   },
 
-  planetRose: {
-    fontSize: 38,
+  equationSmall: {
+    color: '#263746',
+    fontSize: 9,
+    fontWeight: '800',
+    letterSpacing: 2,
     marginTop: 8,
   },
 
-  /* PEQUENO PRÍNCIPE */
+  /* EINSTEIN */
 
-  prince: {
+  einsteinBadge: {
     position: 'absolute',
     top: 20,
-    left: 38,
+    left: 35,
 
     width: 65,
     height: 65,
 
     borderRadius: 35,
 
-    backgroundColor: '#163B70',
+    backgroundColor: '#193B5A',
 
     borderWidth: 2,
-    borderColor: '#E8C96A',
+    borderColor: '#F2C14E',
 
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  princeText: {
-    fontSize: 35,
+  einsteinIcon: {
+    fontSize: 34,
   },
 
-  planetStar: {
+  star: {
     position: 'absolute',
     right: 20,
     bottom: 45,
     fontSize: 32,
+    color: '#F2C14E',
   },
 
   /* FRASE */
@@ -352,7 +360,7 @@ const styles = StyleSheet.create({
   quoteCard: {
     width: '100%',
 
-    backgroundColor: '#0D244A',
+    backgroundColor: '#172635',
 
     borderRadius: 22,
 
@@ -361,13 +369,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#38516A',
 
     marginTop: 5,
   },
 
   quoteMark: {
-    color: '#E8C96A',
+    color: '#F2C14E',
     fontSize: 40,
     height: 35,
     fontWeight: '800',
@@ -385,12 +393,12 @@ const styles = StyleSheet.create({
   quoteLine: {
     width: 45,
     height: 2,
-    backgroundColor: '#E8C96A',
+    backgroundColor: '#F2C14E',
     marginVertical: 12,
   },
 
   quoteAuthor: {
-    color: '#91A8CB',
+    color: '#9EB0C4',
     fontSize: 12,
   },
 
@@ -414,7 +422,7 @@ const styles = StyleSheet.create({
   smallCard: {
     width: '31%',
 
-    backgroundColor: '#102A57',
+    backgroundColor: '#172B3D',
 
     borderRadius: 17,
 
@@ -423,7 +431,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#38516A',
   },
 
   smallIcon: {
@@ -439,7 +447,7 @@ const styles = StyleSheet.create({
   },
 
   smallText: {
-    color: '#8FA8CE',
+    color: '#94A8BE',
     fontSize: 10,
     marginTop: 3,
   },
