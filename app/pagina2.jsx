@@ -9,148 +9,166 @@ export default function Pagina2() {
     >
 
       {/* ELEMENTOS DECORATIVOS */}
-      <Text style={styles.formula1}>E = mc²</Text>
-      <Text style={styles.formula2}>⚛</Text>
-      <Text style={styles.formula3}>∞</Text>
+      <Text style={styles.decor1}>☾</Text>
+      <Text style={styles.decor2}>✦</Text>
+      <Text style={styles.decor3}>🐾</Text>
 
       {/* TÍTULO */}
-      <Text style={styles.atom}>⚛</Text>
-
-      <Text style={styles.title}>
-        Sobre Albert
+      <Text style={styles.moon}>
+        🌕
       </Text>
 
-      <Text style={styles.titleGold}>
-        Einstein
+      <Text style={styles.title}>
+        Sobre
+      </Text>
+
+      <Text style={styles.titleBlue}>
+        Teen Wolf
       </Text>
 
       <Text style={styles.subtitle}>
-        O cientista que revolucionou a maneira como
-        entendemos o espaço, o tempo e a energia.
+        Conheça o universo sobrenatural de Beacon Hills,
+        seus personagens e os mistérios que cercam a cidade.
       </Text>
 
-      {/* CARD BIOGRAFIA */}
+      {/* CARD — A SÉRIE */}
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          👨🏻‍🔬
+          🐺
         </Text>
 
         <View style={styles.cardContent}>
+
           <Text style={styles.cardTitle}>
-            Quem foi?
+            A Série
           </Text>
 
           <Text style={styles.cardText}>
-            Albert Einstein nasceu em 14 de março de
-            1879, em Ulm, no então Império Alemão.
-            Foi um físico conhecido por suas contribuições
-            fundamentais para a física moderna.
+            Teen Wolf acompanha Scott McCall, um adolescente
+            que passa por uma transformação sobrenatural e
+            precisa aprender a lidar com seus novos poderes
+            enquanto protege seus amigos.
           </Text>
+
         </View>
 
       </View>
 
-      {/* CARD FORMAÇÃO */}
+      {/* CARD — BEACON HILLS */}
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          🎓
+          🌲
         </Text>
 
         <View style={styles.cardContent}>
+
           <Text style={styles.cardTitle}>
-            Formação
+            Beacon Hills
           </Text>
 
           <Text style={styles.cardText}>
-            Einstein estudou no Instituto Politécnico
-            Federal de Zurique, na Suíça, onde se
-            formou em matemática e física em 1900.
+            A cidade é o principal cenário da história.
+            Por trás de sua aparência tranquila, existem
+            criaturas sobrenaturais, antigos mistérios e
+            conflitos entre diferentes grupos.
           </Text>
+
         </View>
 
       </View>
 
-      {/* CARD RELATIVIDADE */}
+      {/* CARD — SCOTT */}
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          ⚛
+          🔴
         </Text>
 
         <View style={styles.cardContent}>
+
           <Text style={styles.cardTitle}>
-            Teoria da Relatividade
+            Scott McCall
           </Text>
 
           <Text style={styles.cardText}>
-            Em 1905, apresentou a teoria da relatividade
-            especial. Em 1915, desenvolveu a teoria da
-            relatividade geral, transformando a compreensão
-            da gravidade e do espaço-tempo.
+            Scott é o protagonista da série. Depois de ser
+            mordido por um lobisomem, ele começa a descobrir
+            habilidades sobrenaturais e aprende que ser um
+            verdadeiro líder também significa proteger os outros.
           </Text>
+
         </View>
 
       </View>
 
-      {/* CARD E = MC² */}
-      <View style={styles.equationCard}>
+      {/* CARD ESPECIAL — SOBRENATURAL */}
+      <View style={styles.supernaturalCard}>
 
-        <Text style={styles.equation}>
-          E = mc²
+        <Text style={styles.wolf}>
+          🐺
         </Text>
 
-        <Text style={styles.equationTitle}>
-          A famosa equação
+        <Text style={styles.supernaturalTitle}>
+          O Universo Sobrenatural
         </Text>
 
-        <Text style={styles.equationText}>
-          A equação mostra a relação entre massa e
-          energia e se tornou uma das fórmulas mais
-          conhecidas da ciência.
+        <Text style={styles.supernaturalText}>
+          Lobisomens, caçadores, banshees, kitsunes e outras
+          criaturas fazem parte do universo de Teen Wolf.
+        </Text>
+
+        <View style={styles.lineBlue} />
+
+        <Text style={styles.supernaturalSmall}>
+          NADA É O QUE PARECE EM BEACON HILLS
         </Text>
 
       </View>
 
-      {/* CARD NOBEL */}
+      {/* CARD — CAÇADORES */}
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          🏆
+          🏹
         </Text>
 
         <View style={styles.cardContent}>
+
           <Text style={styles.cardTitle}>
-            Prêmio Nobel
+            Os Caçadores
           </Text>
 
           <Text style={styles.cardText}>
-            Em 1921, Einstein recebeu o Prêmio Nobel
-            de Física, principalmente por sua explicação
-            do efeito fotoelétrico.
+            Algumas famílias dedicam gerações a caçar
+            criaturas sobrenaturais. A família Argent é
+            uma das mais importantes nesse contexto.
           </Text>
+
         </View>
 
       </View>
 
-      {/* CARD CURIOSIDADE */}
+      {/* CARD — AMIZADE */}
       <View style={styles.card}>
 
         <Text style={styles.cardIcon}>
-          💡
+          🐾
         </Text>
 
         <View style={styles.cardContent}>
+
           <Text style={styles.cardTitle}>
-            Curiosidade
+            A Alcateia
           </Text>
 
           <Text style={styles.cardText}>
-            Einstein também era conhecido por seu
-            interesse por filosofia, música e questões
-            relacionadas à paz e à sociedade.
+            A amizade e a lealdade são fundamentais.
+            Scott conta com seus amigos para enfrentar
+            ameaças e proteger as pessoas que ama.
           </Text>
+
         </View>
 
       </View>
@@ -163,14 +181,14 @@ export default function Pagina2() {
         </Text>
 
         <Text style={styles.quote}>
-          A imaginação é mais importante
-          que o conhecimento.
+          Você não precisa enfrentar
+          o sobrenatural sozinho.
         </Text>
 
         <View style={styles.quoteLine} />
 
         <Text style={styles.quoteAuthor}>
-          — Albert Einstein
+          — Beacon Hills
         </Text>
 
       </View>
@@ -181,9 +199,11 @@ export default function Pagina2() {
 
 const styles = StyleSheet.create({
 
+  /* FUNDO */
+
   container: {
     flex: 1,
-    backgroundColor: '#101820',
+    backgroundColor: '#07090D',
   },
 
   content: {
@@ -192,58 +212,62 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  /* ELEMENTOS DECORATIVOS */
+  /* DECORAÇÕES */
 
-  formula1: {
+  decor1: {
     position: 'absolute',
-    top: 35,
+    top: 40,
     right: 30,
-    color: '#F2C14E',
-    fontSize: 18,
-    fontWeight: '800',
-    transform: [{ rotate: '-8deg' }],
+    color: '#63D7FF',
+    fontSize: 28,
   },
 
-  formula2: {
+  decor2: {
     position: 'absolute',
-    top: 155,
-    right: 20,
+    top: 170,
+    right: 22,
     color: '#FFFFFF',
-    fontSize: 24,
+    fontSize: 22,
   },
 
-  formula3: {
+  decor3: {
     position: 'absolute',
     bottom: 120,
     left: 25,
-    color: '#F2C14E',
+    color: '#63D7FF',
     fontSize: 25,
   },
 
   /* TÍTULO */
 
-  atom: {
-    color: '#F2C14E',
+  moon: {
     fontSize: 40,
     marginBottom: 5,
   },
 
   title: {
     color: '#FFFFFF',
-    fontSize: 32,
-    fontWeight: '800',
-    lineHeight: 38,
+    fontSize: 34,
+    fontWeight: '900',
+    lineHeight: 39,
   },
 
-  titleGold: {
-    color: '#F2C14E',
-    fontSize: 36,
+  titleBlue: {
+    color: '#63D7FF',
+    fontSize: 39,
     fontWeight: '900',
-    lineHeight: 42,
+    lineHeight: 44,
+
+    textShadowColor: '#168CB8',
+    textShadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    textShadowRadius: 12,
   },
 
   subtitle: {
-    color: '#AFC2D6',
+    color: '#A8B7C3',
     fontSize: 15,
     lineHeight: 22,
     marginTop: 10,
@@ -254,9 +278,9 @@ const styles = StyleSheet.create({
 
   card: {
     width: '100%',
-    minHeight: 120,
+    minHeight: 125,
 
-    backgroundColor: '#172B3D',
+    backgroundColor: '#0E151C',
 
     borderRadius: 20,
 
@@ -267,7 +291,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#38516A',
+    borderColor: '#263B4A',
+
+    shadowColor: '#000000',
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+
+    elevation: 4,
   },
 
   cardIcon: {
@@ -282,60 +312,78 @@ const styles = StyleSheet.create({
   },
 
   cardTitle: {
-    color: '#F2C14E',
+    color: '#63D7FF',
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: '900',
     marginBottom: 6,
   },
 
   cardText: {
-    color: '#D2DCE8',
+    color: '#D1DCE3',
     fontSize: 13,
     lineHeight: 19,
   },
 
-  /* EQUAÇÃO */
+  /* CARD SOBRENATURAL */
 
-  equationCard: {
+  supernaturalCard: {
     width: '100%',
 
-    backgroundColor: '#F2C14E',
+    backgroundColor: '#0B202B',
 
-    borderRadius: 20,
+    borderRadius: 22,
 
-    padding: 20,
+    padding: 22,
 
     marginBottom: 15,
 
     alignItems: 'center',
 
-    shadowColor: '#F2C14E',
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
+    borderWidth: 1,
+    borderColor: '#28718D',
 
-    elevation: 6,
+    shadowColor: '#4DD5FF',
+    shadowOpacity: 0.18,
+    shadowRadius: 15,
+
+    elevation: 7,
   },
 
-  equation: {
-    color: '#101820',
-    fontSize: 32,
+  wolf: {
+    fontSize: 52,
+    marginBottom: 8,
+  },
+
+  supernaturalTitle: {
+    color: '#FFFFFF',
+    fontSize: 21,
     fontWeight: '900',
-    letterSpacing: 2,
+    textAlign: 'center',
   },
 
-  equationTitle: {
-    color: '#263746',
-    fontSize: 16,
-    fontWeight: '800',
-    marginTop: 5,
-  },
-
-  equationText: {
-    color: '#354657',
+  supernaturalText: {
+    color: '#AFC3CE',
     fontSize: 13,
-    lineHeight: 19,
+    lineHeight: 20,
     textAlign: 'center',
     marginTop: 8,
+  },
+
+  lineBlue: {
+    width: 50,
+    height: 2,
+
+    backgroundColor: '#63D7FF',
+
+    marginVertical: 13,
+  },
+
+  supernaturalSmall: {
+    color: '#63D7FF',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 1.5,
+    textAlign: 'center',
   },
 
   /* FRASE */
@@ -343,7 +391,7 @@ const styles = StyleSheet.create({
   quoteCard: {
     width: '100%',
 
-    backgroundColor: '#172635',
+    backgroundColor: '#101820',
 
     borderRadius: 20,
 
@@ -352,16 +400,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#38516A',
+    borderColor: '#263B4A',
 
     marginTop: 5,
   },
 
   quoteMark: {
-    color: '#F2C14E',
+    color: '#63D7FF',
     fontSize: 40,
     height: 35,
-    fontWeight: '800',
+    fontWeight: '900',
   },
 
   quote: {
@@ -376,12 +424,12 @@ const styles = StyleSheet.create({
   quoteLine: {
     width: 45,
     height: 2,
-    backgroundColor: '#F2C14E',
+    backgroundColor: '#63D7FF',
     marginVertical: 12,
   },
 
   quoteAuthor: {
-    color: '#91A5BA',
+    color: '#718999',
     fontSize: 12,
   },
 

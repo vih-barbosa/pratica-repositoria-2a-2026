@@ -8,15 +8,15 @@ export default function Pagina3() {
         contentContainerStyle={styles.content}
       >
 
-        {/* FÓRMULAS */}
-        <Text style={styles.formula1}>E = mc²</Text>
-        <Text style={styles.formula2}>⚛</Text>
-        <Text style={styles.formula3}>π</Text>
-        <Text style={styles.formula4}>∞</Text>
+        {/* ELEMENTOS DECORATIVOS */}
+        <Text style={styles.decor1}>🐾</Text>
+        <Text style={styles.decor2}>🌕</Text>
+        <Text style={styles.decor3}>✦</Text>
+        <Text style={styles.decor4}>🐺</Text>
 
         {/* TÍTULO */}
         <Text style={styles.smallTitle}>
-          MEU UNIVERSO
+          BEACON HILLS
         </Text>
 
         <Text style={styles.title}>
@@ -24,8 +24,8 @@ export default function Pagina3() {
         </Text>
 
         <Text style={styles.subtitle}>
-          Conheça um pouco da vida e das ideias
-          de Albert Einstein.
+          Conheça um dos personagens centrais
+          do universo de Teen Wolf.
         </Text>
 
         {/* AVATAR */}
@@ -33,16 +33,18 @@ export default function Pagina3() {
 
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>
-              👨🏻‍🔬
+              🐺
             </Text>
           </View>
 
           <View style={styles.status}>
+
             <View style={styles.statusDot} />
 
             <Text style={styles.statusText}>
-              Cientista e físico
+              Lobisomem Alfa
             </Text>
+
           </View>
 
         </View>
@@ -51,105 +53,105 @@ export default function Pagina3() {
         <View style={styles.profileCard}>
 
           <Text style={styles.cardTitle}>
-            Albert Einstein
+            Scott McCall
           </Text>
 
           <Text style={styles.cardDescription}>
-            Físico teórico alemão que desenvolveu
-            importantes teorias e contribuiu para
-            transformar a física moderna.
+            Adolescente de Beacon Hills que se torna
+            um lobisomem e passa a enfrentar diversos
+            desafios sobrenaturais ao lado de seus amigos.
           </Text>
 
-          {/* NASCIMENTO */}
+          {/* CIDADE */}
           <View style={styles.infoLine}>
 
             <Text style={styles.icon}>
-              🎂
+              🌲
             </Text>
 
             <View>
               <Text style={styles.label}>
-                NASCIMENTO
+                CIDADE
               </Text>
 
               <Text style={styles.value}>
-                14 de março de 1879
+                Beacon Hills
               </Text>
             </View>
 
           </View>
 
-          {/* NACIONALIDADE */}
+          {/* ESPÉCIE */}
           <View style={styles.infoLine}>
 
             <Text style={styles.icon}>
-              🌍
+              🐺
             </Text>
 
             <View>
               <Text style={styles.label}>
-                ORIGEM
+                ESPÉCIE
               </Text>
 
               <Text style={styles.value}>
-                Alemanha
+                Lobisomem
               </Text>
             </View>
 
           </View>
 
-          {/* PROFISSÃO */}
+          {/* POSIÇÃO */}
           <View style={styles.infoLine}>
 
             <Text style={styles.icon}>
-              🔬
+              👑
             </Text>
 
             <View>
               <Text style={styles.label}>
-                PROFISSÃO
+                POSIÇÃO
               </Text>
 
               <Text style={styles.value}>
-                Físico e professor
+                Alfa
               </Text>
             </View>
 
           </View>
 
-          {/* PRÊMIO */}
+          {/* MELHOR AMIGO */}
           <View style={styles.infoLine}>
 
             <Text style={styles.icon}>
-              🏆
+              🤝
             </Text>
 
             <View>
               <Text style={styles.label}>
-                RECONHECIMENTO
+                MELHOR AMIGO
               </Text>
 
               <Text style={styles.value}>
-                Prêmio Nobel de Física — 1921
+                Stiles Stilinski
               </Text>
             </View>
 
           </View>
 
-          {/* FALECIMENTO */}
+          {/* FAMÍLIA */}
           <View style={styles.infoLine}>
 
             <Text style={styles.icon}>
-              📚
+              ❤️
             </Text>
 
             <View>
               <Text style={styles.label}>
-                FALECIMENTO
+                PESSOAS IMPORTANTES
               </Text>
 
               <Text style={styles.value}>
-                18 de abril de 1955
+                Amigos e sua alcateia
               </Text>
             </View>
 
@@ -157,16 +159,27 @@ export default function Pagina3() {
 
         </View>
 
-        {/* EQUAÇÃO */}
-        <View style={styles.equationCard}>
+        {/* CARD ALFA */}
+        <View style={styles.wolfCard}>
 
-          <Text style={styles.equation}>
-            E = mc²
+          <Text style={styles.wolfIcon}>
+            🐺
           </Text>
 
-          <Text style={styles.equationDescription}>
-            Uma das equações mais famosas associadas
-            ao trabalho de Einstein.
+          <Text style={styles.wolfTitle}>
+            O Alfa
+          </Text>
+
+          <Text style={styles.wolfDescription}>
+            Scott se destaca por tentar proteger seus
+            amigos e fazer escolhas que preservem
+            aqueles que considera parte de sua alcateia.
+          </Text>
+
+          <View style={styles.blueLine} />
+
+          <Text style={styles.wolfSmall}>
+            FORÇA • LEALDADE • PROTEÇÃO
           </Text>
 
         </View>
@@ -175,21 +188,21 @@ export default function Pagina3() {
         <View style={styles.quoteCard}>
 
           <Text style={styles.quote}>
-            “A imaginação é mais importante
-            que o conhecimento.”
+            “A força de um alfa também está
+            em proteger sua alcateia.”
           </Text>
 
           <View style={styles.line} />
 
           <Text style={styles.author}>
-            — Albert Einstein
+            — Scott McCall
           </Text>
 
         </View>
 
         {/* RODAPÉ */}
         <Text style={styles.footer}>
-          ⚛ Ciência • Imaginação • Conhecimento ⚛
+          🐺 Alcateia • Lealdade • Beacon Hills 🐺
         </Text>
 
       </ScrollView>
@@ -199,9 +212,11 @@ export default function Pagina3() {
 
 const styles = StyleSheet.create({
 
+  /* FUNDO */
+
   container: {
     flex: 1,
-    backgroundColor: '#101820',
+    backgroundColor: '#07090D',
   },
 
   content: {
@@ -211,48 +226,45 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  /* FÓRMULAS */
+  /* DECORAÇÕES */
 
-  formula1: {
+  decor1: {
     position: 'absolute',
     top: 65,
     left: 25,
-    color: '#F2C14E',
-    fontSize: 18,
-    fontWeight: '800',
-    transform: [{ rotate: '-10deg' }],
+    color: '#63D7FF',
+    fontSize: 25,
   },
 
-  formula2: {
+  decor2: {
     position: 'absolute',
-    top: 145,
+    top: 45,
     right: 25,
-    color: '#FFFFFF',
-    fontSize: 24,
+    fontSize: 28,
   },
 
-  formula3: {
+  decor3: {
     position: 'absolute',
     top: 330,
     left: 25,
-    color: '#F2C14E',
-    fontSize: 24,
+    color: '#63D7FF',
+    fontSize: 23,
   },
 
-  formula4: {
+  decor4: {
     position: 'absolute',
     top: 500,
-    right: 30,
-    color: '#FFFFFF',
-    fontSize: 22,
+    right: 25,
+    fontSize: 28,
+    opacity: 0.5,
   },
 
   /* TÍTULO */
 
   smallTitle: {
-    color: '#F2C14E',
+    color: '#63D7FF',
     fontSize: 11,
-    fontWeight: '800',
+    fontWeight: '900',
     letterSpacing: 4,
     marginBottom: 8,
   },
@@ -260,11 +272,11 @@ const styles = StyleSheet.create({
   title: {
     color: '#FFFFFF',
     fontSize: 38,
-    fontWeight: '800',
+    fontWeight: '900',
   },
 
   subtitle: {
-    color: '#AFC2D6',
+    color: '#A8B7C3',
     fontSize: 14,
     textAlign: 'center',
     lineHeight: 21,
@@ -285,19 +297,19 @@ const styles = StyleSheet.create({
     height: 110,
     borderRadius: 55,
 
-    backgroundColor: '#172B3D',
+    backgroundColor: '#0E151C',
 
     borderWidth: 3,
-    borderColor: '#F2C14E',
+    borderColor: '#63D7FF',
 
     alignItems: 'center',
     justifyContent: 'center',
 
-    shadowColor: '#F2C14E',
-    shadowOpacity: 0.4,
-    shadowRadius: 15,
+    shadowColor: '#63D7FF',
+    shadowOpacity: 0.55,
+    shadowRadius: 18,
 
-    elevation: 8,
+    elevation: 10,
   },
 
   avatarText: {
@@ -314,38 +326,45 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#F2C14E',
+
+    backgroundColor: '#63D7FF',
+
     marginRight: 7,
+
+    shadowColor: '#63D7FF',
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
   },
 
   statusText: {
-    color: '#91A5BA',
+    color: '#8198A7',
     fontSize: 12,
   },
 
-  /* CARD */
+  /* CARD DO PERFIL */
 
   profileCard: {
     width: '100%',
-    backgroundColor: '#172B3D',
+
+    backgroundColor: '#0E151C',
 
     borderRadius: 22,
 
     padding: 22,
 
     borderWidth: 1,
-    borderColor: '#38516A',
+    borderColor: '#263B4A',
   },
 
   cardTitle: {
-    color: '#F2C14E',
+    color: '#63D7FF',
     fontSize: 23,
-    fontWeight: '800',
+    fontWeight: '900',
     textAlign: 'center',
   },
 
   cardDescription: {
-    color: '#AFC2D6',
+    color: '#AFC1CC',
     fontSize: 13,
     lineHeight: 20,
     textAlign: 'center',
@@ -360,7 +379,7 @@ const styles = StyleSheet.create({
     paddingVertical: 13,
 
     borderTopWidth: 1,
-    borderTopColor: '#294258',
+    borderTopColor: '#20313D',
   },
 
   icon: {
@@ -369,9 +388,9 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    color: '#7890A8',
+    color: '#637D8C',
     fontSize: 10,
-    fontWeight: '800',
+    fontWeight: '900',
     letterSpacing: 1,
   },
 
@@ -382,41 +401,62 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
 
-  /* EQUAÇÃO */
+  /* CARD ALFA */
 
-  equationCard: {
+  wolfCard: {
     width: '100%',
 
-    backgroundColor: '#F2C14E',
+    backgroundColor: '#0B202B',
 
-    borderRadius: 20,
+    borderRadius: 22,
 
-    padding: 20,
+    padding: 22,
 
     marginTop: 18,
 
     alignItems: 'center',
 
-    shadowColor: '#F2C14E',
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
+    borderWidth: 1,
+    borderColor: '#28718D',
+
+    shadowColor: '#63D7FF',
+    shadowOpacity: 0.15,
+    shadowRadius: 15,
 
     elevation: 6,
   },
 
-  equation: {
-    color: '#101820',
-    fontSize: 32,
-    fontWeight: '900',
-    letterSpacing: 2,
+  wolfIcon: {
+    fontSize: 48,
+    marginBottom: 5,
   },
 
-  equationDescription: {
-    color: '#354657',
-    fontSize: 12,
-    lineHeight: 18,
+  wolfTitle: {
+    color: '#FFFFFF',
+    fontSize: 22,
+    fontWeight: '900',
+  },
+
+  wolfDescription: {
+    color: '#AFC3CE',
+    fontSize: 13,
+    lineHeight: 20,
     textAlign: 'center',
     marginTop: 8,
+  },
+
+  blueLine: {
+    width: 45,
+    height: 2,
+    backgroundColor: '#63D7FF',
+    marginVertical: 13,
+  },
+
+  wolfSmall: {
+    color: '#63D7FF',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 1.3,
   },
 
   /* FRASE */
@@ -424,7 +464,7 @@ const styles = StyleSheet.create({
   quoteCard: {
     width: '100%',
 
-    backgroundColor: '#172635',
+    backgroundColor: '#101820',
 
     borderRadius: 20,
 
@@ -435,7 +475,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#38516A',
+    borderColor: '#263B4A',
   },
 
   quote: {
@@ -449,19 +489,19 @@ const styles = StyleSheet.create({
   line: {
     width: 45,
     height: 2,
-    backgroundColor: '#F2C14E',
+    backgroundColor: '#63D7FF',
     marginVertical: 12,
   },
 
   author: {
-    color: '#91A5BA',
+    color: '#718999',
     fontSize: 12,
   },
 
   /* RODAPÉ */
 
   footer: {
-    color: '#7890A8',
+    color: '#637D8C',
     fontSize: 11,
     marginTop: 25,
   },
