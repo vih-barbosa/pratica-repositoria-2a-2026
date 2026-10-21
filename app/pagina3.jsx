@@ -8,113 +8,192 @@ export default function Pagina3() {
         contentContainerStyle={styles.content}
       >
 
-        {/* ESTRELAS */}
-        <Text style={styles.star1}>✦</Text>
-        <Text style={styles.star2}>✧</Text>
-        <Text style={styles.star3}>⋆</Text>
-        <Text style={styles.star4}>✦</Text>
+    
+        <Text style={styles.code1}>{'{ AI }'}</Text>
+        <Text style={styles.code2}>01</Text>
+        <Text style={styles.code3}>{'</>'}</Text>
+        <Text style={styles.code4}>101</Text>
 
-        {/* TÍTULO */}
+        <View style={styles.dot1} />
+        <View style={styles.dot2} />
+        <View style={styles.dot3} />
+
+        
         <Text style={styles.smallTitle}>
-          MEU UNIVERSO
+          MEU SISTEMA
         </Text>
 
         <Text style={styles.title}>
-          Perfil
+          Perfil da IA
         </Text>
 
         <Text style={styles.subtitle}>
-          Conheça seu cantinho no universo
-          do Pequeno Príncipe.
+          Conheça as características e capacidades
+          do seu assistente inteligente.
         </Text>
 
-        {/* AVATAR */}
         <View style={styles.avatarContainer}>
+
+          <View style={styles.avatarGlow} />
+
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>👑</Text>
+            <Text style={styles.avatarText}>🤖</Text>
           </View>
 
           <View style={styles.online}>
             <View style={styles.onlineDot} />
-            <Text style={styles.onlineText}>No planeta B-612</Text>
+
+            <Text style={styles.onlineText}>
+              Sistema online
+            </Text>
           </View>
+
         </View>
 
-        {/* CARD DO PERFIL */}
+  
         <View style={styles.profileCard}>
 
           <Text style={styles.cardTitle}>
-            Pequeno Príncipe
+            Assistente IA
           </Text>
 
           <Text style={styles.cardDescription}>
-            Viajante de planetas, admirador
-            das estrelas e cuidador de sua rosa.
+            Um sistema inteligente desenvolvido para
+            processar informações, aprender padrões
+            e auxiliar em diferentes tarefas.
           </Text>
 
           <View style={styles.infoLine}>
-            <Text style={styles.icon}>🪐</Text>
+
+            <View style={styles.iconBox}>
+              <Text style={styles.icon}>🧠</Text>
+            </View>
 
             <View>
               <Text style={styles.label}>
-                PLANETA
+                MODELO
               </Text>
 
               <Text style={styles.value}>
-                B-612
+                Inteligência Artificial
               </Text>
             </View>
+
           </View>
 
+        
           <View style={styles.infoLine}>
-            <Text style={styles.icon}>🌹</Text>
+
+            <View style={styles.iconBox}>
+              <Text style={styles.icon}>⚡</Text>
+            </View>
 
             <View>
               <Text style={styles.label}>
-                COMPANHEIRA
+                PROCESSAMENTO
               </Text>
 
               <Text style={styles.value}>
-                A Rosa
+                Alta performance
               </Text>
             </View>
+
           </View>
 
+       
           <View style={styles.infoLine}>
-            <Text style={styles.icon}>⭐</Text>
+
+            <View style={styles.iconBox}>
+              <Text style={styles.icon}>📚</Text>
+            </View>
 
             <View>
               <Text style={styles.label}>
-                UNIVERSO
+                APRENDIZADO
               </Text>
 
               <Text style={styles.value}>
-                Entre estrelas
+                Machine Learning
               </Text>
             </View>
+
+          </View>
+
+     
+          <View style={styles.infoLine}>
+
+            <View style={styles.iconBox}>
+              <Text style={styles.icon}>🌐</Text>
+            </View>
+
+            <View>
+              <Text style={styles.label}>
+                CONEXÃO
+              </Text>
+
+              <Text style={styles.value}>
+                Rede neural
+              </Text>
+            </View>
+
           </View>
 
         </View>
 
-        {/* FRASE */}
+        <View style={styles.capabilitiesCard}>
+
+          <Text style={styles.capabilitiesTitle}>
+            Capacidades
+          </Text>
+
+          <View style={styles.tagsRow}>
+
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>
+                💬 Conversação
+              </Text>
+            </View>
+
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>
+                💡 Criatividade
+              </Text>
+            </View>
+
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>
+                📊 Análise
+              </Text>
+            </View>
+
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>
+                💻 Código
+              </Text>
+            </View>
+
+          </View>
+
+        </View>
+
         <View style={styles.quoteCard}>
 
           <Text style={styles.quote}>
-            “Tu te tornas eternamente responsável
-            por aquilo que cativas.”
+            “O futuro pertence àqueles que
+            transformam ideias em possibilidades.”
           </Text>
 
           <View style={styles.line} />
 
           <Text style={styles.author}>
-            — O Pequeno Príncipe
+            — Inteligência Artificial
           </Text>
 
         </View>
 
-        {/* RODAPÉ */}
+   
         <Text style={styles.footer}>
-          ✦ Feito com carinho entre as estrelas ✦
+          ✦ Sistema conectado ao futuro ✦
         </Text>
 
       </ScrollView>
@@ -126,7 +205,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#06152F',
+    backgroundColor: '#030712',
   },
 
   content: {
@@ -136,95 +215,154 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  /* ESTRELAS */
 
-  star1: {
+  code1: {
     position: 'absolute',
-    top: 70,
-    left: 30,
-    color: '#E8C96A',
-    fontSize: 25,
+    top: 65,
+    left: 20,
+    color: '#00E5FF',
+    opacity: 0.35,
+    fontSize: 15,
+    fontWeight: '900',
   },
 
-  star2: {
+  code2: {
     position: 'absolute',
-    top: 150,
-    right: 35,
-    color: '#FFFFFF',
-    fontSize: 17,
+    top: 155,
+    right: 25,
+    color: '#7C4DFF',
+    opacity: 0.35,
+    fontSize: 18,
+    fontWeight: '900',
   },
 
-  star3: {
+  code3: {
+    position: 'absolute',
+    top: 390,
+    left: 15,
+    color: '#00E5FF',
+    opacity: 0.3,
+    fontSize: 20,
+    fontWeight: '900',
+  },
+
+  code4: {
+    position: 'absolute',
+    bottom: 130,
+    right: 25,
+    color: '#7C4DFF',
+    opacity: 0.3,
+    fontSize: 16,
+    fontWeight: '900',
+  },
+
+  dot1: {
+    position: 'absolute',
+    top: 125,
+    right: 75,
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    backgroundColor: '#00E5FF',
+
+    shadowColor: '#00E5FF',
+    shadowOpacity: 1,
+    shadowRadius: 8,
+  },
+
+  dot2: {
     position: 'absolute',
     top: 330,
-    left: 30,
-    color: '#E8C96A',
-    fontSize: 22,
+    right: 25,
+    width: 6,
+    height: 6,
+    borderRadius: 5,
+    backgroundColor: '#7C4DFF',
+
+    shadowColor: '#7C4DFF',
+    shadowOpacity: 1,
+    shadowRadius: 10,
   },
 
-  star4: {
+  dot3: {
     position: 'absolute',
-    top: 500,
-    right: 35,
-    color: '#FFFFFF',
-    fontSize: 16,
+    bottom: 260,
+    left: 35,
+    width: 4,
+    height: 4,
+    borderRadius: 5,
+    backgroundColor: '#00E5FF',
   },
 
-  /* TÍTULO */
+
 
   smallTitle: {
-    color: '#E8C96A',
+    color: '#00E5FF',
     fontSize: 11,
-    fontWeight: '800',
+    fontWeight: '900',
     letterSpacing: 4,
     marginBottom: 8,
   },
 
   title: {
     color: '#FFFFFF',
-    fontSize: 38,
-    fontWeight: '800',
+    fontSize: 37,
+    fontWeight: '900',
   },
 
   subtitle: {
-    color: '#AFC2E5',
+    color: '#8EA6C8',
     fontSize: 14,
     textAlign: 'center',
     lineHeight: 21,
     marginTop: 12,
-    maxWidth: 300,
+    maxWidth: 310,
   },
 
-  /* AVATAR */
+
 
   avatarContainer: {
     alignItems: 'center',
     marginTop: 25,
     marginBottom: 20,
+    position: 'relative',
+  },
+
+  avatarGlow: {
+    position: 'absolute',
+
+    width: 145,
+    height: 145,
+
+    borderRadius: 75,
+
+    backgroundColor: '#063B55',
+    opacity: 0.5,
   },
 
   avatar: {
-    width: 105,
-    height: 105,
-    borderRadius: 55,
+    width: 110,
+    height: 110,
 
-    backgroundColor: '#102A57',
+    borderRadius: 60,
+
+    backgroundColor: '#071B32',
 
     borderWidth: 3,
-    borderColor: '#E8C96A',
+    borderColor: '#00E5FF',
 
     alignItems: 'center',
     justifyContent: 'center',
 
-    shadowColor: '#E8C96A',
-    shadowOpacity: 0.4,
-    shadowRadius: 15,
+    shadowColor: '#00E5FF',
+    shadowOpacity: 0.7,
+    shadowRadius: 20,
 
-    elevation: 8,
+    elevation: 12,
   },
 
   avatarText: {
-    fontSize: 55,
+    fontSize: 58,
   },
 
   online: {
@@ -236,45 +374,58 @@ const styles = StyleSheet.create({
   onlineDot: {
     width: 8,
     height: 8,
-    borderRadius: 4,
-    backgroundColor: '#E8C96A',
+    borderRadius: 5,
+
+    backgroundColor: '#00FF9D',
+
     marginRight: 7,
+
+    shadowColor: '#00FF9D',
+    shadowOpacity: 0.9,
+    shadowRadius: 7,
   },
 
   onlineText: {
-    color: '#91A8CB',
+    color: '#7899BB',
     fontSize: 12,
   },
 
-  /* CARD */
+  /* CARD PRINCIPAL */
 
   profileCard: {
     width: '100%',
-    backgroundColor: '#0D244A',
+
+    backgroundColor: '#08182D',
 
     borderRadius: 22,
 
     padding: 22,
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#16456A',
+
+    shadowColor: '#00E5FF',
+    shadowOpacity: 0.08,
+    shadowRadius: 15,
   },
 
   cardTitle: {
-    color: '#E8C96A',
+    color: '#00E5FF',
     fontSize: 23,
-    fontWeight: '800',
+    fontWeight: '900',
     textAlign: 'center',
   },
 
   cardDescription: {
-    color: '#AFC2E5',
+    color: '#8FA7C7',
     fontSize: 13,
     lineHeight: 20,
     textAlign: 'center',
     marginTop: 8,
     marginBottom: 20,
   },
+
+
 
   infoLine: {
     flexDirection: 'row',
@@ -283,34 +434,96 @@ const styles = StyleSheet.create({
     paddingVertical: 13,
 
     borderTopWidth: 1,
-    borderTopColor: '#1C3761',
+    borderTopColor: '#123452',
+  },
+
+  iconBox: {
+    width: 45,
+    height: 45,
+
+    borderRadius: 13,
+
+    backgroundColor: '#0A2545',
+
+    borderWidth: 1,
+    borderColor: '#175477',
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    marginRight: 12,
   },
 
   icon: {
-    fontSize: 27,
-    width: 50,
+    fontSize: 23,
   },
 
   label: {
-    color: '#7890B8',
+    color: '#6685A9',
     fontSize: 10,
-    fontWeight: '800',
+    fontWeight: '900',
     letterSpacing: 1,
   },
 
   value: {
     color: '#FFFFFF',
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '600',
     marginTop: 3,
   },
 
-  /* FRASE */
+
+  capabilitiesCard: {
+    width: '100%',
+
+    backgroundColor: '#08182D',
+
+    borderRadius: 20,
+
+    padding: 20,
+
+    marginTop: 18,
+
+    borderWidth: 1,
+    borderColor: '#16456A',
+  },
+
+  capabilitiesTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '800',
+    marginBottom: 14,
+  },
+
+  tagsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 9,
+  },
+
+  tag: {
+    backgroundColor: '#0B2544',
+
+    borderWidth: 1,
+    borderColor: '#1B5C7D',
+
+    borderRadius: 20,
+
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+
+  tagText: {
+    color: '#8FDCEC',
+    fontSize: 11,
+    fontWeight: '700',
+  },
+
 
   quoteCard: {
     width: '100%',
 
-    backgroundColor: '#102A57',
+    backgroundColor: '#0A1D36',
 
     borderRadius: 20,
 
@@ -321,7 +534,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#263F68',
   },
 
   quote: {
@@ -335,17 +548,20 @@ const styles = StyleSheet.create({
   line: {
     width: 45,
     height: 2,
-    backgroundColor: '#E8C96A',
+
+    backgroundColor: '#00E5FF',
+
     marginVertical: 12,
   },
 
   author: {
-    color: '#91A8CB',
+    color: '#718AAA',
     fontSize: 12,
   },
 
+
   footer: {
-    color: '#7890B8',
+    color: '#5F789C',
     fontSize: 11,
     marginTop: 25,
   },

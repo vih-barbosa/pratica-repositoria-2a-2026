@@ -8,62 +8,71 @@ export default function Pagina1() {
         contentContainerStyle={styles.content}
       >
 
-        {/* ESTRELAS */}
-        <Text style={styles.star1}>✦</Text>
-        <Text style={styles.star2}>✧</Text>
-        <Text style={styles.star3}>⋆</Text>
-        <Text style={styles.star4}>✦</Text>
-        <Text style={styles.star5}>✧</Text>
-        <Text style={styles.star6}>⋆</Text>
+        {/* ELEMENTOS DE FUNDO */}
+        <Text style={styles.code1}>{'{ AI }'}</Text>
+        <Text style={styles.code2}>{'</>'}</Text>
+        <Text style={styles.code3}>01</Text>
+        <Text style={styles.code4}>101</Text>
 
-        {/* LUA */}
-        <View style={styles.moon}>
-          <Text style={styles.moonText}>☾</Text>
+        <View style={styles.dot1} />
+        <View style={styles.dot2} />
+        <View style={styles.dot3} />
+
+        {/* CÍRCULO TECNOLÓGICO */}
+        <View style={styles.techCircle}>
+          <Text style={styles.techCircleText}>AI</Text>
         </View>
 
         {/* CABEÇALHO */}
         <Text style={styles.welcome}>
-          BEM-VINDO
+          BEM-VINDO AO FUTURO
         </Text>
 
         <Text style={styles.title}>
-          O Pequeno
+          Inteligência
         </Text>
 
-        <Text style={styles.titleGold}>
-          Príncipe
+        <Text style={styles.titleBlue}>
+          Artificial
         </Text>
 
         <Text style={styles.description}>
-          Uma pequena viagem por um universo
-          cheio de estrelas, planetas e histórias.
+          Explore o universo da inteligência artificial,
+          tecnologia, inovação e novas possibilidades.
         </Text>
 
-        {/* PLANETA B-612 */}
-        <View style={styles.planetArea}>
+        {/* CÉREBRO / IA */}
+        <View style={styles.aiArea}>
 
-          <View style={styles.planetGlow} />
+          <View style={styles.aiGlow} />
 
-          <View style={styles.planet}>
-            <Text style={styles.planetText}>
-              B-612
-            </Text>
-
-            <Text style={styles.planetRose}>
-              🌹
-            </Text>
+          <View style={styles.aiCircle}>
+            <Text style={styles.aiIcon}>🧠</Text>
+            <Text style={styles.aiText}>AI</Text>
           </View>
 
-          {/* PEQUENO PRÍNCIPE */}
-          <View style={styles.prince}>
-            <Text style={styles.princeText}>
-              👑
-            </Text>
+          {/* NÓS DE CONEXÃO */}
+          <View style={[styles.node, styles.node1]}>
+            <Text style={styles.nodeText}>⚡</Text>
           </View>
 
-          <Text style={styles.planetStar}>
-            ⭐
-          </Text>
+          <View style={[styles.node, styles.node2]}>
+            <Text style={styles.nodeText}>⚙</Text>
+          </View>
+
+          <View style={[styles.node, styles.node3]}>
+            <Text style={styles.nodeText}>∞</Text>
+          </View>
+
+          <View style={[styles.node, styles.node4]}>
+            <Text style={styles.nodeText}>✦</Text>
+          </View>
+
+          {/* LINHAS */}
+          <View style={[styles.line, styles.line1]} />
+          <View style={[styles.line, styles.line2]} />
+          <View style={[styles.line, styles.line3]} />
+          <View style={[styles.line, styles.line4]} />
 
         </View>
 
@@ -71,65 +80,65 @@ export default function Pagina1() {
         <View style={styles.quoteCard}>
 
           <Text style={styles.quoteMark}>
-            “
+            AI
           </Text>
 
           <Text style={styles.quote}>
-            O essencial é invisível
-            aos olhos.
+            A tecnologia transforma
+            possibilidades em realidade.
           </Text>
 
           <View style={styles.quoteLine} />
 
           <Text style={styles.quoteAuthor}>
-            — O Pequeno Príncipe
+            — Inteligência Artificial
           </Text>
 
         </View>
 
         {/* EXPLORE */}
         <Text style={styles.exploreTitle}>
-          Explore o universo
+          Explore a Inteligência Artificial
         </Text>
 
         <View style={styles.cardsRow}>
 
-          {/* ROSA */}
+          {/* MACHINE LEARNING */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>🌹</Text>
+            <Text style={styles.smallIcon}>🤖</Text>
 
             <Text style={styles.smallTitle}>
-              A Rosa
+              Machine
             </Text>
 
             <Text style={styles.smallText}>
-              Amor
+              Learning
             </Text>
           </View>
 
-          {/* RAPOSA */}
+          {/* ROBÓTICA */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>🦊</Text>
+            <Text style={styles.smallIcon}>⚙️</Text>
 
             <Text style={styles.smallTitle}>
-              A Raposa
+              Robótica
             </Text>
 
             <Text style={styles.smallText}>
-              Amizade
+              Automação
             </Text>
           </View>
 
-          {/* ESTRELAS */}
+          {/* DADOS */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>⭐</Text>
+            <Text style={styles.smallIcon}>📊</Text>
 
             <Text style={styles.smallTitle}>
-              Estrelas
+              Dados
             </Text>
 
             <Text style={styles.smallText}>
-              Sonhos
+              Informação
             </Text>
           </View>
 
@@ -144,7 +153,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#06152F',
+    backgroundColor: '#030712',
   },
 
   content: {
@@ -154,205 +163,289 @@ const styles = StyleSheet.create({
     paddingBottom: 35,
   },
 
-  /* ESTRELAS */
+  /* ELEMENTOS DE FUNDO */
 
-  star1: {
+  code1: {
     position: 'absolute',
-    top: 65,
-    left: 30,
-    color: '#E8C96A',
-    fontSize: 25,
+    top: 80,
+    left: 18,
+    color: '#00E5FF',
+    opacity: 0.35,
+    fontSize: 16,
+    fontWeight: '800',
   },
 
-  star2: {
+  code2: {
     position: 'absolute',
-    top: 120,
-    left: 80,
-    color: '#FFFFFF',
-    fontSize: 15,
-  },
-
-  star3: {
-    position: 'absolute',
-    top: 210,
-    right: 30,
-    color: '#E8C96A',
-    fontSize: 23,
-  },
-
-  star4: {
-    position: 'absolute',
-    top: 290,
-    left: 25,
-    color: '#FFFFFF',
-    fontSize: 17,
-  },
-
-  star5: {
-    position: 'absolute',
-    top: 380,
-    right: 40,
-    color: '#E8C96A',
+    top: 170,
+    right: 20,
+    color: '#7C4DFF',
+    opacity: 0.4,
     fontSize: 20,
+    fontWeight: '900',
   },
 
-  star6: {
+  code3: {
     position: 'absolute',
-    top: 470,
-    left: 45,
-    color: '#FFFFFF',
+    top: 350,
+    left: 15,
+    color: '#00E5FF',
+    opacity: 0.25,
+    fontSize: 18,
+    fontWeight: '800',
+  },
+
+  code4: {
+    position: 'absolute',
+    top: 450,
+    right: 25,
+    color: '#7C4DFF',
+    opacity: 0.3,
     fontSize: 15,
+    fontWeight: '900',
   },
 
-  /* LUA */
-
-  moon: {
+  dot1: {
     position: 'absolute',
-    top: 45,
-    right: 45,
-    width: 55,
-    height: 55,
+    top: 130,
+    left: 145,
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    backgroundColor: '#00E5FF',
+    shadowColor: '#00E5FF',
+    shadowOpacity: 1,
+    shadowRadius: 8,
+  },
+
+  dot2: {
+    position: 'absolute',
+    top: 270,
+    right: 90,
+    width: 6,
+    height: 6,
+    borderRadius: 5,
+    backgroundColor: '#7C4DFF',
+    shadowColor: '#7C4DFF',
+    shadowOpacity: 1,
+    shadowRadius: 10,
+  },
+
+  dot3: {
+    position: 'absolute',
+    top: 500,
+    left: 100,
+    width: 4,
+    height: 4,
+    borderRadius: 5,
+    backgroundColor: '#00E5FF',
+  },
+
+  /* CÍRCULO TECNOLÓGICO */
+
+  techCircle: {
+    position: 'absolute',
+    top: 40,
+    right: 38,
+    width: 58,
+    height: 58,
     borderRadius: 30,
-    backgroundColor: '#E8C96A',
+    backgroundColor: '#071B32',
+    borderWidth: 2,
+    borderColor: '#00E5FF',
     alignItems: 'center',
     justifyContent: 'center',
 
-    shadowColor: '#E8C96A',
-    shadowOpacity: 0.5,
+    shadowColor: '#00E5FF',
+    shadowOpacity: 0.8,
     shadowRadius: 15,
-
     elevation: 10,
   },
 
-  moonText: {
-    color: '#06152F',
-    fontSize: 38,
-    marginLeft: -5,
-    marginTop: -3,
+  techCircleText: {
+    color: '#00E5FF',
+    fontSize: 18,
+    fontWeight: '900',
   },
 
   /* TÍTULO */
 
   welcome: {
-    color: '#E8C96A',
-    fontSize: 12,
-    fontWeight: '800',
-    letterSpacing: 5,
-    marginBottom: 7,
+    color: '#00E5FF',
+    fontSize: 11,
+    fontWeight: '900',
+    letterSpacing: 4,
+    marginBottom: 8,
   },
 
   title: {
     color: '#FFFFFF',
-    fontSize: 38,
+    fontSize: 37,
     fontWeight: '800',
     lineHeight: 42,
   },
 
-  titleGold: {
-    color: '#E8C96A',
+  titleBlue: {
+    color: '#00E5FF',
     fontSize: 42,
-    fontWeight: '800',
+    fontWeight: '900',
     lineHeight: 45,
+
+    textShadowColor: '#00E5FF',
+    textShadowOpacity: 0.5,
+    textShadowRadius: 15,
   },
 
   description: {
-    color: '#AFC2E5',
+    color: '#91A7C5',
     textAlign: 'center',
     fontSize: 14,
     lineHeight: 21,
     marginTop: 14,
-    maxWidth: 300,
+    maxWidth: 310,
   },
 
-  /* PLANETA */
+  /* ÁREA DA IA */
 
-  planetArea: {
+  aiArea: {
     width: 310,
-    height: 270,
+    height: 280,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    marginTop: 5,
-  },
-
-  planetGlow: {
-    position: 'absolute',
-    width: 205,
-    height: 205,
-    borderRadius: 110,
-    backgroundColor: '#163B70',
-    opacity: 0.55,
-  },
-
-  planet: {
-    width: 175,
-    height: 175,
-    borderRadius: 90,
-    backgroundColor: '#D8B85C',
-
-    borderWidth: 5,
-    borderColor: '#E8C96A',
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    shadowColor: '#E8C96A',
-    shadowOpacity: 0.4,
-    shadowRadius: 20,
-
-    elevation: 10,
-  },
-
-  planetText: {
-    color: '#071A3D',
-    fontSize: 25,
-    fontWeight: '900',
-    letterSpacing: 2,
-  },
-
-  planetRose: {
-    fontSize: 38,
     marginTop: 8,
   },
 
-  /* PEQUENO PRÍNCIPE */
-
-  prince: {
+  aiGlow: {
     position: 'absolute',
-    top: 20,
-    left: 38,
+    width: 210,
+    height: 210,
+    borderRadius: 110,
+    backgroundColor: '#083B5C',
+    opacity: 0.5,
+  },
 
-    width: 65,
-    height: 65,
+  aiCircle: {
+    width: 175,
+    height: 175,
+    borderRadius: 90,
 
-    borderRadius: 35,
+    backgroundColor: '#071B32',
 
-    backgroundColor: '#163B70',
-
-    borderWidth: 2,
-    borderColor: '#E8C96A',
+    borderWidth: 3,
+    borderColor: '#00E5FF',
 
     alignItems: 'center',
     justifyContent: 'center',
+
+    shadowColor: '#00E5FF',
+    shadowOpacity: 0.7,
+    shadowRadius: 25,
+
+    elevation: 15,
   },
 
-  princeText: {
-    fontSize: 35,
+  aiIcon: {
+    fontSize: 70,
   },
 
-  planetStar: {
+  aiText: {
+    color: '#00E5FF',
+    fontSize: 20,
+    fontWeight: '900',
+    letterSpacing: 3,
+    marginTop: 5,
+  },
+
+  /* NÓS */
+
+  node: {
     position: 'absolute',
-    right: 20,
-    bottom: 45,
-    fontSize: 32,
+    width: 55,
+    height: 55,
+    borderRadius: 30,
+
+    backgroundColor: '#0A1930',
+
+    borderWidth: 2,
+    borderColor: '#7C4DFF',
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    shadowColor: '#7C4DFF',
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
   },
 
-  /* FRASE */
+  nodeText: {
+    color: '#FFFFFF',
+    fontSize: 22,
+  },
+
+  node1: {
+    top: 20,
+    left: 25,
+  },
+
+  node2: {
+    top: 15,
+    right: 25,
+  },
+
+  node3: {
+    bottom: 20,
+    left: 30,
+  },
+
+  node4: {
+    bottom: 15,
+    right: 25,
+  },
+
+  /* LINHAS DE CONEXÃO */
+
+  line: {
+    position: 'absolute',
+    height: 2,
+    backgroundColor: '#00E5FF',
+    opacity: 0.5,
+  },
+
+  line1: {
+    width: 55,
+    transform: [{ rotate: '25deg' }],
+    top: 75,
+    left: 75,
+  },
+
+  line2: {
+    width: 55,
+    transform: [{ rotate: '-25deg' }],
+    top: 70,
+    right: 75,
+  },
+
+  line3: {
+    width: 60,
+    transform: [{ rotate: '-25deg' }],
+    bottom: 72,
+    left: 75,
+  },
+
+  line4: {
+    width: 60,
+    transform: [{ rotate: '25deg' }],
+    bottom: 68,
+    right: 70,
+  },
+
+  /* CARD DA FRASE */
 
   quoteCard: {
     width: '100%',
 
-    backgroundColor: '#0D244A',
+    backgroundColor: '#08182D',
 
     borderRadius: 22,
 
@@ -361,16 +454,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#123B5C',
+
+    shadowColor: '#00E5FF',
+    shadowOpacity: 0.15,
+    shadowRadius: 15,
 
     marginTop: 5,
   },
 
   quoteMark: {
-    color: '#E8C96A',
-    fontSize: 40,
-    height: 35,
-    fontWeight: '800',
+    color: '#00E5FF',
+    fontSize: 20,
+    fontWeight: '900',
+    letterSpacing: 3,
   },
 
   quote: {
@@ -379,18 +476,18 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textAlign: 'center',
     lineHeight: 27,
-    marginTop: 5,
+    marginTop: 8,
   },
 
   quoteLine: {
     width: 45,
     height: 2,
-    backgroundColor: '#E8C96A',
+    backgroundColor: '#00E5FF',
     marginVertical: 12,
   },
 
   quoteAuthor: {
-    color: '#91A8CB',
+    color: '#7188AA',
     fontSize: 12,
   },
 
@@ -414,7 +511,7 @@ const styles = StyleSheet.create({
   smallCard: {
     width: '31%',
 
-    backgroundColor: '#102A57',
+    backgroundColor: '#081A34',
 
     borderRadius: 17,
 
@@ -423,7 +520,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     borderWidth: 1,
-    borderColor: '#294875',
+    borderColor: '#16456A',
+
+    shadowColor: '#00E5FF',
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
   },
 
   smallIcon: {
@@ -439,9 +540,10 @@ const styles = StyleSheet.create({
   },
 
   smallText: {
-    color: '#8FA8CE',
+    color: '#6F9FC7',
     fontSize: 10,
     marginTop: 3,
   },
 
 });
+
