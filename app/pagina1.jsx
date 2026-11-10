@@ -59,8 +59,7 @@ export default function Pagina1() {
         </Text>
 
         <Text style={styles.description}>
-          Explore informações, descubra novas culturas
-          e conheça histórias de diferentes partes do planeta.
+"Amplie seus horizontes, explore diferentes culturas e descubra o conhecimento que conecta histórias, transforma perspectivas e revela a imensidão do mundo."
         </Text>
       </View>
 

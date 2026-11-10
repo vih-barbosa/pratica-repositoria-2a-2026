@@ -1,290 +1,408 @@
-import { StyleSheet, View, Text } from 'react-native';
+
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.background}
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
+    >
+      {/* DETALHES DECORATIVOS */}
+      <Text style={styles.decorTop}>✦</Text>
+      <Text style={styles.decorSide}>❧</Text>
 
-      {/* ELEMENTOS DECORATIVOS */}
+      {/* CABEÇALHO */}
+      <View style={styles.header}>
+        <Text style={styles.headerIcon}>W</Text>
 
-      <Text style={styles.decor1}>✦</Text>
-      <Text style={styles.decor2}>🔴</Text>
-      <Text style={styles.decor3}>👁️</Text>
+        <View>
+          <Text style={styles.headerTitle}>WIKIPÉDIA</Text>
+          <Text style={styles.headerSubtitle}>
+            A ENCICLOPÉDIA LIVRE
+          </Text>
+        </View>
+      </View>
 
-      {/* CONTEÚDO */}
+      <View style={styles.separator} />
 
-      <Text style={styles.smallTitle}>
-        HAWKINS
+      {/* CONTEÚDO PRINCIPAL */}
+      <View style={styles.hero}>
+        <Text style={styles.eyebrow}>
+          CONHECIMENTO SEM LIMITES
+        </Text>
+
+        <Text style={styles.title}>
+          Explore o{'\n'}
+          <Text style={styles.titleBlue}>
+            universo do saber.
+          </Text>
+        </Text>
+
+        <View style={styles.goldLine} />
+
+        <Text style={styles.description}>
+          Descubra histórias, lugares, culturas e
+          curiosidades. Um universo de informações
+          esperando para ser explorado.
+        </Text>
+      </View>
+
+      {/* CARTÃO DE DESTAQUE */}
+      <View style={styles.featureCard}>
+        <View style={styles.cardIcon}>
+          <Text style={styles.bookIcon}>▤</Text>
+        </View>
+
+        <View style={styles.cardContent}>
+          <Text style={styles.cardLabel}>
+            SUA JORNADA COMEÇA AQUI
+          </Text>
+
+          <Text style={styles.cardTitle}>
+            O conhecimento está ao seu alcance.
+          </Text>
+
+          <Text style={styles.cardDescription}>
+            Pesquise assuntos, explore artigos e
+            encontre novas perspectivas.
+          </Text>
+        </View>
+
+        <Text style={styles.cardStar}>✧</Text>
+      </View>
+
+      {/* CATEGORIAS */}
+      <Text style={styles.sectionTitle}>
+        UM MUNDO DE DESCOBERTAS
       </Text>
 
-      <Text style={styles.title}>
-        Stranger
-      </Text>
+      <View style={styles.categories}>
+        <View style={styles.category}>
+          <Text style={styles.categoryIcon}>🌎</Text>
+          <Text style={styles.categoryTitle}>Geografia</Text>
+          <Text style={styles.categoryText}>
+            Lugares e culturas
+          </Text>
+        </View>
 
-      <Text style={styles.titleRed}>
-        Things
-      </Text>
+        <View style={styles.category}>
+          <Text style={styles.categoryIcon}>🏛️</Text>
+          <Text style={styles.categoryTitle}>História</Text>
+          <Text style={styles.categoryText}>
+            O passado em foco
+          </Text>
+        </View>
 
-      <View style={styles.line} />
+        <View style={styles.category}>
+          <Text style={styles.categoryIcon}>🔬</Text>
+          <Text style={styles.categoryTitle}>Ciência</Text>
+          <Text style={styles.categoryText}>
+            Ideias e descobertas
+          </Text>
+        </View>
 
-      <Text style={styles.subtitle}>
-        Bem-vindo ao outro lado.
-      </Text>
+        <View style={styles.category}>
+          <Text style={styles.categoryIcon}>🎨</Text>
+          <Text style={styles.categoryTitle}>Cultura</Text>
+          <Text style={styles.categoryText}>
+            Arte e conhecimento
+          </Text>
+        </View>
+      </View>
 
-      <Text style={styles.description}>
-        Explore Hawkins, conheça seus personagens
-        e descubra os mistérios do Mundo Invertido.
-      </Text>
-
-      {/* INDICADOR */}
-
-      <View style={styles.status}>
-        <View style={styles.statusDot} />
-
-        <Text style={styles.statusText}>
-          CONEXÃO COM HAWKINS ESTABELECIDA
+      {/* FRASE FINAL */}
+      <View style={styles.quote}>
+        <Text style={styles.quoteMark}>“</Text>
+        <Text style={styles.quoteText}>
+          Imagine um mundo em que cada pessoa
+          tenha livre acesso à soma de todo o conhecimento.
         </Text>
       </View>
 
       {/* RODAPÉ */}
+      <View style={styles.footer}>
+        <View style={styles.footerLine} />
+        <Text style={styles.footerText}>
+          WIKIPÉDIA • CONHECIMENTO LIVRE
+        </Text>
+        <Text style={styles.footerSymbol}>✦</Text>
+      </View>
 
-      <Text style={styles.footer}>
-        🔴 THE UPSIDE DOWN 🔴
-      </Text>
-
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
-  /* FUNDO */
+  background: {
+    flex: 1,
+    backgroundColor: '#F5F3ED',
+  },
 
   container: {
-    flex: 1,
-
-    backgroundColor: '#050307',
-
+    flexGrow: 1,
     alignItems: 'center',
-
-    justifyContent: 'center',
-
-    paddingHorizontal: 30,
-
-    position: 'relative',
+    paddingHorizontal: 25,
+    paddingTop: 55,
+    paddingBottom: 45,
   },
 
-  /* DECORAÇÕES */
-
-  decor1: {
+  decorTop: {
     position: 'absolute',
-
-    top: 90,
-
-    left: 30,
-
-    color: '#E50914',
-
-    fontSize: 28,
-
-    textShadowColor: '#FF1725',
-
-    textShadowRadius: 12,
-  },
-
-  decor2: {
-    position: 'absolute',
-
-    top: 75,
-
-    right: 30,
-
-    fontSize: 30,
-
-    textShadowColor: '#FF1725',
-
-    textShadowRadius: 15,
-  },
-
-  decor3: {
-    position: 'absolute',
-
-    bottom: 120,
-
+    top: 28,
     right: 35,
-
-    fontSize: 28,
-
-    opacity: 0.4,
+    color: '#B69A61',
+    fontSize: 27,
   },
 
-  /* TÍTULO */
+  decorSide: {
+    position: 'absolute',
+    top: 300,
+    left: -5,
+    color: '#D8D0BE',
+    fontSize: 65,
+    opacity: 0.5,
+  },
 
-  smallTitle: {
-    color: '#E50914',
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    marginBottom: 25,
+  },
 
-    fontSize: 12,
+  headerIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: '#A99670',
+    color: '#263F5B',
+    fontSize: 29,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    marginRight: 12,
+    fontFamily: 'serif',
+  },
 
+  headerTitle: {
+    color: '#263F5B',
+    fontSize: 17,
     fontWeight: '900',
+    letterSpacing: 3,
+  },
 
-    letterSpacing: 5,
+  headerSubtitle: {
+    color: '#96886F',
+    fontSize: 8,
+    letterSpacing: 2,
+    marginTop: 4,
+  },
 
-    marginBottom: 8,
+  separator: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#DCD5C7',
+    marginBottom: 55,
+  },
 
-    textShadowColor: '#7A0010',
+  hero: {
+    alignItems: 'center',
+    marginBottom: 40,
+  },
 
-    textShadowRadius: 8,
+  eyebrow: {
+    color: '#A18B60',
+    fontSize: 10,
+    fontWeight: 'bold',
+    letterSpacing: 3,
+    marginBottom: 18,
   },
 
   title: {
-    color: '#FFFFFF',
-
-    fontSize: 48,
-
-    fontWeight: '900',
-
-    lineHeight: 50,
-
+    color: '#252F3D',
+    fontSize: 39,
+    fontWeight: 'bold',
     textAlign: 'center',
-
-    textShadowColor: '#7A0010',
-
-    textShadowOffset: {
-      width: 2,
-      height: 2,
-    },
-
-    textShadowRadius: 10,
+    lineHeight: 47,
+    fontFamily: 'serif',
   },
 
-  titleRed: {
-    color: '#E50914',
-
-    fontSize: 52,
-
-    fontWeight: '900',
-
-    lineHeight: 55,
-
-    textAlign: 'center',
-
-    textShadowColor: '#FF1725',
-
-    textShadowOffset: {
-      width: 0,
-      height: 0,
-    },
-
-    textShadowRadius: 18,
+  titleBlue: {
+    color: '#315B82',
   },
 
-  /* LINHA */
-
-  line: {
+  goldLine: {
     width: 55,
-
     height: 2,
-
-    backgroundColor: '#E50914',
-
-    marginVertical: 20,
-
-    shadowColor: '#FF1725',
-
-    shadowOpacity: 0.8,
-
-    shadowRadius: 10,
-  },
-
-  /* TEXTOS */
-
-  subtitle: {
-    color: '#FFFFFF',
-
-    fontSize: 19,
-
-    fontWeight: '700',
-
-    textAlign: 'center',
-
-    marginBottom: 10,
+    backgroundColor: '#B69A61',
+    marginVertical: 23,
   },
 
   description: {
-    color: '#A9979C',
-
+    color: '#74736E',
     fontSize: 14,
-
-    lineHeight: 21,
-
+    lineHeight: 24,
     textAlign: 'center',
-
-    maxWidth: 310,
+    maxWidth: 320,
   },
 
-  /* STATUS */
-
-  status: {
-    flexDirection: 'row',
-
-    alignItems: 'center',
-
-    marginTop: 30,
-
-    paddingHorizontal: 16,
-
-    paddingVertical: 10,
-
-    borderRadius: 20,
-
-    backgroundColor: '#10070A',
-
+  featureCard: {
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
     borderWidth: 1,
-
-    borderColor: '#4B1720',
+    borderColor: '#E8E2D6',
+    padding: 23,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 38,
+    elevation: 3,
+    shadowColor: '#77705F',
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 5 },
   },
 
-  statusDot: {
-    width: 8,
-
-    height: 8,
-
-    borderRadius: 4,
-
-    backgroundColor: '#E50914',
-
-    marginRight: 8,
-
-    shadowColor: '#FF1725',
-
-    shadowOpacity: 1,
-
-    shadowRadius: 7,
+  cardIcon: {
+    width: 45,
+    height: 45,
+    backgroundColor: '#EDF1F5',
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 15,
   },
 
-  statusText: {
-    color: '#806D72',
-
-    fontSize: 9,
-
-    fontWeight: '900',
-
-    letterSpacing: 1,
+  bookIcon: {
+    color: '#315B82',
+    fontSize: 29,
   },
 
-  /* RODAPÉ */
+  cardContent: {
+    flex: 1,
+  },
+
+  cardLabel: {
+    color: '#A18B60',
+    fontSize: 8,
+    fontWeight: 'bold',
+    letterSpacing: 1.5,
+    marginBottom: 9,
+  },
+
+  cardTitle: {
+    color: '#293B50',
+    fontSize: 17,
+    fontWeight: 'bold',
+    lineHeight: 23,
+    fontFamily: 'serif',
+  },
+
+  cardDescription: {
+    color: '#85827A',
+    fontSize: 12,
+    lineHeight: 19,
+    marginTop: 8,
+  },
+
+  cardStar: {
+    color: '#B69A61',
+    fontSize: 22,
+    marginLeft: 5,
+  },
+
+  sectionTitle: {
+    alignSelf: 'flex-start',
+    color: '#34485C',
+    fontSize: 11,
+    fontWeight: 'bold',
+    letterSpacing: 2,
+    marginBottom: 17,
+  },
+
+  categories: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+
+  category: {
+    width: '48%',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E9E3D8',
+    borderRadius: 13,
+    padding: 17,
+    marginBottom: 12,
+  },
+
+  categoryIcon: {
+    fontSize: 25,
+    marginBottom: 12,
+  },
+
+  categoryTitle: {
+    color: '#34485C',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+
+  categoryText: {
+    color: '#99948A',
+    fontSize: 10,
+    marginTop: 5,
+  },
+
+  quote: {
+    width: '100%',
+    backgroundColor: '#EBE8DF',
+    padding: 22,
+    borderRadius: 12,
+    marginTop: 22,
+    alignItems: 'center',
+  },
+
+  quoteMark: {
+    color: '#B69A61',
+    fontSize: 43,
+    fontFamily: 'serif',
+    lineHeight: 43,
+  },
+
+  quoteText: {
+    color: '#5C5C56',
+    fontSize: 12,
+    lineHeight: 21,
+    fontStyle: 'italic',
+    textAlign: 'center',
+  },
 
   footer: {
-    position: 'absolute',
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 40,
+  },
 
-    bottom: 45,
+  footerLine: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#DCD5C7',
+    marginBottom: 18,
+  },
 
-    color: '#5E4A4F',
-
-    fontSize: 10,
-
-    fontWeight: '900',
-
+  footerText: {
+    color: '#A39A89',
+    fontSize: 9,
+    fontWeight: 'bold',
     letterSpacing: 2,
   },
 
+  footerSymbol: {
+    color: '#B69A61',
+    fontSize: 18,
+    marginTop: 12,
+  },
 });
