@@ -1,4 +1,57 @@
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+
+import {
+  View, Text, StyleSheet, ScrollView,
+  Pressable, Image
+} from 'react-native';
+
+import { router } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { theme } from './theme';
+
+const categorias = [
+  {
+    nome: 'Geografia',
+    descricao: 'Países, continentes e natureza.',
+    icon: 'earth-outline',
+    cor: '#EAF1FC',
+    exemplos: 'Brasil',
+  },
+  {
+    nome: 'História',
+    descricao: 'Civilizações e acontecimentos.',
+    icon: 'time-outline',
+    cor: '#F5EFE6',
+    exemplos: 'Egito Antigo',
+  },
+  {
+    nome: 'Ciência',
+    descricao: 'Descobertas e conhecimentos.',
+    icon: 'flask-outline',
+    cor: '#E9F4EF',
+    exemplos: 'Sistema Solar',
+  },
+  {
+    nome: 'Cultura',
+    descricao: 'Arte, tradições e sociedades.',
+    icon: 'color-palette-outline',
+    cor: '#F4ECF7',
+    exemplos: 'Arte',
+  },
+  {
+    nome: 'Tecnologia',
+    descricao: 'Invenções e inovação.',
+    icon: 'hardware-chip-outline',
+    cor: '#EAF2F4',
+    exemplos: 'Inteligência Artificial',
+  },
+  {
+    nome: 'Natureza',
+    descricao: 'Animais, plantas e ecossistemas.',
+    icon: 'leaf-outline',
+    cor: '#EDF4E8',
+    exemplos: 'Floresta Amazônica',
+  },
+];
 
 export default function Pagina2() {
   return (
@@ -7,358 +60,188 @@ export default function Pagina2() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
+      <Text style={styles.eyebrow}>DESCUBRA NOVOS ASSUNTOS</Text>
 
-      {/* ELEMENTOS DECORATIVOS */}
-      <Text style={styles.decor1}>☾</Text>
-      <Text style={styles.decor2}>✦</Text>
-      <Text style={styles.decor3}>🔴</Text>
-
-      {/* TÍTULO */}
-
-      <Text style={styles.light}>
-        💡
-      </Text>
-
-      <Text style={styles.title}>
-        Sobre
-      </Text>
-
-      <Text style={styles.titleRed}>
-        Stranger Things
-      </Text>
+      <Text style={styles.title}>Explore</Text>
 
       <Text style={styles.subtitle}>
-        Conheça o universo de Hawkins, seus personagens,
-        o Mundo Invertido e os mistérios que transformaram
-        uma pequena cidade em palco de acontecimentos sobrenaturais.
+        Navegue por diferentes áreas do conhecimento
+        e encontre algo novo para aprender.
       </Text>
 
-      {/* CARD — A SÉRIE */}
+      <View style={styles.banner}>
+        <Image
+          source={{
+            uri: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000',
+          }}
+          style={styles.bannerImage}
+        />
 
-      <View style={styles.card}>
-
-        <Text style={styles.cardIcon}>
-          📺
-        </Text>
-
-        <View style={styles.cardContent}>
-
-          <Text style={styles.cardTitle}>
-            A Série
+        <View style={styles.bannerOverlay}>
+          <Text style={styles.bannerSmall}>UM UNIVERSO DE POSSIBILIDADES</Text>
+          <Text style={styles.bannerTitle}>
+            Aprender é descobrir.
           </Text>
-
-          <Text style={styles.cardText}>
-            Stranger Things acompanha um grupo de amigos
-            que começa a investigar acontecimentos estranhos
-            após o desaparecimento de Will Byers. A busca
-            revela experimentos secretos, poderes sobrenaturais
-            e uma dimensão assustadora.
-          </Text>
-
         </View>
-
       </View>
 
-      {/* CARD — HAWKINS */}
-
-      <View style={styles.card}>
-
-        <Text style={styles.cardIcon}>
-          🏘️
-        </Text>
-
-        <View style={styles.cardContent}>
-
-          <Text style={styles.cardTitle}>
-            Hawkins
-          </Text>
-
-          <Text style={styles.cardText}>
-            Hawkins é uma pequena cidade aparentemente comum.
-            Porém, por trás de sua tranquilidade existem
-            experimentos secretos, acontecimentos sobrenaturais
-            e uma conexão misteriosa com outra dimensão.
-          </Text>
-
-        </View>
-
+      <View style={styles.heading}>
+        <Text style={styles.sectionTitle}>Categorias</Text>
+        <Text style={styles.count}>06 ÁREAS</Text>
       </View>
 
-      {/* CARD — ELEVEN */}
+      {categorias.map((item) => (
+        <Pressable
+          key={item.nome}
+          style={styles.card}
+          onPress={() =>
+            router.push({
+              pathname: '/pagina5',
+              params: { pais: item.exemplos },
+            })
+          }
+        >
+          <View style={[styles.iconBox, { backgroundColor: item.cor }]}>
+            <Ionicons
+              name={item.icon}
+              size={25}
+              color={theme.colors.primary}
+            />
+          </View>
 
-      <View style={styles.card}>
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>{item.nome}</Text>
+            <Text style={styles.cardDescription}>
+              {item.descricao}
+            </Text>
+          </View>
 
-        <Text style={styles.cardIcon}>
-          🧇
+          <Ionicons
+            name="chevron-forward"
+            size={20}
+            color={theme.colors.muted}
+          />
+        </Pressable>
+      ))}
+
+      <View style={styles.note}>
+        <Ionicons name="information-circle-outline" size={22} color="#3366CC" />
+
+        <Text style={styles.noteText}>
+          Selecione uma categoria para consultar um artigo
+          relacionado na Wikipédia.
         </Text>
-
-        <View style={styles.cardContent}>
-
-          <Text style={styles.cardTitle}>
-            Eleven
-          </Text>
-
-          <Text style={styles.cardText}>
-            Eleven é uma garota com habilidades psíquicas
-            extraordinárias. Depois de escapar do laboratório,
-            ela encontra novos amigos e passa a descobrir
-            mais sobre seu passado e seus poderes.
-          </Text>
-
-        </View>
-
       </View>
-
-      {/* CARD ESPECIAL — MUNDO INVERTIDO */}
-
-      <View style={styles.supernaturalCard}>
-
-        <Text style={styles.upsideDown}>
-          👁️
-        </Text>
-
-        <Text style={styles.supernaturalTitle}>
-          O Mundo Invertido
-        </Text>
-
-        <Text style={styles.supernaturalText}>
-          Uma dimensão sombria e perigosa conectada a Hawkins.
-          O Mundo Invertido é habitado por criaturas e possui
-          uma versão distorcida da cidade.
-        </Text>
-
-        <View style={styles.lineRed} />
-
-        <Text style={styles.supernaturalSmall}>
-          O OUTRO LADO ESTÁ MAIS PERTO DO QUE PARECE
-        </Text>
-
-      </View>
-
-      {/* CARD — LABORATÓRIO */}
-
-      <View style={styles.card}>
-
-        <Text style={styles.cardIcon}>
-          🧪
-        </Text>
-
-        <View style={styles.cardContent}>
-
-          <Text style={styles.cardTitle}>
-            Laboratório de Hawkins
-          </Text>
-
-          <Text style={styles.cardText}>
-            O laboratório é um dos principais pontos ligados
-            aos mistérios da cidade. Experimentos realizados
-            no local estão relacionados aos poderes de Eleven
-            e à abertura de uma passagem para outra dimensão.
-          </Text>
-
-        </View>
-
-      </View>
-
-      {/* CARD — O GRUPO */}
-
-      <View style={styles.card}>
-
-        <Text style={styles.cardIcon}>
-          🚲
-        </Text>
-
-        <View style={styles.cardContent}>
-
-          <Text style={styles.cardTitle}>
-            O Grupo
-          </Text>
-
-          <Text style={styles.cardText}>
-            Mike, Dustin, Lucas, Will, Eleven e seus amigos
-            enfrentam juntos os perigos que surgem em Hawkins.
-            A amizade e a união são essenciais para enfrentar
-            as ameaças do Mundo Invertido.
-          </Text>
-
-        </View>
-
-      </View>
-
-      {/* FRASE */}
-
-      <View style={styles.quoteCard}>
-
-        <Text style={styles.quoteMark}>
-          “
-        </Text>
-
-        <Text style={styles.quote}>
-          Em Hawkins, o estranho
-          nunca está muito longe.
-        </Text>
-
-        <View style={styles.quoteLine} />
-
-        <Text style={styles.quoteAuthor}>
-          — Hawkins, Indiana
-        </Text>
-
-      </View>
-
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
-  /* FUNDO */
-
   container: {
     flex: 1,
-    backgroundColor: '#050307',
+    backgroundColor: '#FFFFFF',
   },
 
   content: {
-    paddingHorizontal: 24,
-    paddingTop: 60,
+    padding: 23,
+    paddingTop: 62,
     paddingBottom: 40,
   },
 
-  /* DECORAÇÕES */
-
-  decor1: {
-    position: 'absolute',
-    top: 40,
-    right: 30,
-
-    color: '#E50914',
-
-    fontSize: 28,
-
-    textShadowColor: '#FF1A2A',
-    textShadowRadius: 10,
-  },
-
-  decor2: {
-    position: 'absolute',
-    top: 170,
-    right: 22,
-
-    color: '#FFFFFF',
-
-    fontSize: 22,
-  },
-
-  decor3: {
-    position: 'absolute',
-    bottom: 120,
-    left: 25,
-
-    fontSize: 25,
-
-    opacity: 0.8,
-  },
-
-  /* TÍTULO */
-
-  light: {
-    fontSize: 40,
-
-    marginBottom: 5,
-
-    textShadowColor: '#FF1A2A',
-    textShadowRadius: 15,
+  eyebrow: {
+    color: '#3366CC',
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 2,
   },
 
   title: {
-    color: '#FFFFFF',
-
-    fontSize: 34,
-
+    color: '#202122',
+    fontSize: 36,
     fontWeight: '900',
-
-    lineHeight: 39,
-
-    textShadowColor: '#7A0010',
-    textShadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    textShadowRadius: 7,
-  },
-
-  titleRed: {
-    color: '#E50914',
-
-    fontSize: 39,
-
-    fontWeight: '900',
-
-    lineHeight: 44,
-
-    textShadowColor: '#FF1725',
-
-    textShadowOffset: {
-      width: 0,
-      height: 0,
-    },
-
-    textShadowRadius: 12,
+    marginTop: 9,
   },
 
   subtitle: {
-    color: '#B9AEB2',
-
-    fontSize: 15,
-
+    color: '#54595D',
+    fontSize: 14,
     lineHeight: 22,
-
-    marginTop: 10,
-
-    marginBottom: 28,
+    marginTop: 9,
+    marginBottom: 22,
   },
 
-  /* CARDS */
+  banner: {
+    height: 175,
+    borderRadius: 19,
+    overflow: 'hidden',
+    marginBottom: 29,
+  },
+
+  bannerImage: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+  },
+
+  bannerOverlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 18,
+    backgroundColor: 'rgba(0,0,0,0.43)',
+  },
+
+  bannerSmall: {
+    color: '#FFFFFF',
+    fontSize: 9,
+    fontWeight: 'bold',
+    letterSpacing: 1.5,
+  },
+
+  bannerTitle: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: '900',
+    marginTop: 7,
+  },
+
+  heading: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+  },
+
+  sectionTitle: {
+    color: '#202122',
+    fontSize: 21,
+    fontWeight: '900',
+  },
+
+  count: {
+    color: '#72777D',
+    fontSize: 10,
+    fontWeight: 'bold',
+    letterSpacing: 1,
+  },
 
   card: {
-    width: '100%',
-
-    minHeight: 125,
-
-    backgroundColor: '#10070A',
-
-    borderRadius: 20,
-
-    padding: 17,
-
-    marginBottom: 15,
-
     flexDirection: 'row',
-
     alignItems: 'center',
-
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-
-    borderColor: '#4B1720',
-
-    shadowColor: '#000000',
-
-    shadowOpacity: 0.45,
-
-    shadowRadius: 8,
-
-    elevation: 4,
+    borderColor: '#EAECF0',
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 11,
+    gap: 13,
   },
 
-  cardIcon: {
-    fontSize: 35,
-
-    width: 52,
-
-    textAlign: 'center',
-
-    marginRight: 12,
+  iconBox: {
+    width: 49,
+    height: 49,
+    borderRadius: 13,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   cardContent: {
@@ -366,185 +249,31 @@ const styles = StyleSheet.create({
   },
 
   cardTitle: {
-    color: '#E50914',
-
-    fontSize: 18,
-
-    fontWeight: '900',
-
-    marginBottom: 6,
-
-    textShadowColor: '#7A0010',
-
-    textShadowRadius: 5,
+    color: '#202122',
+    fontSize: 15,
+    fontWeight: 'bold',
   },
 
-  cardText: {
-    color: '#D8CCCF',
-
-    fontSize: 13,
-
-    lineHeight: 19,
-  },
-
-  /* CARD MUNDO INVERTIDO */
-
-  supernaturalCard: {
-    width: '100%',
-
-    backgroundColor: '#18070D',
-
-    borderRadius: 22,
-
-    padding: 22,
-
-    marginBottom: 15,
-
-    alignItems: 'center',
-
-    borderWidth: 1,
-
-    borderColor: '#7A1A28',
-
-    shadowColor: '#E50914',
-
-    shadowOpacity: 0.22,
-
-    shadowRadius: 18,
-
-    elevation: 7,
-  },
-
-  upsideDown: {
-    fontSize: 52,
-
-    marginBottom: 8,
-
-    textShadowColor: '#FF1725',
-
-    textShadowRadius: 12,
-  },
-
-  supernaturalTitle: {
-    color: '#FFFFFF',
-
-    fontSize: 21,
-
-    fontWeight: '900',
-
-    textAlign: 'center',
-
-    textShadowColor: '#E50914',
-
-    textShadowRadius: 8,
-  },
-
-  supernaturalText: {
-    color: '#C5AEB3',
-
-    fontSize: 13,
-
-    lineHeight: 20,
-
-    textAlign: 'center',
-
-    marginTop: 8,
-  },
-
-  lineRed: {
-    width: 50,
-
-    height: 2,
-
-    backgroundColor: '#E50914',
-
-    marginVertical: 13,
-
-    shadowColor: '#FF1725',
-
-    shadowRadius: 8,
-
-    shadowOpacity: 0.8,
-  },
-
-  supernaturalSmall: {
-    color: '#E50914',
-
-    fontSize: 9,
-
-    fontWeight: '900',
-
-    letterSpacing: 1.5,
-
-    textAlign: 'center',
-  },
-
-  /* FRASE */
-
-  quoteCard: {
-    width: '100%',
-
-    backgroundColor: '#12070A',
-
-    borderRadius: 20,
-
-    padding: 22,
-
-    alignItems: 'center',
-
-    borderWidth: 1,
-
-    borderColor: '#4B1720',
-
-    marginTop: 5,
-
-    shadowColor: '#E50914',
-
-    shadowOpacity: 0.12,
-
-    shadowRadius: 12,
-
-    elevation: 4,
-  },
-
-  quoteMark: {
-    color: '#E50914',
-
-    fontSize: 40,
-
-    height: 35,
-
-    fontWeight: '900',
-  },
-
-  quote: {
-    color: '#FFFFFF',
-
-    fontSize: 18,
-
-    fontStyle: 'italic',
-
-    textAlign: 'center',
-
-    lineHeight: 27,
-
+  cardDescription: {
+    color: '#72777D',
+    fontSize: 11,
     marginTop: 5,
   },
 
-  quoteLine: {
-    width: 45,
-
-    height: 2,
-
-    backgroundColor: '#E50914',
-
-    marginVertical: 12,
+  note: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    backgroundColor: '#F1F5FC',
+    borderRadius: 13,
+    padding: 15,
+    marginTop: 14,
   },
 
-  quoteAuthor: {
-    color: '#806D72',
-
-    fontSize: 12,
+  noteText: {
+    flex: 1,
+    color: '#54595D',
+    fontSize: 11,
+    lineHeight: 17,
   },
-
 });

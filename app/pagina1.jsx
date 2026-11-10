@@ -1,649 +1,406 @@
+
 import {
-  Text,
   View,
+  Text,
   StyleSheet,
   ScrollView,
-  ImageBackground,
+  Image,
+  Pressable,
+  TextInput,
 } from 'react-native';
 
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import { theme } from './theme';
+
 export default function Pagina1() {
+  const [pesquisa, setPesquisa] = useState('');
+
+  function pesquisar() {
+    if (!pesquisa.trim()) return;
+
+    router.push({
+      pathname: '/pagina5',
+      params: { pais: pesquisa.trim() },
+    });
+  }
+
   return (
-    <ImageBackground
-      source={{
-        uri: 'https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80',
-      }}
-      style={styles.background}
-      imageStyle={styles.backgroundImage}
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      showsVerticalScrollIndicator={false}
     >
+      {/* CABEÇALHO */}
 
-      {/* CAMADA ESCURA */}
-      <View style={styles.overlay} />
+      <View style={styles.header}>
+        <View style={styles.logo}>
+          <Ionicons name="globe-outline" size={27} color={theme.colors.primary} />
+        </View>
 
-      {/* LUA / LUZ */}
-      <View style={styles.fullMoon}>
-        <Text style={styles.moonSymbol}>🔴</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.brand}>ENCICLOPÉDIA</Text>
+          <Text style={styles.brandSubtitle}>CONHECIMENTO LIVRE</Text>
+        </View>
+
+        <Ionicons name="menu-outline" size={27} color={theme.colors.text} />
       </View>
 
-      {/* SILHUETA SOBRENATURAL */}
-      <Text style={styles.monsterSilhouette}>
-        👾
-      </Text>
+      {/* APRESENTAÇÃO */}
 
-      {/* NÉVOA */}
-      <View style={styles.fog1} />
-      <View style={styles.fog2} />
-
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}
-      >
-
-        {/* ELEMENTOS SOBRENATURAIS */}
-
-        <Text style={styles.symbol1}>✦</Text>
-        <Text style={styles.symbol2}>✧</Text>
-        <Text style={styles.symbol3}>☾</Text>
-
-        {/* CABEÇALHO */}
-
-        <Text style={styles.welcome}>
-          BEM-VINDO A HAWKINS
-        </Text>
+      <View style={styles.intro}>
+        <Text style={styles.eyebrow}>DESCUBRA • APRENDA • EXPLORE</Text>
 
         <Text style={styles.title}>
-          Stranger
-        </Text>
-
-        <Text style={styles.titleRed}>
-          Things
+          O conhecimento
+          {'\n'}
+          transforma o mundo.
         </Text>
 
         <Text style={styles.description}>
-          Uma pequena cidade escondendo
-          experimentos secretos, criaturas
-          e mistérios do Mundo Invertido.
+          Explore informações, descubra novas culturas
+          e conheça histórias de diferentes partes do planeta.
+        </Text>
+      </View>
+
+      {/* PESQUISA */}
+
+      <Pressable
+        style={styles.searchBox}
+        onPress={() => router.push('/pagina4')}
+      >
+        <Ionicons name="search-outline" size={21} color="#72777D" />
+
+        <Text style={styles.searchPlaceholder}>
+          O que deseja descobrir?
         </Text>
 
-        {/* ÁREA PRINCIPAL */}
+        <Ionicons name="arrow-forward" size={20} color="#3366CC" />
+      </Pressable>
 
-        <View style={styles.strangerArea}>
+      {/* DESTAQUE */}
 
-          <View style={styles.glow} />
+      <Text style={styles.sectionLabel}>DESTAQUE</Text>
 
-          <View style={styles.mainCircle}>
+      <Pressable
+        style={styles.heroCard}
+        onPress={() =>
+          router.push({
+            pathname: '/pagina5',
+            params: { pais: 'Estados Unidos' },
+          })
+        }
+      >
+        <Image
+          source={{
+            uri: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1000',
+          }}
+          style={styles.heroImage}
+        />
 
-            <Text style={styles.strangerEmoji}>
-              🔦
-            </Text>
+        <View style={styles.heroOverlay}>
+          <Text style={styles.heroTag}>GEOGRAFIA • PAÍSES</Text>
 
-            <Text style={styles.hawkins}>
-              HAWKINS
-            </Text>
-
-          </View>
-
-          {/* ELEMENTO SOBRENATURAL */}
-
-          <View style={styles.eyeBadge}>
-            <Text style={styles.eye}>
-              👁️
-            </Text>
-          </View>
-
-          {/* LUZ */}
-
-          <Text style={styles.miniLight}>
-            💡
+          <Text style={styles.heroTitle}>
+            Conheça o mundo
           </Text>
 
+          <Text style={styles.heroDescription}>
+            Uma jornada pelo conhecimento e pela diversidade mundial.
+          </Text>
+
+          <View style={styles.heroButton}>
+            <Text style={styles.heroButtonText}>Explorar agora</Text>
+            <Ionicons name="arrow-forward" size={17} color="#FFFFFF" />
+          </View>
         </View>
+      </Pressable>
 
-        {/* FRASE */}
+      {/* CATEGORIAS */}
 
-        <View style={styles.quoteCard}>
-
-          <Text style={styles.quoteMark}>
-            “
+      <View style={styles.sectionHeader}>
+        <View>
+          <Text style={styles.sectionTitle}>Explore conteúdos</Text>
+          <Text style={styles.sectionDescription}>
+            Conhecimento em diferentes áreas.
           </Text>
-
-          <Text style={styles.quote}>
-            Amigos não mentem. Algumas coisas,
-            porém, vivem no outro lado.
-          </Text>
-
-          <View style={styles.quoteLine} />
-
-          <Text style={styles.quoteAuthor}>
-            — Stranger Things
-          </Text>
-
         </View>
+      </View>
 
-        {/* ELEMENTOS */}
+      <View style={styles.categories}>
+        {[
+          { icon: 'earth-outline', name: 'Geografia', color: '#E8F0FC' },
+          { icon: 'book-outline', name: 'História', color: '#F5EEE5' },
+          { icon: 'flask-outline', name: 'Ciência', color: '#E8F4EF' },
+          { icon: 'color-palette-outline', name: 'Cultura', color: '#F3EAF5' },
+        ].map((item) => (
+          <Pressable
+            key={item.name}
+            style={styles.categoryCard}
+            onPress={() => router.push('/pagina2')}
+          >
+            <View style={[styles.categoryIcon, { backgroundColor: item.color }]}>
+              <Ionicons
+                name={item.icon}
+                size={25}
+                color={theme.colors.primary}
+              />
+            </View>
 
-        <Text style={styles.exploreTitle}>
-          O universo de Hawkins
-        </Text>
+            <Text style={styles.categoryName}>{item.name}</Text>
+          </Pressable>
+        ))}
+      </View>
 
-        <View style={styles.cardsRow}>
+      {/* INFORMAÇÃO */}
 
-          <View style={styles.smallCard}>
+      <View style={styles.infoCard}>
+        <Ionicons name="book-outline" size={25} color="#3366CC" />
 
-            <Text style={styles.smallIcon}>
-              🧪
-            </Text>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.infoTitle}>
+            Conhecimento para todos
+          </Text>
 
-            <Text style={styles.smallTitle}>
-              Laboratório
-            </Text>
-
-            <Text style={styles.smallText}>
-              Experimentos
-            </Text>
-
-          </View>
-
-          <View style={styles.smallCard}>
-
-            <Text style={styles.smallIcon}>
-              👾
-            </Text>
-
-            <Text style={styles.smallTitle}>
-              Criaturas
-            </Text>
-
-            <Text style={styles.smallText}>
-              Mundo Invertido
-            </Text>
-
-          </View>
-
-          <View style={styles.smallCard}>
-
-            <Text style={styles.smallIcon}>
-              🚲
-            </Text>
-
-            <Text style={styles.smallTitle}>
-              Hawkins
-            </Text>
-
-            <Text style={styles.smallText}>
-              Mistérios
-            </Text>
-
-          </View>
-
+          <Text style={styles.infoText}>
+            Consulte artigos e descubra informações
+            disponíveis na Wikipédia.
+          </Text>
         </View>
+      </View>
 
-      </ScrollView>
-
-    </ImageBackground>
+      <Text style={styles.footer}>
+        ENCICLOPÉDIA • CONHECIMENTO SEM LIMITES
+      </Text>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
-  /* FUNDO */
-
-  background: {
+  container: {
     flex: 1,
-    backgroundColor: '#050307',
+    backgroundColor: theme.colors.background,
   },
-
-  backgroundImage: {
-    opacity: 0.45,
-  },
-
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-
-    backgroundColor: '#080107',
-
-    opacity: 0.78,
-  },
-
-  /* LUZ VERMELHA */
-
-  fullMoon: {
-    position: 'absolute',
-
-    top: 65,
-    right: 35,
-
-    width: 100,
-    height: 100,
-
-    borderRadius: 50,
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    backgroundColor: 'rgba(150, 0, 20, 0.15)',
-
-    shadowColor: '#FF1725',
-    shadowOpacity: 0.9,
-    shadowRadius: 35,
-
-    elevation: 15,
-  },
-
-  moonSymbol: {
-    fontSize: 55,
-  },
-
-  /* CRIATURA */
-
-  monsterSilhouette: {
-    position: 'absolute',
-
-    top: 125,
-    left: 10,
-
-    fontSize: 95,
-
-    opacity: 0.08,
-  },
-
-  /* NÉVOA */
-
-  fog1: {
-    position: 'absolute',
-
-    width: 400,
-    height: 100,
-
-    left: -100,
-    top: 390,
-
-    backgroundColor: '#6B1020',
-
-    opacity: 0.08,
-
-    borderRadius: 100,
-  },
-
-  fog2: {
-    position: 'absolute',
-
-    width: 350,
-    height: 80,
-
-    right: -100,
-    top: 520,
-
-    backgroundColor: '#49105C',
-
-    opacity: 0.08,
-
-    borderRadius: 100,
-  },
-
-  /* CONTEÚDO */
 
   content: {
-    alignItems: 'center',
-
-    paddingHorizontal: 22,
-
-    paddingTop: 55,
-
+    paddingHorizontal: 23,
+    paddingTop: 58,
     paddingBottom: 40,
   },
 
-  /* SÍMBOLOS */
-
-  symbol1: {
-    position: 'absolute',
-
-    top: 250,
-    left: 30,
-
-    color: '#FF2538',
-
-    fontSize: 25,
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 38,
   },
 
-  symbol2: {
-    position: 'absolute',
-
-    top: 340,
-    right: 30,
-
-    color: '#FFFFFF',
-
-    fontSize: 20,
+  logo: {
+    width: 45,
+    height: 45,
+    backgroundColor: '#EEF3FC',
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
   },
 
-  symbol3: {
-    position: 'absolute',
-
-    top: 510,
-    left: 35,
-
-    color: '#FF2538',
-
-    fontSize: 28,
-  },
-
-  /* TÍTULO */
-
-  welcome: {
-    color: '#FF2638',
-
-    fontSize: 11,
-
+  brand: {
+    fontSize: 15,
     fontWeight: '900',
+    color: theme.colors.text,
+    letterSpacing: 1.3,
+  },
 
-    letterSpacing: 4,
+  brandSubtitle: {
+    color: theme.colors.muted,
+    fontSize: 9,
+    letterSpacing: 2,
+    marginTop: 3,
+  },
 
-    marginBottom: 7,
+  intro: {
+    marginBottom: 23,
+  },
+
+  eyebrow: {
+    color: theme.colors.primary,
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 1.8,
+    marginBottom: 13,
   },
 
   title: {
-    color: '#FFFFFF',
-
-    fontSize: 43,
-
+    color: theme.colors.text,
+    fontSize: 34,
     fontWeight: '900',
-
-    lineHeight: 45,
-
-    textShadowColor: '#7A0010',
-
-    textShadowOffset: {
-      width: 2,
-      height: 2,
-    },
-
-    textShadowRadius: 8,
-  },
-
-  titleRed: {
-    color: '#E50914',
-
-    fontSize: 47,
-
-    fontWeight: '900',
-
-    lineHeight: 50,
-
-    textShadowColor: '#FF1A2A',
-
-    textShadowOffset: {
-      width: 0,
-      height: 0,
-    },
-
-    textShadowRadius: 15,
+    lineHeight: 41,
   },
 
   description: {
-    color: '#B9AEB2',
-
-    textAlign: 'center',
-
+    color: theme.colors.secondary,
     fontSize: 14,
-
-    lineHeight: 21,
-
+    lineHeight: 23,
     marginTop: 14,
-
-    maxWidth: 310,
   },
 
-  /* ÁREA CENTRAL */
-
-  strangerArea: {
-    width: 310,
-
-    height: 280,
-
-    alignItems: 'center',
-
-    justifyContent: 'center',
-
-    position: 'relative',
-
-    marginTop: 5,
-  },
-
-  glow: {
-    position: 'absolute',
-
-    width: 220,
-
-    height: 220,
-
-    borderRadius: 120,
-
-    backgroundColor: '#3D0710',
-
-    opacity: 0.75,
-
-    shadowColor: '#FF1A2A',
-
-    shadowOpacity: 0.7,
-
-    shadowRadius: 40,
-  },
-
-  mainCircle: {
-    width: 175,
-
-    height: 175,
-
-    borderRadius: 90,
-
-    backgroundColor: 'rgba(20, 7, 10, 0.96)',
-
-    borderWidth: 4,
-
-    borderColor: '#E50914',
-
-    alignItems: 'center',
-
-    justifyContent: 'center',
-
-    shadowColor: '#FF1A2A',
-
-    shadowOpacity: 0.8,
-
-    shadowRadius: 25,
-
-    elevation: 15,
-  },
-
-  strangerEmoji: {
-    fontSize: 70,
-  },
-
-  hawkins: {
-    color: '#FFFFFF',
-
-    fontSize: 9,
-
-    fontWeight: '900',
-
-    letterSpacing: 3,
-
-    marginTop: 6,
-  },
-
-  /* OLHO */
-
-  eyeBadge: {
-    position: 'absolute',
-
-    top: 20,
-
-    left: 30,
-
-    width: 65,
-
-    height: 65,
-
-    borderRadius: 35,
-
-    backgroundColor: '#090306',
-
-    borderWidth: 2,
-
-    borderColor: '#E50914',
-
-    alignItems: 'center',
-
-    justifyContent: 'center',
-
-    shadowColor: '#FF1725',
-
-    shadowOpacity: 0.7,
-
-    shadowRadius: 12,
-
-    elevation: 8,
-  },
-
-  eye: {
-    fontSize: 31,
-  },
-
-  miniLight: {
-    position: 'absolute',
-
-    right: 15,
-
-    bottom: 45,
-
-    fontSize: 31,
-  },
-
-  /* FRASE */
-
-  quoteCard: {
-    width: '100%',
-
-    backgroundColor: 'rgba(12, 5, 8, 0.94)',
-
-    borderRadius: 22,
-
-    padding: 22,
-
-    alignItems: 'center',
-
-    borderWidth: 1,
-
-    borderColor: '#4B1720',
-
-    marginTop: 5,
-  },
-
-  quoteMark: {
-    color: '#E50914',
-
-    fontSize: 40,
-
-    height: 35,
-
-    fontWeight: '900',
-  },
-
-  quote: {
-    color: '#FFFFFF',
-
-    fontSize: 18,
-
-    fontStyle: 'italic',
-
-    textAlign: 'center',
-
-    lineHeight: 27,
-
-    marginTop: 5,
-  },
-
-  quoteLine: {
-    width: 45,
-
-    height: 2,
-
-    backgroundColor: '#E50914',
-
-    marginVertical: 12,
-  },
-
-  quoteAuthor: {
-    color: '#806D72',
-
-    fontSize: 12,
-  },
-
-  /* CARDS */
-
-  exploreTitle: {
-    alignSelf: 'flex-start',
-
-    color: '#FFFFFF',
-
-    fontSize: 20,
-
-    fontWeight: '900',
-
-    marginTop: 28,
-
-    marginBottom: 14,
-  },
-
-  cardsRow: {
-    width: '100%',
-
+  searchBox: {
     flexDirection: 'row',
-
-    justifyContent: 'space-between',
-  },
-
-  smallCard: {
-    width: '31%',
-
-    backgroundColor: 'rgba(15, 7, 10, 0.94)',
-
-    borderRadius: 17,
-
-    paddingVertical: 16,
-
     alignItems: 'center',
-
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-
-    borderColor: '#4B1720',
+    borderColor: '#D5D9DE',
+    borderRadius: 13,
+    padding: 16,
+    gap: 11,
+    marginBottom: 30,
   },
 
-  smallIcon: {
-    fontSize: 28,
-
-    marginBottom: 7,
+  searchPlaceholder: {
+    flex: 1,
+    color: theme.colors.muted,
+    fontSize: 13,
   },
 
-  smallTitle: {
-    color: '#FFFFFF',
-
-    fontSize: 12,
-
-    fontWeight: '900',
-
-    textAlign: 'center',
-  },
-
-  smallText: {
-    color: '#8F777D',
-
+  sectionLabel: {
+    color: theme.colors.muted,
     fontSize: 10,
-
-    marginTop: 3,
-
-    textAlign: 'center',
+    fontWeight: '900',
+    letterSpacing: 2,
+    marginBottom: 13,
   },
 
-});
+  heroCard: {
+    height: 260,
+    borderRadius: 21,
+    overflow: 'hidden',
+    marginBottom: 31,
+  },
 
+  heroImage: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+  },
+
+  heroOverlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 20,
+    backgroundColor: 'rgba(0,0,0,0.46)',
+  },
+
+  heroTag: {
+    color: '#FFFFFF',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 2,
+    marginBottom: 9,
+  },
+
+  heroTitle: {
+    color: '#FFFFFF',
+    fontSize: 27,
+    fontWeight: '900',
+  },
+
+  heroDescription: {
+    color: '#F1F1F1',
+    fontSize: 12,
+    lineHeight: 19,
+    marginTop: 7,
+  },
+
+  heroButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 9,
+    marginTop: 15,
+  },
+
+  heroButtonText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+
+  sectionHeader: {
+    marginBottom: 17,
+  },
+
+  sectionTitle: {
+    color: theme.colors.text,
+    fontSize: 21,
+    fontWeight: '900',
+  },
+
+  sectionDescription: {
+    color: theme.colors.muted,
+    fontSize: 12,
+    marginTop: 5,
+  },
+
+  categories: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+
+  categoryCard: {
+    width: '47%',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#EAECF0',
+    borderRadius: 16,
+    padding: 15,
+    marginBottom: 2,
+  },
+
+  categoryIcon: {
+    width: 46,
+    height: 46,
+    borderRadius: 13,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
+  },
+
+  categoryName: {
+    color: theme.colors.text,
+    fontWeight: 'bold',
+    fontSize: 13,
+  },
+
+  infoCard: {
+    backgroundColor: '#F1F5FC',
+    borderRadius: 17,
+    padding: 18,
+    flexDirection: 'row',
+    gap: 13,
+    marginTop: 26,
+    alignItems: 'center',
+  },
+
+  infoTitle: {
+    color: theme.colors.text,
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+
+  infoText: {
+    color: theme.colors.secondary,
+    fontSize: 11,
+    lineHeight: 17,
+    marginTop: 5,
+  },
+
+  footer: {
+    color: theme.colors.muted,
+    fontSize: 9,
+    textAlign: 'center',
+    marginTop: 30,
+    letterSpacing: 1,
+  },
+});
