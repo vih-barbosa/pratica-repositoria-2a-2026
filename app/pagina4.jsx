@@ -1,21 +1,50 @@
 
 import {
-  View, Text, StyleSheet, TextInput,
-  ScrollView, Pressable
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  ScrollView,
+  Pressable,
 } from 'react-native';
 
 import { useState } from 'react';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { theme } from './theme';
 
 const sugestoes = [
-  'Estados Unidos',
-  'Brasil',
-  'Japão',
-  'França',
-  'Egito Antigo',
-  'Sistema Solar',
+  {
+    nome: 'Estados Unidos',
+    icon: 'flag-outline',
+  },
+  {
+    nome: 'China',
+    icon: 'globe-outline',
+  },
+  {
+    nome: 'Rússia e Ucrânia',
+    icon: 'shield-outline',
+  },
+  {
+    nome: 'BRICS',
+    icon: 'people-outline',
+  },
+  {
+    nome: 'Oriente Médio',
+    icon: 'location-outline',
+  },
+  {
+    nome: 'ONU',
+    icon: 'business-outline',
+  },
+  {
+    nome: 'Economia Mundial',
+    icon: 'trending-up-outline',
+  },
+  {
+    nome: 'Geopolítica do Brasil',
+    icon: 'earth-outline',
+  },
 ];
 
 export default function Pagina4() {
@@ -37,32 +66,45 @@ export default function Pagina4() {
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}
     >
+      {/* ÍCONE */}
+
       <View style={styles.topIcon}>
-        <Ionicons name="search" size={28} color="#3366CC" />
+        <Ionicons
+          name="earth-outline"
+          size={29}
+          color="#D1AD69"
+        />
       </View>
 
-      <Text style={styles.eyebrow}>BIBLIOTECA DIGITAL</Text>
+      {/* APRESENTAÇÃO */}
+
+      <Text style={styles.eyebrow}>
+        CENTRAL DE PESQUISA
+      </Text>
 
       <Text style={styles.title}>
-        O que você deseja descobrir?
+        Explore o cenário mundial.
       </Text>
 
       <Text style={styles.subtitle}>
-        Pesquise um país, uma personalidade,
-        um acontecimento ou qualquer assunto.
+        Descubra países, relações internacionais,
+        conflitos, organizações e acontecimentos
+        que influenciam a política global.
       </Text>
+
+      {/* PESQUISA */}
 
       <View style={styles.searchBox}>
         <Ionicons
           name="search-outline"
           size={22}
-          color="#72777D"
+          color="#718492"
         />
 
         <TextInput
           style={styles.input}
-          placeholder="Digite sua pesquisa..."
-          placeholderTextColor="#92979C"
+          placeholder="Pesquise um país ou assunto..."
+          placeholderTextColor="#929FA8"
           value={pesquisa}
           onChangeText={setPesquisa}
           onSubmitEditing={() => pesquisar()}
@@ -74,7 +116,7 @@ export default function Pagina4() {
             <Ionicons
               name="close-circle"
               size={20}
-              color="#72777D"
+              color="#718492"
             />
           </Pressable>
         )}
@@ -84,55 +126,104 @@ export default function Pagina4() {
         style={styles.button}
         onPress={() => pesquisar()}
       >
-        <Text style={styles.buttonText}>Pesquisar na Wikipédia</Text>
-        <Ionicons name="arrow-forward" size={19} color="#FFFFFF" />
+        <Text style={styles.buttonText}>
+          Pesquisar assunto
+        </Text>
+
+        <Ionicons
+          name="arrow-forward"
+          size={19}
+          color="#FFFFFF"
+        />
       </Pressable>
 
+      {/* SUGESTÕES */}
+
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>
-          Pesquisas sugeridas
-        </Text>
-        <Ionicons name="sparkles-outline" size={19} color="#3366CC" />
+        <View>
+          <Text style={styles.sectionTitle}>
+            Assuntos em destaque
+          </Text>
+
+          <Text style={styles.sectionDescription}>
+            Explore temas importantes da geopolítica.
+          </Text>
+        </View>
+
+        <Ionicons
+          name="globe-outline"
+          size={22}
+          color="#B08B4E"
+        />
       </View>
 
       <View style={styles.suggestions}>
-        {sugestoes.map((item) => (
+        {sugestoes.map((item, index) => (
           <Pressable
-            key={item}
-            style={styles.suggestion}
-            onPress={() => pesquisar(item)}
+            key={item.nome}
+            style={[
+              styles.suggestion,
+              index === sugestoes.length - 1 &&
+                styles.lastSuggestion,
+            ]}
+            onPress={() => pesquisar(item.nome)}
           >
-            <Ionicons
-              name="time-outline"
-              size={17}
-              color="#72777D"
-            />
+            <View style={styles.suggestionIcon}>
+              <Ionicons
+                name={item.icon}
+                size={19}
+                color="#315F78"
+              />
+            </View>
 
             <Text style={styles.suggestionText}>
-              {item}
+              {item.nome}
             </Text>
 
             <Ionicons
-              name="arrow-up-outline"
-              size={16}
-              color="#3366CC"
+              name="arrow-forward"
+              size={17}
+              color="#B08B4E"
             />
           </Pressable>
         ))}
       </View>
 
+      {/* INFORMAÇÃO */}
+
       <View style={styles.tip}>
         <Ionicons
           name="information-circle-outline"
-          size={22}
-          color="#3366CC"
+          size={23}
+          color="#D1AD69"
         />
 
         <Text style={styles.tipText}>
-          As informações serão carregadas diretamente
-          da API da Wikipédia.
+          Pesquise para conhecer a história, os interesses
+          políticos e as relações entre os países.
+          Para acontecimentos recentes, consulte também
+          fontes jornalísticas atualizadas.
         </Text>
       </View>
+
+      {/* FRASE FINAL */}
+
+      <View style={styles.footerCard}>
+        <Ionicons
+          name="earth"
+          size={25}
+          color="#D1AD69"
+        />
+
+        <Text style={styles.footerText}>
+          Conhecimento é a chave para compreender
+          as transformações do mundo.
+        </Text>
+      </View>
+
+      <Text style={styles.footer}>
+        GEOPOLÍTICA MUNDIAL • PESQUISA E CONHECIMENTO
+      </Text>
     </ScrollView>
   );
 }
@@ -140,7 +231,7 @@ export default function Pagina4() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F3F6F8',
   },
 
   content: {
@@ -150,9 +241,9 @@ const styles = StyleSheet.create({
   },
 
   topIcon: {
-    width: 55,
-    height: 55,
-    backgroundColor: '#EEF3FC',
+    width: 57,
+    height: 57,
+    backgroundColor: '#193D50',
     borderRadius: 17,
     alignItems: 'center',
     justifyContent: 'center',
@@ -160,49 +251,50 @@ const styles = StyleSheet.create({
   },
 
   eyebrow: {
-    color: '#3366CC',
+    color: '#B08B4E',
     fontSize: 10,
     fontWeight: '900',
     letterSpacing: 2,
   },
 
   title: {
-    color: '#202122',
+    color: '#193447',
     fontSize: 31,
     fontWeight: '900',
-    lineHeight: 38,
+    lineHeight: 39,
     marginTop: 12,
   },
 
   subtitle: {
-    color: '#54595D',
+    color: '#61727F',
     fontSize: 14,
-    lineHeight: 22,
+    lineHeight: 23,
     marginTop: 12,
-    marginBottom: 26,
+    marginBottom: 27,
   },
 
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#A2A9B1',
-    borderRadius: 13,
+    borderColor: '#D9E1E7',
+    borderRadius: 14,
     paddingHorizontal: 14,
-    height: 57,
+    height: 58,
     gap: 10,
   },
 
   input: {
     flex: 1,
-    fontSize: 14,
-    color: '#202122',
+    fontSize: 13,
+    color: '#193447',
   },
 
   button: {
-    backgroundColor: '#3366CC',
-    height: 53,
-    borderRadius: 12,
+    backgroundColor: '#193D50',
+    height: 54,
+    borderRadius: 13,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -221,42 +313,63 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 37,
-    marginBottom: 14,
+    marginBottom: 16,
   },
 
   sectionTitle: {
-    color: '#202122',
-    fontSize: 18,
+    color: '#193447',
+    fontSize: 19,
     fontWeight: '900',
   },
 
+  sectionDescription: {
+    color: '#8796A1',
+    fontSize: 11,
+    marginTop: 5,
+  },
+
   suggestions: {
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#EAECF0',
-    borderRadius: 15,
+    borderColor: '#E5EAEE',
+    borderRadius: 16,
     paddingHorizontal: 14,
   },
 
   suggestion: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 16,
+    paddingVertical: 14,
     gap: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#EAECF0',
+    borderBottomColor: '#EDF0F2',
+  },
+
+  lastSuggestion: {
+    borderBottomWidth: 0,
+  },
+
+  suggestionIcon: {
+    width: 37,
+    height: 37,
+    borderRadius: 11,
+    backgroundColor: '#E8EFF4',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   suggestionText: {
     flex: 1,
-    color: '#202122',
+    color: '#193447',
     fontSize: 13,
+    fontWeight: '600',
   },
 
   tip: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    backgroundColor: '#F1F5FC',
+    gap: 11,
+    backgroundColor: '#E8EFF4',
     borderRadius: 14,
     padding: 16,
     marginTop: 25,
@@ -264,8 +377,33 @@ const styles = StyleSheet.create({
 
   tipText: {
     flex: 1,
-    color: '#54595D',
+    color: '#526978',
     fontSize: 11,
     lineHeight: 18,
+  },
+
+  footerCard: {
+    backgroundColor: '#193D50',
+    borderRadius: 17,
+    padding: 20,
+    alignItems: 'center',
+    marginTop: 20,
+    gap: 11,
+  },
+
+  footerText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    lineHeight: 21,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+
+  footer: {
+    color: '#8796A1',
+    fontSize: 9,
+    textAlign: 'center',
+    marginTop: 28,
+    letterSpacing: 1,
   },
 });

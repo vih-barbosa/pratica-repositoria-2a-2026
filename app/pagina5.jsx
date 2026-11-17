@@ -14,7 +14,6 @@ import {
 
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { theme } from './theme';
 
 export default function Pagina5() {
   const { pais } = useLocalSearchParams();
@@ -25,7 +24,7 @@ export default function Pagina5() {
 
   const termo = Array.isArray(pais)
     ? pais[0]
-    : pais || 'Estados Unidos';
+    : pais || 'Geopolítica Mundial';
 
   useEffect(() => {
     let ativo = true;
@@ -52,8 +51,8 @@ export default function Pagina5() {
         if (!resposta.ok) {
           throw new Error(
             resposta.status === 404
-              ? 'Não encontramos esse artigo. Tente outro termo.'
-              : 'Não foi possível acessar a Wikipédia. Tente novamente.'
+              ? 'Não encontramos esse artigo. Experimente outro assunto.'
+              : 'Não foi possível acessar a enciclopédia. Tente novamente.'
           );
         }
 
@@ -65,7 +64,9 @@ export default function Pagina5() {
 
       } catch (error) {
         if (ativo) {
-          setErro(error.message || 'Ocorreu um erro na pesquisa.');
+          setErro(
+            error.message || 'Ocorreu um erro na pesquisa.'
+          );
         }
       } finally {
         if (ativo) {
@@ -83,48 +84,54 @@ export default function Pagina5() {
     };
   }, [termo]);
 
+  // CARREGAMENTO
+
   if (carregando) {
     return (
       <View style={styles.center}>
         <View style={styles.loadingIcon}>
           <Ionicons
-            name="globe-outline"
-            size={35}
-            color="#3366CC"
+            name="earth-outline"
+            size={36}
+            color="#D1AD69"
           />
         </View>
 
         <ActivityIndicator
           size="large"
-          color="#3366CC"
+          color="#D1AD69"
         />
 
         <Text style={styles.loadingTitle}>
-          Consultando a enciclopédia
+          Analisando informações
         </Text>
 
         <Text style={styles.loadingText}>
-          Buscando informações sobre {termo}...
+          Consultando dados sobre {termo}...
         </Text>
       </View>
     );
   }
 
+  // ERRO
+
   if (erro || !dados) {
     return (
       <View style={styles.center}>
-        <Ionicons
-          name="document-text-outline"
-          size={55}
-          color="#A2A9B1"
-        />
+        <View style={styles.errorIcon}>
+          <Ionicons
+            name="document-text-outline"
+            size={42}
+            color="#B08B4E"
+          />
+        </View>
 
         <Text style={styles.errorTitle}>
           Artigo indisponível
         </Text>
 
         <Text style={styles.errorText}>
-          {erro || 'Não encontramos informações.'}
+          {erro || 'Não encontramos informações sobre esse assunto.'}
         </Text>
 
         <Pressable
@@ -134,6 +141,12 @@ export default function Pagina5() {
           <Text style={styles.buttonText}>
             Voltar para pesquisa
           </Text>
+
+          <Ionicons
+            name="arrow-forward"
+            size={18}
+            color="#FFFFFF"
+          />
         </Pressable>
       </View>
     );
@@ -162,20 +175,31 @@ export default function Pagina5() {
           <Ionicons
             name="arrow-back"
             size={21}
-            color="#202122"
+            color="#FFFFFF"
           />
         </Pressable>
 
-        <View>
-          <Text style={styles.brand}>ENCICLOPÉDIA</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.brand}>
+            GEOPOLÍTICA MUNDIAL
+          </Text>
+
           <Text style={styles.brandSubtitle}>
-            ARTIGOS E CONHECIMENTO
+            ANÁLISES E RELAÇÕES INTERNACIONAIS
           </Text>
         </View>
+
+        <Ionicons
+          name="globe-outline"
+          size={26}
+          color="#D1AD69"
+        />
       </View>
 
+      {/* IDENTIFICAÇÃO */}
+
       <Text style={styles.eyebrow}>
-        ARTIGO • WIKIPÉDIA
+        <Text>ARTIGO • CENÁRIO INTERNACIONAL</Text>
       </Text>
 
       <Text style={styles.title}>
@@ -198,9 +222,17 @@ export default function Pagina5() {
             resizeMode="contain"
           />
 
-          <Text style={styles.imageCaption}>
-            Imagem ilustrativa do artigo
-          </Text>
+          <View style={styles.imageCaptionBox}>
+            <Ionicons
+              name="camera-outline"
+              size={14}
+              color="#D1AD69"
+            />
+
+            <Text style={styles.imageCaption}>
+              Imagem ilustrativa do assunto
+            </Text>
+          </View>
         </View>
       ) : null}
 
@@ -208,20 +240,52 @@ export default function Pagina5() {
 
       <View style={styles.articleCard}>
         <View style={styles.articleHeading}>
-          <Ionicons
-            name="book-outline"
-            size={22}
-            color="#3366CC"
-          />
+          <View style={styles.articleIcon}>
+            <Ionicons
+              name="newspaper-outline"
+              size={21}
+              color="#D1AD69"
+            />
+          </View>
 
-          <Text style={styles.articleTitle}>
-            Sobre o assunto
-          </Text>
+          <View>
+            <Text style={styles.articleTitle}>
+              Panorama geral
+            </Text>
+
+            <Text style={styles.articleSubtitle}>
+              Conheça o assunto
+            </Text>
+          </View>
         </View>
 
         <Text style={styles.extract}>
-          {dados.extract || 'Não há um resumo disponível para este artigo.'}
+          {dados.extract ||
+            'Não há um resumo disponível para este artigo.'}
         </Text>
+      </View>
+
+      {/* CONTEXTO */}
+
+      <View style={styles.contextCard}>
+        <Ionicons
+          name="earth-outline"
+          size={25}
+          color="#D1AD69"
+        />
+
+        <View style={{ flex: 1 }}>
+          <Text style={styles.contextTitle}>
+            Contexto internacional
+          </Text>
+
+          <Text style={styles.contextText}>
+            Compreender os acontecimentos mundiais
+            permite analisar as relações entre os países,
+            seus interesses políticos e econômicos
+            e os impactos na sociedade.
+          </Text>
+        </View>
       </View>
 
       {/* INFORMAÇÕES */}
@@ -232,28 +296,47 @@ export default function Pagina5() {
         </Text>
 
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Título</Text>
+          <Text style={styles.detailLabel}>
+            Título
+          </Text>
+
           <Text style={styles.detailValue}>
             {dados.title}
           </Text>
         </View>
 
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Idioma</Text>
+          <Text style={styles.detailLabel}>
+            Idioma
+          </Text>
+
           <Text style={styles.detailValue}>
             Português
           </Text>
         </View>
 
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Fonte</Text>
+          <Text style={styles.detailLabel}>
+            Fonte
+          </Text>
+
           <Text style={styles.detailValue}>
             Wikipédia
           </Text>
         </View>
+
+        <View style={styles.detailRow}>
+          <Text style={styles.detailLabel}>
+            Categoria
+          </Text>
+
+          <Text style={styles.detailValue}>
+            Geopolítica
+          </Text>
+        </View>
       </View>
 
-      {/* BOTÃO DO ARTIGO */}
+      {/* ARTIGO COMPLETO */}
 
       {artigo ? (
         <Pressable
@@ -272,10 +355,15 @@ export default function Pagina5() {
         </Pressable>
       ) : null}
 
+      {/* RODAPÉ */}
+
       <Text style={styles.footer}>
-        Conteúdo obtido através da API da Wikipédia.
+        GEOPOLÍTICA MUNDIAL • CONHECIMENTO E INFORMAÇÃO
       </Text>
 
+      <Text style={styles.source}>
+        Conteúdo obtido através da API da Wikipédia.
+      </Text>
     </ScrollView>
   );
 }
@@ -283,7 +371,7 @@ export default function Pagina5() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F3F6F8',
   },
 
   content: {
@@ -294,45 +382,54 @@ const styles = StyleSheet.create({
 
   center: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F3F6F8',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 30,
   },
 
   loadingIcon: {
-    width: 75,
-    height: 75,
+    width: 78,
+    height: 78,
     borderRadius: 23,
-    backgroundColor: '#EEF3FC',
+    backgroundColor: '#193D50',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 22,
   },
 
   loadingTitle: {
-    color: '#202122',
-    fontSize: 17,
+    color: '#193447',
+    fontSize: 18,
     fontWeight: 'bold',
     marginTop: 19,
   },
 
   loadingText: {
-    color: '#72777D',
+    color: '#71818D',
     fontSize: 12,
     marginTop: 8,
     textAlign: 'center',
   },
 
+  errorIcon: {
+    width: 75,
+    height: 75,
+    borderRadius: 22,
+    backgroundColor: '#E8EFF4',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   errorTitle: {
-    color: '#202122',
+    color: '#193447',
     fontSize: 21,
     fontWeight: 'bold',
     marginTop: 18,
   },
 
   errorText: {
-    color: '#72777D',
+    color: '#71818D',
     fontSize: 13,
     lineHeight: 21,
     textAlign: 'center',
@@ -343,58 +440,58 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 13,
-    marginBottom: 30,
+    marginBottom: 31,
   },
 
   backButton: {
     width: 43,
     height: 43,
     borderRadius: 13,
-    backgroundColor: '#F1F3F5',
+    backgroundColor: '#193D50',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   brand: {
-    color: '#202122',
-    fontSize: 14,
+    color: '#193447',
+    fontSize: 13,
     fontWeight: '900',
     letterSpacing: 1,
   },
 
   brandSubtitle: {
-    color: '#72777D',
+    color: '#8796A1',
     fontSize: 8,
-    letterSpacing: 1.3,
+    letterSpacing: 1,
     marginTop: 4,
   },
 
   eyebrow: {
-    color: '#3366CC',
-    fontSize: 10,
+    color: '#B08B4E',
+    fontSize: 9,
     fontWeight: '900',
-    letterSpacing: 2,
+    letterSpacing: 1.6,
   },
 
   title: {
-    color: '#202122',
-    fontSize: 32,
+    color: '#193447',
+    fontSize: 31,
     fontWeight: '900',
     lineHeight: 39,
-    marginTop: 10,
+    marginTop: 11,
   },
 
   description: {
-    color: '#54595D',
-    fontSize: 15,
+    color: '#61727F',
+    fontSize: 14,
     lineHeight: 23,
     marginTop: 10,
   },
 
   imageCard: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#EAECF0',
+    borderColor: '#E5EAEE',
     borderRadius: 17,
     padding: 12,
     marginTop: 23,
@@ -405,17 +502,23 @@ const styles = StyleSheet.create({
     height: 205,
   },
 
+  imageCaptionBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 7,
+    marginTop: 10,
+  },
+
   imageCaption: {
-    color: '#72777D',
+    color: '#8796A1',
     fontSize: 10,
-    textAlign: 'center',
-    marginTop: 8,
   },
 
   articleCard: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#EAECF0',
+    borderColor: '#E5EAEE',
     borderRadius: 17,
     padding: 19,
     marginTop: 22,
@@ -424,34 +527,74 @@ const styles = StyleSheet.create({
   articleHeading: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    marginBottom: 14,
+    gap: 12,
+    marginBottom: 16,
+  },
+
+  articleIcon: {
+    width: 43,
+    height: 43,
+    backgroundColor: '#193D50',
+    borderRadius: 13,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   articleTitle: {
-    color: '#202122',
-    fontSize: 18,
+    color: '#193447',
+    fontSize: 17,
     fontWeight: '900',
   },
 
+  articleSubtitle: {
+    color: '#8796A1',
+    fontSize: 10,
+    marginTop: 3,
+  },
+
   extract: {
-    color: '#3D4145',
+    color: '#526572',
     fontSize: 14,
     lineHeight: 25,
     textAlign: 'justify',
   },
 
+  contextCard: {
+    backgroundColor: '#193D50',
+    borderRadius: 17,
+    padding: 18,
+    marginTop: 18,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 13,
+  },
+
+  contextTitle: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+
+  contextText: {
+    color: '#D5E1E8',
+    fontSize: 11,
+    lineHeight: 19,
+    marginTop: 6,
+  },
+
   detailsCard: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5EAEE',
     borderRadius: 16,
     padding: 18,
-    marginTop: 17,
+    marginTop: 18,
   },
 
   detailsTitle: {
-    color: '#202122',
+    color: '#193447',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '900',
     marginBottom: 12,
   },
 
@@ -459,18 +602,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: 12,
-    paddingVertical: 11,
+    paddingVertical: 12,
     borderTopWidth: 1,
-    borderTopColor: '#EAECF0',
+    borderTopColor: '#EDF0F2',
   },
 
   detailLabel: {
-    color: '#72777D',
+    color: '#8796A1',
     fontSize: 12,
   },
 
   detailValue: {
-    color: '#202122',
+    color: '#193447',
     fontSize: 12,
     fontWeight: 'bold',
     flexShrink: 1,
@@ -479,7 +622,7 @@ const styles = StyleSheet.create({
 
   button: {
     flexDirection: 'row',
-    backgroundColor: '#3366CC',
+    backgroundColor: '#193D50',
     padding: 17,
     borderRadius: 13,
     justifyContent: 'center',
@@ -495,9 +638,17 @@ const styles = StyleSheet.create({
   },
 
   footer: {
-    color: '#72777D',
-    fontSize: 10,
+    color: '#71818D',
+    fontSize: 9,
     textAlign: 'center',
-    marginTop: 25,
+    marginTop: 27,
+    letterSpacing: 1,
+  },
+
+  source: {
+    color: '#A0AAB1',
+    fontSize: 9,
+    textAlign: 'center',
+    marginTop: 8,
   },
 });
