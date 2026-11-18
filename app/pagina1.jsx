@@ -1,3 +1,4 @@
+
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
 export default function Pagina1() {
@@ -7,499 +8,675 @@ export default function Pagina1() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
       >
+        {/* SÍMBOLOS DECORATIVOS DE FUNDO */}
+        <Text style={styles.bgSymbol1}>桜</Text>
+        <Text style={styles.bgSymbol2}>日本</Text>
+        <Text style={styles.bgSymbol3}>和</Text>
+        <Text style={styles.bgSymbol4}>富士山</Text>
+        <Text style={styles.bgSymbol5}>✿</Text>
+        <Text style={styles.bgSymbol6}>波</Text>
+        <Text style={styles.bgSymbol7}>☯</Text>
 
-        {/* ELEMENTOS DE FUNDO */}
-        <Text style={styles.code1}>{'{ AI }'}</Text>
-        <Text style={styles.code2}>{'</>'}</Text>
-        <Text style={styles.code3}>01</Text>
-        <Text style={styles.code4}>101</Text>
+        {/* PARTÍCULAS DECORATIVAS */}
+        <View style={styles.petal1} />
+        <View style={styles.petal2} />
+        <View style={styles.petal3} />
+        <View style={styles.petal4} />
+        <View style={styles.petal5} />
 
-        <View style={styles.dot1} />
-        <View style={styles.dot2} />
-        <View style={styles.dot3} />
-
-        {/* CÍRCULO TECNOLÓGICO */}
-        <View style={styles.techCircle}>
-          <Text style={styles.techCircleText}>AI</Text>
+        {/* SELO JAPONÊS */}
+        <View style={styles.seal}>
+          <Text style={styles.sealText}>日本</Text>
+          <Text style={styles.sealSmall}>NIPPON</Text>
         </View>
 
         {/* CABEÇALHO */}
-        <Text style={styles.welcome}>
-          BEM-VINDO AO FUTURO
-        </Text>
-
-        <Text style={styles.title}>
-          Inteligência
-        </Text>
-
-        <Text style={styles.titleBlue}>
-          Artificial
-        </Text>
-
-        <Text style={styles.description}>
-          Explore o universo da inteligência artificial,
-          tecnologia, inovação e novas possibilidades.
-        </Text>
-
-        {/* CÉREBRO / IA */}
-        <View style={styles.aiArea}>
-
-          <View style={styles.aiGlow} />
-
-          <View style={styles.aiCircle}>
-            <Text style={styles.aiIcon}>🧠</Text>
-            <Text style={styles.aiText}>AI</Text>
-          </View>
-
-          {/* NÓS DE CONEXÃO */}
-          <View style={[styles.node, styles.node1]}>
-            <Text style={styles.nodeText}>⚡</Text>
-          </View>
-
-          <View style={[styles.node, styles.node2]}>
-            <Text style={styles.nodeText}>⚙</Text>
-          </View>
-
-          <View style={[styles.node, styles.node3]}>
-            <Text style={styles.nodeText}>∞</Text>
-          </View>
-
-          <View style={[styles.node, styles.node4]}>
-            <Text style={styles.nodeText}>✦</Text>
-          </View>
-
-          {/* LINHAS */}
-          <View style={[styles.line, styles.line1]} />
-          <View style={[styles.line, styles.line2]} />
-          <View style={[styles.line, styles.line3]} />
-          <View style={[styles.line, styles.line4]} />
-
-        </View>
-
-        {/* FRASE */}
-        <View style={styles.quoteCard}>
-
-          <Text style={styles.quoteMark}>
-            AI
+        <View style={styles.header}>
+          <Text style={styles.welcome}>
+            ✦ 伝統 • 美 • 文化 ✦
           </Text>
 
-          <Text style={styles.quote}>
-            A tecnologia transforma
-            possibilidades em realidade.
+          <Text style={styles.title}>
+            Explore o
+          </Text>
+
+          <Text style={styles.titleRed}>
+            Japão
+          </Text>
+
+          <View style={styles.titleDivider}>
+            <View style={styles.dividerLine} />
+            <Text style={styles.dividerSymbol}>桜</Text>
+            <View style={styles.dividerLine} />
+          </View>
+
+          <Text style={styles.description}>
+            Descubra a beleza da terra do sol nascente,
+            onde tradições milenares encontram um
+            futuro extraordinário.
+          </Text>
+        </View>
+
+        {/* ILUSTRAÇÃO CENTRAL */}
+        <View style={styles.japanScene}>
+          <View style={styles.sceneGlow} />
+
+          {/* SOL NASCENTE */}
+          <View style={styles.sun}>
+            <View style={styles.sunInner} />
+          </View>
+
+          {/* NUVENS */}
+          <Text style={styles.cloudLeft}>☁</Text>
+          <Text style={styles.cloudRight}>☁</Text>
+
+          {/* MONTE FUJI */}
+          <View style={styles.fujiMountain}>
+            <Text style={styles.fujiEmoji}>🗻</Text>
+          </View>
+
+          {/* ÁGUA */}
+          <View style={styles.water}>
+            <Text style={styles.waveText}>〰 〜 〰 〜 〰</Text>
+            <Text style={styles.waveText2}>〜 〰 〜 〰</Text>
+          </View>
+
+          {/* TORII */}
+          <View style={styles.torii}>
+            <Text style={styles.toriiEmoji}>⛩️</Text>
+          </View>
+
+          {/* SAKURA */}
+          <Text style={styles.sakuraLeft}>🌸</Text>
+          <Text style={styles.sakuraRight}>🌸</Text>
+
+          <View style={styles.sceneLabel}>
+            <Text style={styles.sceneLabelText}>
+              日本 • JAPAN
+            </Text>
+          </View>
+        </View>
+
+        {/* FRASE JAPONESA */}
+        <View style={styles.quoteCard}>
+          <Text style={styles.quoteKanji}>一期一会</Text>
+
+          <Text style={styles.quoteTranslation}>
+            Ichigo Ichie
           </Text>
 
           <View style={styles.quoteLine} />
 
-          <Text style={styles.quoteAuthor}>
-            — Inteligência Artificial
+          <Text style={styles.quote}>
+            Cada encontro é único.
+            Cada momento é uma nova história.
           </Text>
 
+          <Text style={styles.quoteAuthor}>
+            — Sabedoria japonesa
+          </Text>
+
+          <Text style={styles.quoteDecoration}>❀</Text>
         </View>
 
-        {/* EXPLORE */}
-        <Text style={styles.exploreTitle}>
-          Explore a Inteligência Artificial
-        </Text>
+        {/* DESTINOS */}
+        <View style={styles.sectionHeader}>
+          <View>
+            <Text style={styles.sectionKicker}>
+              旅 • TABI
+            </Text>
+
+            <Text style={styles.exploreTitle}>
+              Lugares incríveis
+            </Text>
+          </View>
+
+          <Text style={styles.sectionKanji}>旅</Text>
+        </View>
 
         <View style={styles.cardsRow}>
-
-          {/* MACHINE LEARNING */}
+          {/* KYOTO */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>🤖</Text>
+            <View style={styles.cardIconWrap}>
+              <Text style={styles.smallIcon}>⛩️</Text>
+            </View>
 
-            <Text style={styles.smallTitle}>
-              Machine
-            </Text>
+            <Text style={styles.smallTitle}>Kyoto</Text>
 
             <Text style={styles.smallText}>
-              Learning
+              Tradição
             </Text>
+
+            <Text style={styles.cardKanji}>京都</Text>
           </View>
 
-          {/* ROBÓTICA */}
+          {/* TOKYO */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>⚙️</Text>
+            <View style={styles.cardIconWrap}>
+              <Text style={styles.smallIcon}>🏮</Text>
+            </View>
 
-            <Text style={styles.smallTitle}>
-              Robótica
-            </Text>
+            <Text style={styles.smallTitle}>Tokyo</Text>
 
             <Text style={styles.smallText}>
-              Automação
+              Modernidade
             </Text>
+
+            <Text style={styles.cardKanji}>東京</Text>
           </View>
 
-          {/* DADOS */}
+          {/* FUJI */}
           <View style={styles.smallCard}>
-            <Text style={styles.smallIcon}>📊</Text>
+            <View style={styles.cardIconWrap}>
+              <Text style={styles.smallIcon}>🗻</Text>
+            </View>
 
-            <Text style={styles.smallTitle}>
-              Dados
-            </Text>
+            <Text style={styles.smallTitle}>Fuji</Text>
 
             <Text style={styles.smallText}>
-              Informação
+              Natureza
             </Text>
-          </View>
 
+            <Text style={styles.cardKanji}>富士山</Text>
+          </View>
         </View>
 
+        {/* RODAPÉ */}
+        <View style={styles.footer}>
+          <Text style={styles.footerSymbol}>日の出</Text>
+
+          <Text style={styles.footerText}>
+            日本へようこそ
+          </Text>
+
+          <Text style={styles.footerTranslation}>
+            Bem-vindo ao Japão
+          </Text>
+
+          <View style={styles.footerLine} />
+
+          <Text style={styles.footerSmall}>
+            JAPAN • CULTURA • HARMONIA
+          </Text>
+        </View>
       </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
-    backgroundColor: '#030712',
+    backgroundColor: '#100C0D',
   },
 
   content: {
     alignItems: 'center',
     paddingHorizontal: 22,
-    paddingTop: 55,
-    paddingBottom: 35,
+    paddingTop: 65,
+    paddingBottom: 40,
+    overflow: 'hidden',
   },
 
-  /* ELEMENTOS DE FUNDO */
+  // FUNDO JAPONÊS
 
-  code1: {
+  bgSymbol1: {
     position: 'absolute',
-    top: 80,
-    left: 18,
-    color: '#00E5FF',
-    opacity: 0.35,
-    fontSize: 16,
-    fontWeight: '800',
+    top: 110,
+    left: 12,
+    color: '#E85D68',
+    opacity: 0.18,
+    fontSize: 48,
+    fontWeight: '900',
   },
 
-  code2: {
+  bgSymbol2: {
     position: 'absolute',
-    top: 170,
-    right: 20,
-    color: '#7C4DFF',
+    top: 330,
+    right: 10,
+    color: '#D8B16A',
+    opacity: 0.17,
+    fontSize: 23,
+    fontWeight: '900',
+    letterSpacing: 4,
+  },
+
+  bgSymbol3: {
+    position: 'absolute',
+    top: 620,
+    left: 20,
+    color: '#E85D68',
+    opacity: 0.16,
+    fontSize: 45,
+  },
+
+  bgSymbol4: {
+    position: 'absolute',
+    top: 820,
+    right: 5,
+    color: '#D8B16A',
+    opacity: 0.13,
+    fontSize: 17,
+  },
+
+  bgSymbol5: {
+    position: 'absolute',
+    top: 210,
+    right: 45,
+    color: '#F3B8B9',
     opacity: 0.4,
-    fontSize: 20,
-    fontWeight: '900',
+    fontSize: 25,
   },
 
-  code3: {
+  bgSymbol6: {
     position: 'absolute',
-    top: 350,
-    left: 15,
-    color: '#00E5FF',
-    opacity: 0.25,
-    fontSize: 18,
-    fontWeight: '800',
+    top: 510,
+    left: 8,
+    color: '#B85B64',
+    opacity: 0.2,
+    fontSize: 38,
   },
 
-  code4: {
+  bgSymbol7: {
     position: 'absolute',
-    top: 450,
-    right: 25,
-    color: '#7C4DFF',
-    opacity: 0.3,
-    fontSize: 15,
-    fontWeight: '900',
+    top: 1030,
+    right: 22,
+    color: '#D8B16A',
+    opacity: 0.16,
+    fontSize: 34,
   },
 
-  dot1: {
+  petal1: {
     position: 'absolute',
-    top: 130,
-    left: 145,
-    width: 5,
-    height: 5,
-    borderRadius: 5,
-    backgroundColor: '#00E5FF',
-    shadowColor: '#00E5FF',
-    shadowOpacity: 1,
-    shadowRadius: 8,
-  },
-
-  dot2: {
-    position: 'absolute',
-    top: 270,
-    right: 90,
+    top: 150,
+    left: 110,
     width: 6,
-    height: 6,
-    borderRadius: 5,
-    backgroundColor: '#7C4DFF',
-    shadowColor: '#7C4DFF',
-    shadowOpacity: 1,
+    height: 9,
+    borderRadius: 8,
+    backgroundColor: '#E98591',
+    transform: [{ rotate: '35deg' }],
+    opacity: 0.8,
+  },
+
+  petal2: {
+    position: 'absolute',
+    top: 280,
+    right: 65,
+    width: 7,
+    height: 10,
+    borderRadius: 8,
+    backgroundColor: '#D8B16A',
+    transform: [{ rotate: '-30deg' }],
+  },
+
+  petal3: {
+    position: 'absolute',
+    top: 470,
+    left: 45,
+    width: 6,
+    height: 9,
+    borderRadius: 8,
+    backgroundColor: '#E98591',
+    transform: [{ rotate: '55deg' }],
+  },
+
+  petal4: {
+    position: 'absolute',
+    top: 700,
+    right: 70,
+    width: 7,
+    height: 10,
+    borderRadius: 8,
+    backgroundColor: '#E98591',
+    transform: [{ rotate: '20deg' }],
+  },
+
+  petal5: {
+    position: 'absolute',
+    top: 960,
+    left: 90,
+    width: 6,
+    height: 9,
+    borderRadius: 8,
+    backgroundColor: '#D8B16A',
+  },
+
+  // SELO
+
+  seal: {
+    position: 'absolute',
+    top: 35,
+    right: 28,
+    width: 57,
+    height: 68,
+    borderWidth: 2,
+    borderColor: '#C94B55',
+    backgroundColor: '#8F202D',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    transform: [{ rotate: '5deg' }],
+    elevation: 8,
+    shadowColor: '#E85D68',
+    shadowOpacity: 0.25,
     shadowRadius: 10,
   },
 
-  dot3: {
-    position: 'absolute',
-    top: 500,
-    left: 100,
-    width: 4,
-    height: 4,
-    borderRadius: 5,
-    backgroundColor: '#00E5FF',
-  },
-
-  /* CÍRCULO TECNOLÓGICO */
-
-  techCircle: {
-    position: 'absolute',
-    top: 40,
-    right: 38,
-    width: 58,
-    height: 58,
-    borderRadius: 30,
-    backgroundColor: '#071B32',
-    borderWidth: 2,
-    borderColor: '#00E5FF',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    shadowColor: '#00E5FF',
-    shadowOpacity: 0.8,
-    shadowRadius: 15,
-    elevation: 10,
-  },
-
-  techCircleText: {
-    color: '#00E5FF',
-    fontSize: 18,
+  sealText: {
+    color: '#FFF0D5',
+    fontSize: 21,
     fontWeight: '900',
+    lineHeight: 27,
   },
 
-  /* TÍTULO */
+  sealSmall: {
+    color: '#F3D7A0',
+    fontSize: 7,
+    letterSpacing: 1.5,
+    marginTop: 2,
+  },
+
+  // CABEÇALHO
+
+  header: {
+    alignItems: 'center',
+    width: '100%',
+  },
 
   welcome: {
-    color: '#00E5FF',
+    color: '#D8B16A',
     fontSize: 11,
-    fontWeight: '900',
-    letterSpacing: 4,
-    marginBottom: 8,
+    fontWeight: '800',
+    letterSpacing: 3,
+    marginBottom: 17,
   },
 
   title: {
-    color: '#FFFFFF',
-    fontSize: 37,
-    fontWeight: '800',
-    lineHeight: 42,
+    color: '#F7EDE0',
+    fontSize: 36,
+    fontWeight: '300',
+    lineHeight: 43,
   },
 
-  titleBlue: {
-    color: '#00E5FF',
-    fontSize: 42,
+  titleRed: {
+    color: '#E85D68',
+    fontSize: 55,
     fontWeight: '900',
-    lineHeight: 45,
-
-    textShadowColor: '#00E5FF',
-    textShadowOpacity: 0.5,
-    textShadowRadius: 15,
+    lineHeight: 63,
+    letterSpacing: 1,
+    textShadowColor: '#9E2736',
+    textShadowOpacity: 0.45,
+    textShadowRadius: 18,
   },
 
-  description: {
-    color: '#91A7C5',
-    textAlign: 'center',
-    fontSize: 14,
-    lineHeight: 21,
-    marginTop: 14,
-    maxWidth: 310,
-  },
-
-  /* ÁREA DA IA */
-
-  aiArea: {
-    width: 310,
-    height: 280,
+  titleDivider: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'relative',
-    marginTop: 8,
+    gap: 12,
+    marginTop: 13,
   },
 
-  aiGlow: {
-    position: 'absolute',
-    width: 210,
-    height: 210,
-    borderRadius: 110,
-    backgroundColor: '#083B5C',
-    opacity: 0.5,
+  dividerLine: {
+    width: 50,
+    height: 1,
+    backgroundColor: '#9E6B47',
   },
 
-  aiCircle: {
-    width: 175,
-    height: 175,
-    borderRadius: 90,
-
-    backgroundColor: '#071B32',
-
-    borderWidth: 3,
-    borderColor: '#00E5FF',
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    shadowColor: '#00E5FF',
-    shadowOpacity: 0.7,
-    shadowRadius: 25,
-
-    elevation: 15,
-  },
-
-  aiIcon: {
-    fontSize: 70,
-  },
-
-  aiText: {
-    color: '#00E5FF',
-    fontSize: 20,
-    fontWeight: '900',
-    letterSpacing: 3,
-    marginTop: 5,
-  },
-
-  /* NÓS */
-
-  node: {
-    position: 'absolute',
-    width: 55,
-    height: 55,
-    borderRadius: 30,
-
-    backgroundColor: '#0A1930',
-
-    borderWidth: 2,
-    borderColor: '#7C4DFF',
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    shadowColor: '#7C4DFF',
-    shadowOpacity: 0.6,
-    shadowRadius: 12,
-  },
-
-  nodeText: {
-    color: '#FFFFFF',
+  dividerSymbol: {
+    color: '#D8B16A',
     fontSize: 22,
   },
 
-  node1: {
-    top: 20,
-    left: 25,
+  description: {
+    color: '#C5B7AC',
+    textAlign: 'center',
+    fontSize: 14,
+    lineHeight: 23,
+    marginTop: 17,
+    maxWidth: 310,
   },
 
-  node2: {
-    top: 15,
-    right: 25,
+  // CENA CENTRAL
+
+  japanScene: {
+    width: '100%',
+    height: 330,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    marginTop: 18,
+    overflow: 'hidden',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#55302C',
+    backgroundColor: '#25171A',
   },
 
-  node3: {
-    bottom: 20,
-    left: 30,
-  },
-
-  node4: {
-    bottom: 15,
-    right: 25,
-  },
-
-  /* LINHAS DE CONEXÃO */
-
-  line: {
+  sceneGlow: {
     position: 'absolute',
-    height: 2,
-    backgroundColor: '#00E5FF',
+    top: 20,
+    width: 230,
+    height: 230,
+    borderRadius: 120,
+    backgroundColor: '#68262F',
+    opacity: 0.4,
+  },
+
+  sun: {
+    position: 'absolute',
+    top: 33,
+    width: 125,
+    height: 125,
+    borderRadius: 65,
+    backgroundColor: '#D84B53',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#F35F63',
+    shadowOpacity: 0.5,
+    shadowRadius: 28,
+  },
+
+  sunInner: {
+    width: 102,
+    height: 102,
+    borderRadius: 55,
+    borderWidth: 1,
+    borderColor: '#F6B77D',
+    opacity: 0.65,
+  },
+
+  cloudLeft: {
+    position: 'absolute',
+    top: 92,
+    left: 18,
+    fontSize: 31,
+    color: '#C8A3A0',
     opacity: 0.5,
   },
 
-  line1: {
-    width: 55,
-    transform: [{ rotate: '25deg' }],
-    top: 75,
-    left: 75,
+  cloudRight: {
+    position: 'absolute',
+    top: 112,
+    right: 18,
+    fontSize: 29,
+    color: '#C8A3A0',
+    opacity: 0.45,
   },
 
-  line2: {
-    width: 55,
-    transform: [{ rotate: '-25deg' }],
-    top: 70,
-    right: 75,
-  },
-
-  line3: {
-    width: 60,
-    transform: [{ rotate: '-25deg' }],
-    bottom: 72,
-    left: 75,
-  },
-
-  line4: {
-    width: 60,
-    transform: [{ rotate: '25deg' }],
-    bottom: 68,
-    right: 70,
-  },
-
-  /* CARD DA FRASE */
-
-  quoteCard: {
-    width: '100%',
-
-    backgroundColor: '#08182D',
-
-    borderRadius: 22,
-
-    padding: 22,
-
+  fujiMountain: {
+    position: 'absolute',
+    top: 93,
     alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
 
-    borderWidth: 1,
-    borderColor: '#123B5C',
+  fujiEmoji: {
+    fontSize: 118,
+    textAlign: 'center',
+    textShadowColor: '#100C0D',
+    textShadowRadius: 12,
+  },
 
-    shadowColor: '#00E5FF',
-    shadowOpacity: 0.15,
-    shadowRadius: 15,
+  water: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: 86,
+    backgroundColor: '#172B35',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopWidth: 1,
+    borderColor: '#B77B66',
+  },
 
+  waveText: {
+    color: '#D8B16A',
+    fontSize: 20,
+    letterSpacing: 2,
+    opacity: 0.85,
+  },
+
+  waveText2: {
+    color: '#E9A6A0',
+    fontSize: 18,
+    letterSpacing: 3,
     marginTop: 5,
   },
 
-  quoteMark: {
-    color: '#00E5FF',
-    fontSize: 20,
-    fontWeight: '900',
-    letterSpacing: 3,
+  torii: {
+    position: 'absolute',
+    bottom: 45,
+    right: 24,
+    zIndex: 2,
   },
 
-  quote: {
-    color: '#FFFFFF',
-    fontSize: 19,
-    fontStyle: 'italic',
-    textAlign: 'center',
-    lineHeight: 27,
-    marginTop: 8,
+  toriiEmoji: {
+    fontSize: 52,
+  },
+
+  sakuraLeft: {
+    position: 'absolute',
+    bottom: 76,
+    left: 14,
+    fontSize: 37,
+  },
+
+  sakuraRight: {
+    position: 'absolute',
+    top: 18,
+    right: 15,
+    fontSize: 28,
+  },
+
+  sceneLabel: {
+    position: 'absolute',
+    bottom: 12,
+    left: 15,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 5,
+    backgroundColor: '#100C0D',
+    borderWidth: 1,
+    borderColor: '#9B4A4E',
+  },
+
+  sceneLabelText: {
+    color: '#F0D6A0',
+    fontSize: 10,
+    fontWeight: '800',
+    letterSpacing: 2,
+  },
+
+  // FRASE
+
+  quoteCard: {
+    width: '100%',
+    marginTop: 22,
+    padding: 23,
+    alignItems: 'center',
+    backgroundColor: '#1D1416',
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#674037',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+
+  quoteKanji: {
+    color: '#E85D68',
+    fontSize: 36,
+    fontWeight: '900',
+    letterSpacing: 5,
+  },
+
+  quoteTranslation: {
+    color: '#D8B16A',
+    fontSize: 11,
+    letterSpacing: 3,
+    marginTop: 5,
   },
 
   quoteLine: {
-    width: 45,
+    width: 48,
     height: 2,
-    backgroundColor: '#00E5FF',
-    marginVertical: 12,
+    backgroundColor: '#C94B55',
+    marginVertical: 17,
+  },
+
+  quote: {
+    color: '#F5E9DE',
+    fontSize: 17,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    lineHeight: 26,
   },
 
   quoteAuthor: {
-    color: '#7188AA',
-    fontSize: 12,
+    color: '#AE978A',
+    fontSize: 11,
+    marginTop: 13,
   },
 
-  /* EXPLORE */
+  quoteDecoration: {
+    position: 'absolute',
+    right: 10,
+    bottom: 3,
+    fontSize: 35,
+    color: '#E85D68',
+    opacity: 0.18,
+  },
+
+  // DESTINOS
+
+  sectionHeader: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 32,
+    marginBottom: 16,
+  },
+
+  sectionKicker: {
+    color: '#D8B16A',
+    fontSize: 10,
+    fontWeight: '800',
+    letterSpacing: 3,
+    marginBottom: 5,
+  },
 
   exploreTitle: {
-    alignSelf: 'flex-start',
-    color: '#FFFFFF',
-    fontSize: 20,
+    color: '#F7EDE0',
+    fontSize: 22,
     fontWeight: '800',
-    marginTop: 28,
-    marginBottom: 14,
+  },
+
+  sectionKanji: {
+    color: '#E85D68',
+    fontSize: 38,
+    fontWeight: '900',
   },
 
   cardsRow: {
@@ -509,41 +686,94 @@ const styles = StyleSheet.create({
   },
 
   smallCard: {
-    width: '31%',
-
-    backgroundColor: '#081A34',
-
-    borderRadius: 17,
-
+    width: '31.5%',
+    minHeight: 160,
+    backgroundColor: '#211719',
+    borderRadius: 14,
     paddingVertical: 16,
-
+    paddingHorizontal: 4,
     alignItems: 'center',
-
     borderWidth: 1,
-    borderColor: '#16456A',
+    borderColor: '#56342F',
+  },
 
-    shadowColor: '#00E5FF',
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
+  cardIconWrap: {
+    width: 53,
+    height: 53,
+    borderRadius: 28,
+    backgroundColor: '#382022',
+    borderWidth: 1,
+    borderColor: '#855048',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
   },
 
   smallIcon: {
-    fontSize: 28,
-    marginBottom: 7,
+    fontSize: 26,
   },
 
   smallTitle: {
-    color: '#FFFFFF',
-    fontSize: 12,
+    color: '#F7EDE0',
+    fontSize: 13,
     fontWeight: '800',
-    textAlign: 'center',
   },
 
   smallText: {
-    color: '#6F9FC7',
+    color: '#C3A28B',
     fontSize: 10,
-    marginTop: 3,
+    marginTop: 5,
+    textAlign: 'center',
   },
 
-});
+  cardKanji: {
+    color: '#D8B16A',
+    fontSize: 13,
+    marginTop: 9,
+    fontWeight: '700',
+  },
 
+  // RODAPÉ
+
+  footer: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 36,
+    paddingTop: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#50312D',
+  },
+
+  footerSymbol: {
+    color: '#E85D68',
+    fontSize: 25,
+    fontWeight: '900',
+    letterSpacing: 5,
+  },
+
+  footerText: {
+    color: '#F7EDE0',
+    fontSize: 17,
+    fontWeight: '700',
+    marginTop: 10,
+  },
+
+  footerTranslation: {
+    color: '#C3A28B',
+    fontSize: 12,
+    marginTop: 5,
+  },
+
+  footerLine: {
+    width: 35,
+    height: 2,
+    backgroundColor: '#D8B16A',
+    marginVertical: 16,
+  },
+
+  footerSmall: {
+    color: '#8F7469',
+    fontSize: 9,
+    letterSpacing: 3,
+  },
+});

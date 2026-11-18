@@ -1,3 +1,4 @@
+
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 export default function Pagina3() {
@@ -7,492 +8,622 @@ export default function Pagina3() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
       >
+        {/* SÍMBOLOS DE FUNDO */}
+        <Text style={styles.bg1}>桜</Text>
+        <Text style={styles.bg2}>日本</Text>
+        <Text style={styles.bg3}>和</Text>
+        <Text style={styles.bg4}>旅</Text>
+        <Text style={styles.bg5}>波</Text>
+        <Text style={styles.bg6}>✿</Text>
 
-    
-        <Text style={styles.code1}>{'{ AI }'}</Text>
-        <Text style={styles.code2}>01</Text>
-        <Text style={styles.code3}>{'</>'}</Text>
-        <Text style={styles.code4}>101</Text>
+        {/* PÉTALAS DECORATIVAS */}
+        <View style={styles.petal1} />
+        <View style={styles.petal2} />
+        <View style={styles.petal3} />
+        <View style={styles.petal4} />
 
-        <View style={styles.dot1} />
-        <View style={styles.dot2} />
-        <View style={styles.dot3} />
+        {/* SELO */}
+        <View style={styles.seal}>
+          <Text style={styles.sealText}>旅</Text>
+          <Text style={styles.sealSmall}>TABI</Text>
+        </View>
 
-        
+        {/* CABEÇALHO */}
         <Text style={styles.smallTitle}>
-          MEU SISTEMA
+          ✦ 私のプロフィール ✦
         </Text>
 
         <Text style={styles.title}>
-          Perfil da IA
+          Meu Perfil
         </Text>
+
+        <View style={styles.titleDivider}>
+          <View style={styles.dividerLine} />
+          <Text style={styles.dividerSymbol}>🌸</Text>
+          <View style={styles.dividerLine} />
+        </View>
 
         <Text style={styles.subtitle}>
-          Conheça as características e capacidades
-          do seu assistente inteligente.
+          Explore seus interesses e descubra
+          tudo o que faz do Japão um lugar especial.
         </Text>
 
+        {/* AVATAR */}
         <View style={styles.avatarContainer}>
-
           <View style={styles.avatarGlow} />
 
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>🤖</Text>
+            <Text style={styles.avatarText}>👘</Text>
           </View>
 
           <View style={styles.online}>
             <View style={styles.onlineDot} />
-
             <Text style={styles.onlineText}>
-              Sistema online
+              Explorador do Japão
             </Text>
           </View>
-
         </View>
 
-  
+        {/* CARTÃO DO PERFIL */}
         <View style={styles.profileCard}>
+          <View style={styles.profileHeading}>
+            <View>
+              <Text style={styles.cardKicker}>
+                日本 • NIHON
+              </Text>
 
-          <Text style={styles.cardTitle}>
-            Assistente IA
-          </Text>
+              <Text style={styles.cardTitle}>
+                Viajante Japonês
+              </Text>
+            </View>
+
+            <View style={styles.miniSeal}>
+              <Text style={styles.miniSealText}>和</Text>
+            </View>
+          </View>
 
           <Text style={styles.cardDescription}>
-            Um sistema inteligente desenvolvido para
-            processar informações, aprender padrões
-            e auxiliar em diferentes tarefas.
+            Um apaixonado pela cultura japonesa,
+            suas paisagens, tradições, gastronomia
+            e experiências inesquecíveis.
           </Text>
 
+          {/* INFORMAÇÕES */}
           <View style={styles.infoLine}>
-
             <View style={styles.iconBox}>
-              <Text style={styles.icon}>🧠</Text>
+              <Text style={styles.icon}>⛩️</Text>
             </View>
 
-            <View>
-              <Text style={styles.label}>
-                MODELO
-              </Text>
-
+            <View style={styles.infoContent}>
+              <Text style={styles.label}>INTERESSE</Text>
               <Text style={styles.value}>
-                Inteligência Artificial
+                Cultura e tradição
               </Text>
             </View>
 
+            <Text style={styles.infoKanji}>文化</Text>
           </View>
 
-        
           <View style={styles.infoLine}>
-
             <View style={styles.iconBox}>
-              <Text style={styles.icon}>⚡</Text>
+              <Text style={styles.icon}>🗻</Text>
             </View>
 
-            <View>
-              <Text style={styles.label}>
-                PROCESSAMENTO
-              </Text>
-
+            <View style={styles.infoContent}>
+              <Text style={styles.label}>DESTINO FAVORITO</Text>
               <Text style={styles.value}>
-                Alta performance
+                Monte Fuji
               </Text>
             </View>
 
+            <Text style={styles.infoKanji}>富士山</Text>
           </View>
 
-       
           <View style={styles.infoLine}>
-
             <View style={styles.iconBox}>
-              <Text style={styles.icon}>📚</Text>
+              <Text style={styles.icon}>🍜</Text>
             </View>
 
-            <View>
-              <Text style={styles.label}>
-                APRENDIZADO
-              </Text>
-
+            <View style={styles.infoContent}>
+              <Text style={styles.label}>GASTRONOMIA</Text>
               <Text style={styles.value}>
-                Machine Learning
+                Sabores japoneses
               </Text>
             </View>
 
+            <Text style={styles.infoKanji}>料理</Text>
           </View>
 
-     
           <View style={styles.infoLine}>
-
             <View style={styles.iconBox}>
-              <Text style={styles.icon}>🌐</Text>
+              <Text style={styles.icon}>🌸</Text>
             </View>
 
-            <View>
-              <Text style={styles.label}>
-                CONEXÃO
-              </Text>
-
+            <View style={styles.infoContent}>
+              <Text style={styles.label}>ESTAÇÃO FAVORITA</Text>
               <Text style={styles.value}>
-                Rede neural
+                Primavera
               </Text>
             </View>
 
+            <Text style={styles.infoKanji}>春</Text>
           </View>
-
         </View>
 
+        {/* INTERESSES */}
         <View style={styles.capabilitiesCard}>
+          <Text style={styles.sectionKicker}>
+            好きなこと • SUKI
+          </Text>
 
           <Text style={styles.capabilitiesTitle}>
-            Capacidades
+            Meus interesses
           </Text>
 
           <View style={styles.tagsRow}>
-
             <View style={styles.tag}>
               <Text style={styles.tagText}>
-                💬 Conversação
+                🌸 Sakura
               </Text>
             </View>
 
             <View style={styles.tag}>
               <Text style={styles.tagText}>
-                💡 Criatividade
+                ⛩️ Templos
               </Text>
             </View>
 
             <View style={styles.tag}>
               <Text style={styles.tagText}>
-                📊 Análise
+                🍣 Sushi
               </Text>
             </View>
 
             <View style={styles.tag}>
               <Text style={styles.tagText}>
-                💻 Código
+                🏮 Festivais
               </Text>
             </View>
 
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>
+                🏯 Castelos
+              </Text>
+            </View>
+
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>
+                🎎 Tradições
+              </Text>
+            </View>
           </View>
-
         </View>
 
+        {/* FRASE JAPONESA */}
         <View style={styles.quoteCard}>
+          <Text style={styles.quoteKanji}>
+            七転び八起き
+          </Text>
+
+          <Text style={styles.quoteTranslation}>
+            NANAKOROBI YAOKI
+          </Text>
+
+          <View style={styles.quoteLine} />
 
           <Text style={styles.quote}>
-            “O futuro pertence àqueles que
-            transformam ideias em possibilidades.”
+            “Caia sete vezes, levante-se oito.
+            A verdadeira força está em continuar.”
           </Text>
-
-          <View style={styles.line} />
 
           <Text style={styles.author}>
-            — Inteligência Artificial
+            — Provérbio japonês
           </Text>
 
+          <Text style={styles.quoteFlower}>🌸</Text>
         </View>
 
-   
-        <Text style={styles.footer}>
-          ✦ Sistema conectado ao futuro ✦
-        </Text>
+        {/* RODAPÉ */}
+        <View style={styles.footer}>
+          <Text style={styles.footerJapanese}>
+            日本の旅
+          </Text>
 
+          <Text style={styles.footerText}>
+            Sua jornada pelo Japão começa aqui.
+          </Text>
+
+          <View style={styles.footerLine} />
+
+          <Text style={styles.footerSmall}>
+            JAPAN • CULTURA • HARMONIA
+          </Text>
+        </View>
       </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
-    backgroundColor: '#030712',
+    backgroundColor: '#100C0D',
   },
 
   content: {
     alignItems: 'center',
     paddingHorizontal: 22,
-    paddingTop: 55,
+    paddingTop: 65,
     paddingBottom: 40,
+    overflow: 'hidden',
   },
 
+  // FUNDO
 
-  code1: {
+  bg1: {
     position: 'absolute',
-    top: 65,
+    top: 130,
+    left: 8,
+    color: '#E85D68',
+    opacity: 0.15,
+    fontSize: 48,
+    fontWeight: '900',
+  },
+
+  bg2: {
+    position: 'absolute',
+    top: 350,
+    right: 10,
+    color: '#D8B16A',
+    opacity: 0.15,
+    fontSize: 24,
+    letterSpacing: 4,
+  },
+
+  bg3: {
+    position: 'absolute',
+    top: 650,
+    left: 12,
+    color: '#E85D68',
+    opacity: 0.14,
+    fontSize: 43,
+  },
+
+  bg4: {
+    position: 'absolute',
+    top: 950,
+    right: 15,
+    color: '#D8B16A',
+    opacity: 0.16,
+    fontSize: 38,
+  },
+
+  bg5: {
+    position: 'absolute',
+    top: 510,
+    right: 8,
+    color: '#B85B64',
+    opacity: 0.18,
+    fontSize: 38,
+  },
+
+  bg6: {
+    position: 'absolute',
+    bottom: 120,
     left: 20,
-    color: '#00E5FF',
-    opacity: 0.35,
-    fontSize: 15,
-    fontWeight: '900',
+    color: '#D8B16A',
+    opacity: 0.15,
+    fontSize: 30,
   },
 
-  code2: {
+  petal1: {
     position: 'absolute',
-    top: 155,
-    right: 25,
-    color: '#7C4DFF',
-    opacity: 0.35,
-    fontSize: 18,
-    fontWeight: '900',
+    top: 180,
+    left: 100,
+    width: 7,
+    height: 10,
+    borderRadius: 8,
+    backgroundColor: '#E98591',
+    transform: [{ rotate: '35deg' }],
   },
 
-  code3: {
+  petal2: {
     position: 'absolute',
-    top: 390,
-    left: 15,
-    color: '#00E5FF',
-    opacity: 0.3,
-    fontSize: 20,
-    fontWeight: '900',
-  },
-
-  code4: {
-    position: 'absolute',
-    bottom: 130,
-    right: 25,
-    color: '#7C4DFF',
-    opacity: 0.3,
-    fontSize: 16,
-    fontWeight: '900',
-  },
-
-  dot1: {
-    position: 'absolute',
-    top: 125,
-    right: 75,
-    width: 5,
-    height: 5,
-    borderRadius: 5,
-    backgroundColor: '#00E5FF',
-
-    shadowColor: '#00E5FF',
-    shadowOpacity: 1,
-    shadowRadius: 8,
-  },
-
-  dot2: {
-    position: 'absolute',
-    top: 330,
-    right: 25,
+    top: 400,
+    right: 55,
     width: 6,
-    height: 6,
-    borderRadius: 5,
-    backgroundColor: '#7C4DFF',
-
-    shadowColor: '#7C4DFF',
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    height: 9,
+    borderRadius: 8,
+    backgroundColor: '#D8B16A',
+    transform: [{ rotate: '-25deg' }],
   },
 
-  dot3: {
+  petal3: {
     position: 'absolute',
-    bottom: 260,
-    left: 35,
-    width: 4,
-    height: 4,
-    borderRadius: 5,
-    backgroundColor: '#00E5FF',
+    top: 750,
+    left: 45,
+    width: 7,
+    height: 10,
+    borderRadius: 8,
+    backgroundColor: '#E98591',
+    transform: [{ rotate: '50deg' }],
   },
 
+  petal4: {
+    position: 'absolute',
+    bottom: 280,
+    right: 65,
+    width: 6,
+    height: 9,
+    borderRadius: 8,
+    backgroundColor: '#D8B16A',
+  },
 
+  // SELO JAPONÊS
+
+  seal: {
+    position: 'absolute',
+    top: 28,
+    right: 27,
+    width: 52,
+    height: 64,
+    borderWidth: 2,
+    borderColor: '#C94B55',
+    backgroundColor: '#8F202D',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    transform: [{ rotate: '5deg' }],
+    elevation: 5,
+  },
+
+  sealText: {
+    color: '#FFF0D5',
+    fontSize: 27,
+    fontWeight: '900',
+  },
+
+  sealSmall: {
+    color: '#F3D7A0',
+    fontSize: 8,
+    letterSpacing: 2,
+  },
+
+  // CABEÇALHO
 
   smallTitle: {
-    color: '#00E5FF',
-    fontSize: 11,
+    color: '#D8B16A',
+    fontSize: 10,
     fontWeight: '900',
-    letterSpacing: 4,
-    marginBottom: 8,
+    letterSpacing: 2,
+    marginBottom: 10,
   },
 
   title: {
-    color: '#FFFFFF',
-    fontSize: 37,
+    color: '#F7EDE0',
+    fontSize: 35,
     fontWeight: '900',
   },
 
+  titleDivider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 12,
+    marginTop: 13,
+  },
+
+  dividerLine: {
+    width: 42,
+    height: 1,
+    backgroundColor: '#9B5B46',
+  },
+
+  dividerSymbol: {
+    fontSize: 20,
+  },
+
   subtitle: {
-    color: '#8EA6C8',
+    color: '#C5B7AC',
     fontSize: 14,
     textAlign: 'center',
-    lineHeight: 21,
-    marginTop: 12,
+    lineHeight: 22,
+    marginTop: 15,
     maxWidth: 310,
   },
 
-
+  // AVATAR
 
   avatarContainer: {
     alignItems: 'center',
-    marginTop: 25,
-    marginBottom: 20,
+    marginTop: 27,
+    marginBottom: 25,
     position: 'relative',
   },
 
   avatarGlow: {
     position: 'absolute',
-
-    width: 145,
-    height: 145,
-
-    borderRadius: 75,
-
-    backgroundColor: '#063B55',
-    opacity: 0.5,
+    width: 150,
+    height: 150,
+    borderRadius: 80,
+    backgroundColor: '#7D2933',
+    opacity: 0.32,
   },
 
   avatar: {
-    width: 110,
-    height: 110,
-
+    width: 115,
+    height: 115,
     borderRadius: 60,
-
-    backgroundColor: '#071B32',
-
+    backgroundColor: '#291719',
     borderWidth: 3,
-    borderColor: '#00E5FF',
-
+    borderColor: '#C94B55',
     alignItems: 'center',
     justifyContent: 'center',
-
-    shadowColor: '#00E5FF',
-    shadowOpacity: 0.7,
+    shadowColor: '#E85D68',
+    shadowOpacity: 0.35,
     shadowRadius: 20,
-
-    elevation: 12,
+    elevation: 10,
   },
 
   avatarText: {
-    fontSize: 58,
+    fontSize: 59,
   },
 
   online: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 13,
+    backgroundColor: '#211719',
+    borderWidth: 1,
+    borderColor: '#56342F',
+    paddingHorizontal: 13,
+    paddingVertical: 7,
+    borderRadius: 20,
   },
 
   onlineDot: {
-    width: 8,
-    height: 8,
+    width: 7,
+    height: 7,
     borderRadius: 5,
-
-    backgroundColor: '#00FF9D',
-
+    backgroundColor: '#D8B16A',
     marginRight: 7,
-
-    shadowColor: '#00FF9D',
-    shadowOpacity: 0.9,
-    shadowRadius: 7,
   },
 
   onlineText: {
-    color: '#7899BB',
-    fontSize: 12,
+    color: '#D8BFA9',
+    fontSize: 11,
   },
 
-  /* CARD PRINCIPAL */
+  // PERFIL
 
   profileCard: {
     width: '100%',
-
-    backgroundColor: '#08182D',
-
-    borderRadius: 22,
-
-    padding: 22,
-
+    backgroundColor: '#211719',
+    borderRadius: 20,
+    padding: 19,
     borderWidth: 1,
-    borderColor: '#16456A',
+    borderColor: '#56342F',
+    elevation: 3,
+  },
 
-    shadowColor: '#00E5FF',
-    shadowOpacity: 0.08,
-    shadowRadius: 15,
+  profileHeading: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  cardKicker: {
+    color: '#D8B16A',
+    fontSize: 10,
+    fontWeight: '800',
+    letterSpacing: 2,
+    marginBottom: 7,
   },
 
   cardTitle: {
-    color: '#00E5FF',
+    color: '#F7EDE0',
+    fontSize: 21,
+    fontWeight: '900',
+  },
+
+  miniSeal: {
+    width: 43,
+    height: 43,
+    backgroundColor: '#8F202D',
+    borderWidth: 1,
+    borderColor: '#C94B55',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+
+  miniSealText: {
+    color: '#FFF0D5',
     fontSize: 23,
     fontWeight: '900',
-    textAlign: 'center',
   },
 
   cardDescription: {
-    color: '#8FA7C7',
-    fontSize: 13,
+    color: '#C5B7AC',
+    fontSize: 12.5,
     lineHeight: 20,
-    textAlign: 'center',
-    marginTop: 8,
-    marginBottom: 20,
+    marginTop: 14,
+    marginBottom: 17,
   },
-
-
 
   infoLine: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingVertical: 13,
-
     borderTopWidth: 1,
-    borderTopColor: '#123452',
+    borderTopColor: '#49302C',
   },
 
   iconBox: {
-    width: 45,
-    height: 45,
-
-    borderRadius: 13,
-
-    backgroundColor: '#0A2545',
-
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    backgroundColor: '#382022',
     borderWidth: 1,
-    borderColor: '#175477',
-
+    borderColor: '#855048',
     alignItems: 'center',
     justifyContent: 'center',
-
     marginRight: 12,
   },
 
   icon: {
-    fontSize: 23,
+    fontSize: 22,
+  },
+
+  infoContent: {
+    flex: 1,
   },
 
   label: {
-    color: '#6685A9',
-    fontSize: 10,
+    color: '#C09872',
+    fontSize: 9,
     fontWeight: '900',
     letterSpacing: 1,
   },
 
   value: {
-    color: '#FFFFFF',
-    fontSize: 14,
+    color: '#F7EDE0',
+    fontSize: 13,
     fontWeight: '600',
-    marginTop: 3,
+    marginTop: 4,
   },
 
+  infoKanji: {
+    color: '#D8B16A',
+    fontSize: 12,
+    marginLeft: 5,
+  },
+
+  // INTERESSES
 
   capabilitiesCard: {
     width: '100%',
-
-    backgroundColor: '#08182D',
-
-    borderRadius: 20,
-
-    padding: 20,
-
+    backgroundColor: '#211719',
+    borderRadius: 19,
+    padding: 19,
     marginTop: 18,
-
     borderWidth: 1,
-    borderColor: '#16456A',
+    borderColor: '#56342F',
+  },
+
+  sectionKicker: {
+    color: '#D8B16A',
+    fontSize: 9,
+    fontWeight: '800',
+    letterSpacing: 2,
+    marginBottom: 7,
   },
 
   capabilitiesTitle: {
-    color: '#FFFFFF',
-    fontSize: 18,
-    fontWeight: '800',
-    marginBottom: 14,
+    color: '#F7EDE0',
+    fontSize: 19,
+    fontWeight: '900',
+    marginBottom: 15,
   },
 
   tagsRow: {
@@ -502,68 +633,109 @@ const styles = StyleSheet.create({
   },
 
   tag: {
-    backgroundColor: '#0B2544',
-
+    backgroundColor: '#382022',
     borderWidth: 1,
-    borderColor: '#1B5C7D',
-
+    borderColor: '#855048',
     borderRadius: 20,
-
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 9,
   },
 
   tagText: {
-    color: '#8FDCEC',
+    color: '#F0D7C4',
     fontSize: 11,
     fontWeight: '700',
   },
 
+  // FRASE
 
   quoteCard: {
     width: '100%',
-
-    backgroundColor: '#0A1D36',
-
-    borderRadius: 20,
-
+    backgroundColor: '#1D1416',
+    borderRadius: 19,
     padding: 22,
-
     marginTop: 18,
-
     alignItems: 'center',
-
     borderWidth: 1,
-    borderColor: '#263F68',
+    borderColor: '#674037',
+    overflow: 'hidden',
   },
 
-  quote: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontStyle: 'italic',
-    lineHeight: 24,
+  quoteKanji: {
+    color: '#E85D68',
+    fontSize: 27,
+    fontWeight: '900',
+    letterSpacing: 2,
     textAlign: 'center',
   },
 
-  line: {
+  quoteTranslation: {
+    color: '#D8B16A',
+    fontSize: 9,
+    letterSpacing: 2,
+    marginTop: 8,
+  },
+
+  quoteLine: {
     width: 45,
     height: 2,
+    backgroundColor: '#C94B55',
+    marginVertical: 15,
+  },
 
-    backgroundColor: '#00E5FF',
-
-    marginVertical: 12,
+  quote: {
+    color: '#F5E9DE',
+    fontSize: 14,
+    fontStyle: 'italic',
+    lineHeight: 23,
+    textAlign: 'center',
   },
 
   author: {
-    color: '#718AAA',
-    fontSize: 12,
+    color: '#AE978A',
+    fontSize: 11,
+    marginTop: 13,
   },
 
+  quoteFlower: {
+    fontSize: 22,
+    marginTop: 13,
+  },
+
+  // RODAPÉ
 
   footer: {
-    color: '#5F789C',
-    fontSize: 11,
-    marginTop: 25,
+    alignItems: 'center',
+    marginTop: 28,
+    paddingTop: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#50312D',
   },
 
+  footerJapanese: {
+    color: '#E85D68',
+    fontSize: 24,
+    fontWeight: '900',
+    letterSpacing: 3,
+  },
+
+  footerText: {
+    color: '#C5B7AC',
+    fontSize: 12,
+    marginTop: 8,
+    textAlign: 'center',
+  },
+
+  footerLine: {
+    width: 35,
+    height: 2,
+    backgroundColor: '#D8B16A',
+    marginVertical: 15,
+  },
+
+  footerSmall: {
+    color: '#8F7469',
+    fontSize: 9,
+    letterSpacing: 2,
+  },
 });
