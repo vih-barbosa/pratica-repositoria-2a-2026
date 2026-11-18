@@ -1,5 +1,62 @@
 
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import React from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
+
+const assuntos = [
+  {
+    icon: '🌐',
+    categoria: 'RELAÇÕES INTERNACIONAIS',
+    titulo: 'Diplomacia Mundial',
+    descricao:
+      'Entenda como os países negociam acordos, estabelecem alianças e resolvem divergências.',
+    cor: '#287CB8',
+  },
+  {
+    icon: '🏛️',
+    categoria: 'ORGANIZAÇÕES INTERNACIONAIS',
+    titulo: 'ONU e OTAN',
+    descricao:
+      'Conheça o papel das organizações internacionais na segurança, cooperação e política mundial.',
+    cor: '#4775C7',
+  },
+  {
+    icon: '⚔️',
+    categoria: 'CONFLITOS INTERNACIONAIS',
+    titulo: 'Guerras e Tensões',
+    descricao:
+      'Compreenda as causas históricas, territoriais e políticas dos conflitos entre países.',
+    cor: '#C95757',
+  },
+  {
+    icon: '💰',
+    categoria: 'ECONOMIA GLOBAL',
+    titulo: 'Poder Econômico',
+    descricao:
+      'Descubra como comércio, energia, recursos naturais e investimentos influenciam o poder mundial.',
+    cor: '#C49A42',
+  },
+  {
+    icon: '🗺️',
+    categoria: 'GEOGRAFIA POLÍTICA',
+    titulo: 'Fronteiras e Territórios',
+    descricao:
+      'Explore disputas territoriais, fronteiras, soberania e mudanças no mapa político mundial.',
+    cor: '#369A83',
+  },
+  {
+    icon: '🤝',
+    categoria: 'ALIANÇAS E BLOCOS',
+    titulo: 'Blocos Econômicos',
+    descricao:
+      'Conheça grupos como BRICS, União Europeia e Mercosul e sua influência internacional.',
+    cor: '#8B69BD',
+  },
+];
 
 export default function Pagina2() {
   return (
@@ -8,184 +65,236 @@ export default function Pagina2() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
       >
-        {/* SÍMBOLOS JAPONESES DE FUNDO */}
-        <Text style={styles.bg1}>桜</Text>
-        <Text style={styles.bg2}>日本</Text>
-        <Text style={styles.bg3}>和</Text>
-        <Text style={styles.bg4}>波</Text>
-        <Text style={styles.bg5}>✿</Text>
-        <Text style={styles.bg6}>旅</Text>
-        <Text style={styles.bg7}>富士山</Text>
 
-        {/* PÉTALAS */}
-        <View style={styles.petal1} />
-        <View style={styles.petal2} />
-        <View style={styles.petal3} />
-        <View style={styles.petal4} />
+        {/* ELEMENTOS DECORATIVOS */}
+        <Text style={styles.bg1}>🌍</Text>
+        <Text style={styles.bg2}>⚖</Text>
+        <Text style={styles.bg3}>🌐</Text>
+        <Text style={styles.bg4}>✦</Text>
+        <Text style={styles.bg5}>🗺</Text>
+        <Text style={styles.bg6}>🏛</Text>
 
-        {/* SELO JAPONÊS */}
-        <View style={styles.seal}>
-          <Text style={styles.sealText}>和</Text>
-          <Text style={styles.sealSmall}>WA</Text>
+        {/* CABEÇALHO */}
+        <View style={styles.header}>
+          <View>
+            <Text style={styles.logo}>WORLD EXPLORER</Text>
+            <Text style={styles.logoSub}>
+              GEOPOLÍTICA GLOBAL
+            </Text>
+          </View>
+
+          <View style={styles.headerIcon}>
+            <Text style={styles.headerEmoji}>🌐</Text>
+          </View>
         </View>
 
         {/* ÍCONE PRINCIPAL */}
         <View style={styles.iconCircle}>
-          <Text style={styles.aiIcon}>🌸</Text>
+          <Text style={styles.mainIcon}>🌍</Text>
         </View>
 
         {/* TÍTULO */}
         <Text style={styles.kicker}>
-          ✦ あなたのお気に入り ✦
+          ✦ POLÍTICA • PODER • TERRITÓRIO ✦
         </Text>
 
         <Text style={styles.title}>
-          Meus Favoritos
+          Geopolítica
         </Text>
 
         <View style={styles.titleDivider}>
           <View style={styles.dividerLine} />
-          <Text style={styles.dividerSymbol}>✿</Text>
+          <Text style={styles.dividerSymbol}>🌐</Text>
           <View style={styles.dividerLine} />
         </View>
 
         <Text style={styles.subtitle}>
-          Descubra os encantos do Japão, suas tradições,
-          paisagens e lugares inesquecíveis.
+          Entenda as relações de poder entre os países,
+          os conflitos internacionais e os acontecimentos
+          que transformam o cenário mundial.
         </Text>
 
-        {/* CARD 1 */}
-        <View style={styles.card}>
-          <View style={styles.cardIconBox}>
-            <Text style={styles.cardIcon}>⛩️</Text>
+        {/* DESTAQUE */}
+        <View style={styles.highlight}>
+          <Text style={styles.highlightIcon}>🌎</Text>
+
+          <Text style={styles.highlightKicker}>
+            ENTENDA O MUNDO
+          </Text>
+
+          <Text style={styles.highlightTitle}>
+            O poder vai muito além das fronteiras.
+          </Text>
+
+          <Text style={styles.highlightText}>
+            A geopolítica estuda como território,
+            economia, recursos naturais e decisões
+            políticas influenciam as relações entre
+            as nações.
+          </Text>
+        </View>
+
+        {/* INDICADORES */}
+        <View style={styles.stats}>
+          <View style={styles.statItem}>
+            <Text style={styles.statNumber}>195</Text>
+            <Text style={styles.statLabel}>Países</Text>
           </View>
 
-          <View style={styles.cardContent}>
-            <Text style={styles.cardKicker}>伝統 • TRADIÇÃO</Text>
-            <Text style={styles.cardTitle}>Templos Japoneses</Text>
-            <Text style={styles.cardText}>
-              Santuários históricos, portais torii e
-              lugares de paz e espiritualidade.
-            </Text>
+          <View style={styles.statDivider} />
+
+          <View style={styles.statItem}>
+            <Text style={styles.statNumber}>7</Text>
+            <Text style={styles.statLabel}>Continentes</Text>
           </View>
 
-          <View style={styles.favoriteSeal}>
-            <Text style={styles.favorite}>♥</Text>
+          <View style={styles.statDivider} />
+
+          <View style={styles.statItem}>
+            <Text style={styles.statNumber}>ONU</Text>
+            <Text style={styles.statLabel}>Cooperação</Text>
           </View>
         </View>
 
-        {/* CARD 2 */}
-        <View style={styles.card}>
-          <View style={styles.cardIconBox}>
-            <Text style={styles.cardIcon}>🌸</Text>
-          </View>
+        {/* ASSUNTOS */}
+        <View style={styles.sectionHeader}>
+          <View>
+            <Text style={styles.sectionKicker}>
+              CONHECIMENTO GLOBAL
+            </Text>
 
-          <View style={styles.cardContent}>
-            <Text style={styles.cardKicker}>花見 • HANAMI</Text>
-            <Text style={styles.cardTitle}>Flores de Sakura</Text>
-            <Text style={styles.cardText}>
-              A beleza das cerejeiras em flor e
-              a chegada da primavera japonesa.
+            <Text style={styles.sectionTitle}>
+              Temas importantes
             </Text>
           </View>
 
-          <View style={styles.favoriteSeal}>
-            <Text style={styles.favorite}>♥</Text>
-          </View>
+          <Text style={styles.sectionIcon}>📚</Text>
         </View>
 
-        {/* CARD 3 */}
-        <View style={styles.card}>
-          <View style={styles.cardIconBox}>
-            <Text style={styles.cardIcon}>🏮</Text>
-          </View>
+        {assuntos.map((item, index) => (
+          <View style={styles.card} key={index}>
+            <View
+              style={[
+                styles.cardIconBox,
+                { borderColor: item.cor },
+              ]}
+            >
+              <Text style={styles.cardIcon}>
+                {item.icon}
+              </Text>
+            </View>
 
-          <View style={styles.cardContent}>
-            <Text style={styles.cardKicker}>文化 • CULTURA</Text>
-            <Text style={styles.cardTitle}>Cultura Japonesa</Text>
-            <Text style={styles.cardText}>
-              Festivais, lanternas, cerimônias
-              tradicionais e costumes milenares.
+            <View style={styles.cardContent}>
+              <Text
+                style={[
+                  styles.cardKicker,
+                  { color: item.cor },
+                ]}
+              >
+                {item.categoria}
+              </Text>
+
+              <Text style={styles.cardTitle}>
+                {item.titulo}
+              </Text>
+
+              <Text style={styles.cardText}>
+                {item.descricao}
+              </Text>
+            </View>
+          </View>
+        ))}
+
+        {/* PAÍSES INFLUENTES */}
+        <View style={styles.sectionHeader}>
+          <View>
+            <Text style={styles.sectionKicker}>
+              CENÁRIO INTERNACIONAL
+            </Text>
+
+            <Text style={styles.sectionTitle}>
+              Atores globais
             </Text>
           </View>
 
-          <View style={styles.favoriteSeal}>
-            <Text style={styles.favorite}>♥</Text>
-          </View>
+          <Text style={styles.sectionIcon}>🏳️</Text>
         </View>
 
-        {/* CARD 4 */}
-        <View style={styles.card}>
-          <View style={styles.cardIconBox}>
-            <Text style={styles.cardIcon}>🗻</Text>
+        <View style={styles.countryGrid}>
+          <View style={styles.countryCard}>
+            <Text style={styles.flag}>🇺🇸</Text>
+            <Text style={styles.countryName}>Estados Unidos</Text>
+            <Text style={styles.countryInfo}>América do Norte</Text>
           </View>
 
-          <View style={styles.cardContent}>
-            <Text style={styles.cardKicker}>自然 • NATUREZA</Text>
-            <Text style={styles.cardTitle}>Monte Fuji</Text>
-            <Text style={styles.cardText}>
-              Uma paisagem icônica cercada por
-              lagos, montanhas e cenários naturais.
-            </Text>
+          <View style={styles.countryCard}>
+            <Text style={styles.flag}>🇨🇳</Text>
+            <Text style={styles.countryName}>China</Text>
+            <Text style={styles.countryInfo}>Ásia</Text>
           </View>
 
-          <View style={styles.favoriteSeal}>
-            <Text style={styles.favorite}>♥</Text>
-          </View>
-        </View>
-
-        {/* CARD 5 */}
-        <View style={styles.card}>
-          <View style={styles.cardIconBox}>
-            <Text style={styles.cardIcon}>🍜</Text>
+          <View style={styles.countryCard}>
+            <Text style={styles.flag}>🇷🇺</Text>
+            <Text style={styles.countryName}>Rússia</Text>
+            <Text style={styles.countryInfo}>Europa e Ásia</Text>
           </View>
 
-          <View style={styles.cardContent}>
-            <Text style={styles.cardKicker}>料理 • GASTRONOMIA</Text>
-            <Text style={styles.cardTitle}>Sabores do Japão</Text>
-            <Text style={styles.cardText}>
-              Ramen, sushi, doces tradicionais
-              e experiências gastronômicas únicas.
-            </Text>
+          <View style={styles.countryCard}>
+            <Text style={styles.flag}>🇧🇷</Text>
+            <Text style={styles.countryName}>Brasil</Text>
+            <Text style={styles.countryInfo}>América do Sul</Text>
           </View>
 
-          <View style={styles.favoriteSeal}>
-            <Text style={styles.favorite}>♥</Text>
+          <View style={styles.countryCard}>
+            <Text style={styles.flag}>🇮🇳</Text>
+            <Text style={styles.countryName}>Índia</Text>
+            <Text style={styles.countryInfo}>Ásia</Text>
+          </View>
+
+          <View style={styles.countryCard}>
+            <Text style={styles.flag}>🇩🇪</Text>
+            <Text style={styles.countryName}>Alemanha</Text>
+            <Text style={styles.countryInfo}>Europa</Text>
           </View>
         </View>
 
         {/* FRASE FINAL */}
         <View style={styles.quoteCard}>
-          <Text style={styles.quoteKanji}>一期一会</Text>
+          <Text style={styles.quoteIcon}>⚖️</Text>
 
-          <Text style={styles.quoteTranslation}>
-            ICHIGO ICHIE
+          <Text style={styles.quoteTitle}>
+            O mundo está conectado.
           </Text>
 
           <View style={styles.quoteLine} />
 
           <Text style={styles.quoteText}>
-            Cada momento é único.
-            Guarde aquilo que faz seu coração florescer.
+            Compreender a geopolítica é compreender
+            como as decisões de hoje influenciam
+            o futuro das nações.
           </Text>
 
-          <Text style={styles.quoteFlower}>🌸</Text>
+          <Text style={styles.quoteAuthor}>
+            CONHECIMENTO • POLÍTICA • MUNDO
+          </Text>
         </View>
 
         {/* RODAPÉ */}
         <View style={styles.footer}>
-          <Text style={styles.footerJapanese}>
-            日本の美
+          <Text style={styles.footerIcon}>🌐</Text>
+
+          <Text style={styles.footerTitle}>
+            WORLD EXPLORER
           </Text>
 
           <Text style={styles.footerText}>
-            A beleza do Japão
+            Conheça o mundo além das fronteiras.
           </Text>
 
           <View style={styles.footerLine} />
 
           <Text style={styles.footerSmall}>
-            JAPAN • CULTURA • HARMONIA
+            GEOPOLÍTICA • ECONOMIA • RELAÇÕES GLOBAIS
           </Text>
         </View>
 
@@ -197,191 +306,140 @@ export default function Pagina2() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#100C0D',
+    backgroundColor: '#0B1421',
   },
 
   content: {
-    paddingHorizontal: 22,
-    paddingTop: 65,
+    paddingHorizontal: 20,
+    paddingTop: 55,
     paddingBottom: 40,
     overflow: 'hidden',
   },
 
-  // FUNDO DECORATIVO
+  // FUNDO
 
   bg1: {
     position: 'absolute',
-    top: 125,
-    left: 8,
-    color: '#E85D68',
-    opacity: 0.16,
+    top: 140,
+    left: -5,
     fontSize: 48,
-    fontWeight: '900',
+    opacity: 0.08,
   },
 
   bg2: {
     position: 'absolute',
-    top: 350,
+    top: 370,
     right: 10,
+    fontSize: 38,
     color: '#D8B16A',
-    opacity: 0.16,
-    fontSize: 24,
-    letterSpacing: 4,
+    opacity: 0.12,
   },
 
   bg3: {
     position: 'absolute',
-    top: 610,
-    left: 12,
-    color: '#E85D68',
-    opacity: 0.15,
-    fontSize: 44,
+    top: 700,
+    left: 5,
+    fontSize: 42,
+    opacity: 0.08,
   },
 
   bg4: {
     position: 'absolute',
-    top: 900,
-    right: 12,
-    color: '#D8B16A',
+    top: 950,
+    right: 20,
+    fontSize: 30,
+    color: '#42B8E8',
     opacity: 0.15,
-    fontSize: 38,
   },
 
   bg5: {
     position: 'absolute',
-    top: 240,
-    right: 40,
-    color: '#E98591',
-    opacity: 0.35,
-    fontSize: 26,
+    top: 1200,
+    left: 10,
+    fontSize: 38,
+    opacity: 0.08,
   },
 
   bg6: {
     position: 'absolute',
-    top: 1120,
-    left: 12,
-    color: '#D8B16A',
-    opacity: 0.14,
-    fontSize: 40,
+    bottom: 100,
+    right: 10,
+    fontSize: 35,
+    opacity: 0.08,
   },
 
-  bg7: {
-    position: 'absolute',
-    bottom: 80,
-    right: 12,
-    color: '#E85D68',
-    opacity: 0.12,
-    fontSize: 18,
-  },
+  // CABEÇALHO
 
-  petal1: {
-    position: 'absolute',
-    top: 170,
-    left: 110,
-    width: 7,
-    height: 10,
-    borderRadius: 8,
-    backgroundColor: '#E98591',
-    transform: [{ rotate: '35deg' }],
-  },
-
-  petal2: {
-    position: 'absolute',
-    top: 430,
-    right: 60,
-    width: 6,
-    height: 9,
-    borderRadius: 8,
-    backgroundColor: '#D8B16A',
-    transform: [{ rotate: '-25deg' }],
-  },
-
-  petal3: {
-    position: 'absolute',
-    top: 760,
-    left: 45,
-    width: 7,
-    height: 10,
-    borderRadius: 8,
-    backgroundColor: '#E98591',
-    transform: [{ rotate: '50deg' }],
-  },
-
-  petal4: {
-    position: 'absolute',
-    top: 1050,
-    right: 75,
-    width: 6,
-    height: 9,
-    borderRadius: 8,
-    backgroundColor: '#D8B16A',
-  },
-
-  // SELO
-
-  seal: {
-    position: 'absolute',
-    top: 28,
-    right: 27,
-    width: 52,
-    height: 64,
-    borderWidth: 2,
-    borderColor: '#C94B55',
-    backgroundColor: '#8F202D',
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 4,
-    transform: [{ rotate: '5deg' }],
+    marginBottom: 35,
   },
 
-  sealText: {
-    color: '#FFF0D5',
-    fontSize: 26,
+  logo: {
+    color: '#FFFFFF',
+    fontSize: 16,
     fontWeight: '900',
-  },
-
-  sealSmall: {
-    color: '#F3D7A0',
-    fontSize: 8,
     letterSpacing: 2,
   },
 
-  // ÍCONE PRINCIPAL
-
-  iconCircle: {
-    width: 78,
-    height: 78,
-    borderRadius: 40,
-    backgroundColor: '#291719',
-    borderWidth: 2,
-    borderColor: '#A64A4F',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 17,
-    shadowColor: '#E85D68',
-    shadowOpacity: 0.25,
-    shadowRadius: 18,
-    elevation: 8,
+  logoSub: {
+    color: '#42B8E8',
+    fontSize: 9,
+    letterSpacing: 2,
+    marginTop: 5,
+    fontWeight: '800',
   },
 
-  aiIcon: {
-    fontSize: 39,
+  headerIcon: {
+    width: 45,
+    height: 45,
+    borderRadius: 14,
+    backgroundColor: '#1B3045',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  headerEmoji: {
+    fontSize: 25,
+  },
+
+  // ÍCONE
+
+  iconCircle: {
+    width: 85,
+    height: 85,
+    borderRadius: 45,
+    backgroundColor: '#17334A',
+    borderWidth: 2,
+    borderColor: '#42B8E8',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 18,
+    alignSelf: 'center',
+  },
+
+  mainIcon: {
+    fontSize: 43,
   },
 
   // TÍTULO
 
   kicker: {
-    color: '#D8B16A',
-    fontSize: 10,
-    fontWeight: '800',
+    color: '#42B8E8',
+    fontSize: 9,
+    fontWeight: '900',
     letterSpacing: 2,
+    textAlign: 'center',
     marginBottom: 10,
   },
 
   title: {
-    color: '#F7EDE0',
-    fontSize: 31,
+    color: '#FFFFFF',
+    fontSize: 32,
     fontWeight: '900',
+    textAlign: 'center',
   },
 
   titleDivider: {
@@ -393,58 +451,152 @@ const styles = StyleSheet.create({
   },
 
   dividerLine: {
-    width: 45,
+    width: 48,
     height: 1,
-    backgroundColor: '#9B5B46',
+    backgroundColor: '#4775C7',
   },
 
   dividerSymbol: {
-    color: '#E85D68',
-    fontSize: 21,
+    fontSize: 19,
   },
 
   subtitle: {
-    color: '#C5B7AC',
-    fontSize: 14,
+    color: '#A8B7C7',
+    fontSize: 13,
     lineHeight: 22,
-    marginTop: 15,
-    marginBottom: 27,
-    maxWidth: 330,
+    textAlign: 'center',
+    marginTop: 16,
+    marginBottom: 25,
+  },
+
+  // DESTAQUE
+
+  highlight: {
+    backgroundColor: '#17334A',
+    borderRadius: 19,
+    padding: 21,
+    borderWidth: 1,
+    borderColor: '#2B5C78',
+    marginBottom: 22,
+  },
+
+  highlightIcon: {
+    fontSize: 32,
+  },
+
+  highlightKicker: {
+    color: '#42B8E8',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 2,
+    marginTop: 12,
+  },
+
+  highlightTitle: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: '900',
+    lineHeight: 27,
+    marginTop: 8,
+  },
+
+  highlightText: {
+    color: '#B8C9D8',
+    fontSize: 12,
+    lineHeight: 21,
+    marginTop: 10,
+  },
+
+  // ESTATÍSTICAS
+
+  stats: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#142438',
+    borderRadius: 16,
+    paddingVertical: 20,
+    marginBottom: 32,
+    borderWidth: 1,
+    borderColor: '#263C52',
+  },
+
+  statItem: {
+    alignItems: 'center',
+  },
+
+  statNumber: {
+    color: '#42B8E8',
+    fontSize: 22,
+    fontWeight: '900',
+  },
+
+  statLabel: {
+    color: '#9EB0C2',
+    fontSize: 10,
+    marginTop: 5,
+  },
+
+  statDivider: {
+    width: 1,
+    height: 35,
+    backgroundColor: '#34485C',
+  },
+
+  // SEÇÕES
+
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 17,
+    marginTop: 8,
+  },
+
+  sectionKicker: {
+    color: '#42B8E8',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 2,
+    marginBottom: 6,
+  },
+
+  sectionTitle: {
+    color: '#FFFFFF',
+    fontSize: 21,
+    fontWeight: '900',
+  },
+
+  sectionIcon: {
+    fontSize: 27,
   },
 
   // CARDS
 
   card: {
-    width: '100%',
-    minHeight: 125,
-    backgroundColor: '#211719',
-    borderRadius: 17,
-    padding: 14,
-    marginBottom: 14,
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#142438',
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 12,
     borderWidth: 1,
-    borderColor: '#56342F',
-    shadowColor: '#000000',
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
-    elevation: 3,
+    borderColor: '#263C52',
   },
 
   cardIconBox: {
     width: 55,
-    height: 60,
+    height: 58,
     borderRadius: 13,
-    backgroundColor: '#382022',
+    backgroundColor: '#20374D',
     borderWidth: 1,
-    borderColor: '#855048',
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12,
+    marginRight: 13,
   },
 
   cardIcon: {
-    fontSize: 28,
+    fontSize: 27,
   },
 
   cardContent: {
@@ -452,124 +604,146 @@ const styles = StyleSheet.create({
   },
 
   cardKicker: {
-    color: '#D8B16A',
     fontSize: 8,
-    fontWeight: '800',
-    letterSpacing: 1.2,
+    fontWeight: '900',
+    letterSpacing: 1,
     marginBottom: 5,
   },
 
   cardTitle: {
-    color: '#F7EDE0',
-    fontSize: 15,
-    fontWeight: '800',
-    marginBottom: 6,
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
+    marginBottom: 5,
   },
 
   cardText: {
-    color: '#C5B7AC',
-    fontSize: 11.5,
+    color: '#A8B7C7',
+    fontSize: 11,
     lineHeight: 17,
   },
 
-  favoriteSeal: {
-    width: 27,
-    height: 32,
-    backgroundColor: '#64252E',
-    borderRadius: 5,
+  // PAÍSES
+
+  countryGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+
+  countryCard: {
+    width: '48%',
+    backgroundColor: '#142438',
+    borderRadius: 15,
+    padding: 15,
+    marginBottom: 12,
     borderWidth: 1,
-    borderColor: '#A64A4F',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: 7,
+    borderColor: '#263C52',
   },
 
-  favorite: {
-    color: '#F2C5A5',
-    fontSize: 15,
+  flag: {
+    fontSize: 30,
+    marginBottom: 9,
   },
 
-  // FRASE FINAL
+  countryName: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+
+  countryInfo: {
+    color: '#42B8E8',
+    fontSize: 10,
+    marginTop: 5,
+  },
+
+  // FRASE
 
   quoteCard: {
-    width: '100%',
-    marginTop: 14,
-    padding: 22,
+    backgroundColor: '#17334A',
+    borderRadius: 18,
+    padding: 23,
     alignItems: 'center',
-    backgroundColor: '#1D1416',
-    borderRadius: 16,
+    marginTop: 22,
     borderWidth: 1,
-    borderColor: '#674037',
-    overflow: 'hidden',
+    borderColor: '#2B5C78',
   },
 
-  quoteKanji: {
-    color: '#E85D68',
+  quoteIcon: {
     fontSize: 32,
-    fontWeight: '900',
-    letterSpacing: 5,
   },
 
-  quoteTranslation: {
-    color: '#D8B16A',
-    fontSize: 10,
-    letterSpacing: 3,
-    marginTop: 7,
+  quoteTitle: {
+    color: '#FFFFFF',
+    fontSize: 19,
+    fontWeight: '900',
+    textAlign: 'center',
+    marginTop: 12,
   },
 
   quoteLine: {
-    width: 45,
+    width: 42,
     height: 2,
-    backgroundColor: '#C94B55',
+    backgroundColor: '#42B8E8',
     marginVertical: 15,
   },
 
   quoteText: {
-    color: '#F5E9DE',
-    fontSize: 15,
-    fontStyle: 'italic',
+    color: '#C4D2DE',
+    fontSize: 13,
+    lineHeight: 22,
     textAlign: 'center',
-    lineHeight: 24,
   },
 
-  quoteFlower: {
-    fontSize: 24,
-    marginTop: 13,
+  quoteAuthor: {
+    color: '#42B8E8',
+    fontSize: 8,
+    fontWeight: '900',
+    letterSpacing: 1.5,
+    marginTop: 17,
+    textAlign: 'center',
   },
 
   // RODAPÉ
 
   footer: {
     alignItems: 'center',
-    marginTop: 30,
-    paddingTop: 22,
+    marginTop: 35,
+    paddingTop: 23,
     borderTopWidth: 1,
-    borderTopColor: '#50312D',
+    borderTopColor: '#293D51',
   },
 
-  footerJapanese: {
-    color: '#E85D68',
-    fontSize: 25,
+  footerIcon: {
+    fontSize: 34,
+  },
+
+  footerTitle: {
+    color: '#FFFFFF',
+    fontSize: 16,
     fontWeight: '900',
-    letterSpacing: 4,
+    letterSpacing: 3,
+    marginTop: 10,
   },
 
   footerText: {
-    color: '#C5B7AC',
-    fontSize: 12,
-    marginTop: 7,
+    color: '#8FA7BD',
+    fontSize: 10,
+    marginTop: 8,
   },
 
   footerLine: {
-    width: 35,
+    width: 40,
     height: 2,
-    backgroundColor: '#D8B16A',
-    marginVertical: 15,
+    backgroundColor: '#42B8E8',
+    marginVertical: 16,
   },
 
   footerSmall: {
-    color: '#8F7469',
-    fontSize: 9,
-    letterSpacing: 2,
+    color: '#62798F',
+    fontSize: 8,
+    letterSpacing: 1.5,
+    textAlign: 'center',
   },
 });

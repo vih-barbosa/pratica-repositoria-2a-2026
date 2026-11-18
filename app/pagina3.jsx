@@ -1,253 +1,361 @@
 
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import React from 'react';
+
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Linking,
+} from 'react-native';
 
 export default function Pagina3() {
+
+  const abrirONU = () => {
+    Linking.openURL(
+      'https://pt.wikipedia.org/wiki/Organiza%C3%A7%C3%A3o_das_Na%C3%A7%C3%B5es_Unidas'
+    );
+  };
+
   return (
     <View style={styles.container}>
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
       >
-        {/* SÍMBOLOS DE FUNDO */}
-        <Text style={styles.bg1}>桜</Text>
-        <Text style={styles.bg2}>日本</Text>
-        <Text style={styles.bg3}>和</Text>
-        <Text style={styles.bg4}>旅</Text>
-        <Text style={styles.bg5}>波</Text>
-        <Text style={styles.bg6}>✿</Text>
 
-        {/* PÉTALAS DECORATIVAS */}
-        <View style={styles.petal1} />
-        <View style={styles.petal2} />
-        <View style={styles.petal3} />
-        <View style={styles.petal4} />
-
-        {/* SELO */}
-        <View style={styles.seal}>
-          <Text style={styles.sealText}>旅</Text>
-          <Text style={styles.sealSmall}>TABI</Text>
-        </View>
+        {/* FUNDO */}
+        <Text style={styles.bg1}>🌐</Text>
+        <Text style={styles.bg2}>WORLD</Text>
+        <Text style={styles.bg3}>POLITICS</Text>
+        <Text style={styles.bg4}>🌍</Text>
+        <Text style={styles.bg5}>ONU</Text>
 
         {/* CABEÇALHO */}
-        <Text style={styles.smallTitle}>
-          ✦ 私のプロフィール ✦
-        </Text>
+        <View style={styles.header}>
 
-        <Text style={styles.title}>
-          Meu Perfil
-        </Text>
+          <Text style={styles.kicker}>
+            🌐 RELAÇÕES INTERNACIONAIS
+          </Text>
 
-        <View style={styles.titleDivider}>
-          <View style={styles.dividerLine} />
-          <Text style={styles.dividerSymbol}>🌸</Text>
-          <View style={styles.dividerLine} />
+          <Text style={styles.title}>
+            Meu Perfil
+          </Text>
+
+          <View style={styles.divider}>
+            <View style={styles.line} />
+            <Text style={styles.dividerIcon}>◆</Text>
+            <View style={styles.line} />
+          </View>
+
+          <Text style={styles.subtitle}>
+            Conheça os principais temas, organizações
+            e acontecimentos que moldam a política
+            e o cenário internacional.
+          </Text>
+
         </View>
-
-        <Text style={styles.subtitle}>
-          Explore seus interesses e descubra
-          tudo o que faz do Japão um lugar especial.
-        </Text>
 
         {/* AVATAR */}
         <View style={styles.avatarContainer}>
-          <View style={styles.avatarGlow} />
 
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>👘</Text>
+            <Text style={styles.avatarIcon}>🌍</Text>
           </View>
 
-          <View style={styles.online}>
-            <View style={styles.onlineDot} />
-            <Text style={styles.onlineText}>
-              Explorador do Japão
-            </Text>
-          </View>
-        </View>
-
-        {/* CARTÃO DO PERFIL */}
-        <View style={styles.profileCard}>
-          <View style={styles.profileHeading}>
-            <View>
-              <Text style={styles.cardKicker}>
-                日本 • NIHON
-              </Text>
-
-              <Text style={styles.cardTitle}>
-                Viajante Japonês
-              </Text>
-            </View>
-
-            <View style={styles.miniSeal}>
-              <Text style={styles.miniSealText}>和</Text>
-            </View>
-          </View>
-
-          <Text style={styles.cardDescription}>
-            Um apaixonado pela cultura japonesa,
-            suas paisagens, tradições, gastronomia
-            e experiências inesquecíveis.
+          <Text style={styles.avatarTitle}>
+            ANALISTA GLOBAL
           </Text>
 
-          {/* INFORMAÇÕES */}
-          <View style={styles.infoLine}>
-            <View style={styles.iconBox}>
-              <Text style={styles.icon}>⛩️</Text>
-            </View>
+          <Text style={styles.avatarSubtitle}>
+            Explorador da geopolítica mundial
+          </Text>
 
+        </View>
+
+        {/* PERFIL */}
+        <View style={styles.profileCard}>
+
+          <Text style={styles.cardKicker}>
+            PERFIL INTERNACIONAL
+          </Text>
+
+          <Text style={styles.profileTitle}>
+            Geopolítica Mundial
+          </Text>
+
+          <Text style={styles.description}>
+            A geopolítica estuda as relações entre
+            países, o poder internacional, os
+            territórios e os interesses estratégicos
+            que influenciam o mundo.
+          </Text>
+
+          <View style={styles.infoLine}>
+            <Text style={styles.infoIcon}>🌎</Text>
             <View style={styles.infoContent}>
-              <Text style={styles.label}>INTERESSE</Text>
+              <Text style={styles.label}>ÁREA DE ESTUDO</Text>
               <Text style={styles.value}>
-                Cultura e tradição
+                Política internacional
               </Text>
             </View>
-
-            <Text style={styles.infoKanji}>文化</Text>
           </View>
 
           <View style={styles.infoLine}>
-            <View style={styles.iconBox}>
-              <Text style={styles.icon}>🗻</Text>
-            </View>
-
+            <Text style={styles.infoIcon}>🤝</Text>
             <View style={styles.infoContent}>
-              <Text style={styles.label}>DESTINO FAVORITO</Text>
+              <Text style={styles.label}>RELAÇÕES</Text>
               <Text style={styles.value}>
-                Monte Fuji
+                Diplomacia entre países
               </Text>
             </View>
-
-            <Text style={styles.infoKanji}>富士山</Text>
           </View>
 
           <View style={styles.infoLine}>
-            <View style={styles.iconBox}>
-              <Text style={styles.icon}>🍜</Text>
-            </View>
-
+            <Text style={styles.infoIcon}>⚖️</Text>
             <View style={styles.infoContent}>
-              <Text style={styles.label}>GASTRONOMIA</Text>
+              <Text style={styles.label}>TEMA CENTRAL</Text>
               <Text style={styles.value}>
-                Sabores japoneses
+                Poder e equilíbrio mundial
               </Text>
             </View>
-
-            <Text style={styles.infoKanji}>料理</Text>
           </View>
 
           <View style={styles.infoLine}>
-            <View style={styles.iconBox}>
-              <Text style={styles.icon}>🌸</Text>
-            </View>
-
+            <Text style={styles.infoIcon}>🕊️</Text>
             <View style={styles.infoContent}>
-              <Text style={styles.label}>ESTAÇÃO FAVORITA</Text>
+              <Text style={styles.label}>OBJETIVO</Text>
               <Text style={styles.value}>
-                Primavera
+                Compreender o cenário global
               </Text>
             </View>
-
-            <Text style={styles.infoKanji}>春</Text>
           </View>
+
         </View>
 
         {/* INTERESSES */}
-        <View style={styles.capabilitiesCard}>
+        <View style={styles.section}>
+
           <Text style={styles.sectionKicker}>
-            好きなこと • SUKI
+            CONHECIMENTO GLOBAL
           </Text>
 
-          <Text style={styles.capabilitiesTitle}>
-            Meus interesses
+          <Text style={styles.sectionTitle}>
+            Áreas da Geopolítica
           </Text>
 
-          <View style={styles.tagsRow}>
+          <View style={styles.tags}>
+
             <View style={styles.tag}>
-              <Text style={styles.tagText}>
-                🌸 Sakura
-              </Text>
+              <Text style={styles.tagText}>🌐 Globalização</Text>
             </View>
 
             <View style={styles.tag}>
-              <Text style={styles.tagText}>
-                ⛩️ Templos
-              </Text>
+              <Text style={styles.tagText}>⚔️ Conflitos</Text>
             </View>
 
             <View style={styles.tag}>
-              <Text style={styles.tagText}>
-                🍣 Sushi
-              </Text>
+              <Text style={styles.tagText}>🤝 Diplomacia</Text>
             </View>
 
             <View style={styles.tag}>
-              <Text style={styles.tagText}>
-                🏮 Festivais
-              </Text>
+              <Text style={styles.tagText}>💰 Economia</Text>
             </View>
 
             <View style={styles.tag}>
-              <Text style={styles.tagText}>
-                🏯 Castelos
-              </Text>
+              <Text style={styles.tagText}>🗺️ Territórios</Text>
             </View>
 
             <View style={styles.tag}>
-              <Text style={styles.tagText}>
-                🎎 Tradições
-              </Text>
+              <Text style={styles.tagText}>🏛️ Organizações</Text>
             </View>
+
           </View>
         </View>
 
-        {/* FRASE JAPONESA */}
-        <View style={styles.quoteCard}>
-          <Text style={styles.quoteKanji}>
-            七転び八起き
+        {/* ORGANIZAÇÃO DAS NAÇÕES UNIDAS */}
+        <View style={styles.unCard}>
+
+          <Text style={styles.unKicker}>
+            ORGANIZAÇÃO INTERNACIONAL
           </Text>
 
-          <Text style={styles.quoteTranslation}>
-            NANAKOROBI YAOKI
+          <Text style={styles.unTitle}>
+            Organização das Nações Unidas
+          </Text>
+
+          <Text style={styles.unAbbreviation}>
+            ONU • UNITED NATIONS
+          </Text>
+
+          {/* IMAGEM DA API */}
+          <Image
+            source={{
+              uri: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/langpt-330px-Flag_of_the_United_Nations.svg.png?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
+            }}
+            style={styles.unImage}
+            resizeMode="contain"
+          />
+
+          <View style={styles.unBadge}>
+            <Text style={styles.unBadgeText}>
+              ORGANIZAÇÃO INTERGOVERNAMENTAL
+            </Text>
+          </View>
+
+          <Text style={styles.unDescription}>
+            A Organização das Nações Unidas (ONU)
+            é uma organização internacional criada
+            para promover a cooperação entre países,
+            preservar a paz e a segurança mundial
+            e defender os direitos humanos.
+          </Text>
+
+          {/* DADOS DA API */}
+          <View style={styles.dataBox}>
+
+            <View style={styles.dataItem}>
+              <Text style={styles.dataLabel}>FUNDAÇÃO</Text>
+              <Text style={styles.dataValue}>
+                24 de outubro de 1945
+              </Text>
+            </View>
+
+            <View style={styles.dataItem}>
+              <Text style={styles.dataLabel}>ESTADOS-MEMBROS</Text>
+              <Text style={styles.dataValue}>
+                193 países
+              </Text>
+            </View>
+
+            <View style={styles.dataItem}>
+              <Text style={styles.dataLabel}>SEDE PRINCIPAL</Text>
+              <Text style={styles.dataValue}>
+                Nova Iorque, EUA
+              </Text>
+            </View>
+
+            <View style={styles.dataItem}>
+              <Text style={styles.dataLabel}>CRIAÇÃO</Text>
+              <Text style={styles.dataValue}>
+                Após a Segunda Guerra Mundial
+              </Text>
+            </View>
+
+          </View>
+
+          {/* OBJETIVOS */}
+          <Text style={styles.objectivesTitle}>
+            Principais objetivos
+          </Text>
+
+          <View style={styles.objective}>
+            <Text style={styles.objectiveIcon}>🕊️</Text>
+            <Text style={styles.objectiveText}>
+              Manter a paz e a segurança internacional.
+            </Text>
+          </View>
+
+          <View style={styles.objective}>
+            <Text style={styles.objectiveIcon}>⚖️</Text>
+            <Text style={styles.objectiveText}>
+              Promover os direitos humanos.
+            </Text>
+          </View>
+
+          <View style={styles.objective}>
+            <Text style={styles.objectiveIcon}>🌱</Text>
+            <Text style={styles.objectiveText}>
+              Incentivar o desenvolvimento sustentável.
+            </Text>
+          </View>
+
+          <View style={styles.objective}>
+            <Text style={styles.objectiveIcon}>🤝</Text>
+            <Text style={styles.objectiveText}>
+              Fortalecer a cooperação internacional.
+            </Text>
+          </View>
+
+          <View style={styles.objective}>
+            <Text style={styles.objectiveIcon}>🚑</Text>
+            <Text style={styles.objectiveText}>
+              Oferecer ajuda humanitária em crises.
+            </Text>
+          </View>
+
+          {/* LINK DA WIKIPÉDIA */}
+          <Text
+            style={styles.button}
+            onPress={abrirONU}
+          >
+            CONSULTAR NA WIKIPÉDIA →
+          </Text>
+
+          <Text style={styles.source}>
+            Fonte: Wikipédia • Organização das Nações Unidas
+          </Text>
+
+        </View>
+
+        {/* FRASE FINAL */}
+        <View style={styles.quoteCard}>
+
+          <Text style={styles.quoteIcon}>🌐</Text>
+
+          <Text style={styles.quoteTitle}>
+            UM MUNDO CONECTADO
           </Text>
 
           <View style={styles.quoteLine} />
 
-          <Text style={styles.quote}>
-            “Caia sete vezes, levante-se oito.
-            A verdadeira força está em continuar.”
+          <Text style={styles.quoteText}>
+            "Compreender o mundo é compreender
+            as relações entre os povos,
+            as nações e suas histórias."
           </Text>
 
-          <Text style={styles.author}>
-            — Provérbio japonês
+          <Text style={styles.quoteAuthor}>
+            — Reflexão geopolítica
           </Text>
 
-          <Text style={styles.quoteFlower}>🌸</Text>
         </View>
 
         {/* RODAPÉ */}
         <View style={styles.footer}>
-          <Text style={styles.footerJapanese}>
-            日本の旅
+
+          <Text style={styles.footerIcon}>
+            🌍
           </Text>
 
-          <Text style={styles.footerText}>
-            Sua jornada pelo Japão começa aqui.
+          <Text style={styles.footerTitle}>
+            GEOPOLÍTICA MUNDIAL
+          </Text>
+
+          <Text style={styles.footerSubtitle}>
+            Conhecimento • Política • Relações Internacionais
           </Text>
 
           <View style={styles.footerLine} />
 
           <Text style={styles.footerSmall}>
-            JAPAN • CULTURA • HARMONIA
+            UM OLHAR SOBRE O MUNDO
           </Text>
+
         </View>
+
       </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
-    backgroundColor: '#100C0D',
+    backgroundColor: '#091522',
   },
 
   content: {
@@ -259,296 +367,164 @@ const styles = StyleSheet.create({
   },
 
   // FUNDO
-
   bg1: {
     position: 'absolute',
-    top: 130,
+    top: 120,
     left: 8,
-    color: '#E85D68',
-    opacity: 0.15,
     fontSize: 48,
-    fontWeight: '900',
+    opacity: 0.12,
   },
 
   bg2: {
     position: 'absolute',
     top: 350,
     right: 10,
-    color: '#D8B16A',
-    opacity: 0.15,
+    color: '#48A9C5',
     fontSize: 24,
-    letterSpacing: 4,
+    opacity: 0.12,
+    fontWeight: '900',
   },
 
   bg3: {
     position: 'absolute',
-    top: 650,
+    top: 700,
     left: 12,
-    color: '#E85D68',
-    opacity: 0.14,
-    fontSize: 43,
+    color: '#48A9C5',
+    fontSize: 25,
+    opacity: 0.12,
   },
 
   bg4: {
     position: 'absolute',
     top: 950,
     right: 15,
-    color: '#D8B16A',
-    opacity: 0.16,
     fontSize: 38,
+    opacity: 0.12,
   },
 
   bg5: {
     position: 'absolute',
-    top: 510,
-    right: 8,
-    color: '#B85B64',
-    opacity: 0.18,
-    fontSize: 38,
-  },
-
-  bg6: {
-    position: 'absolute',
-    bottom: 120,
-    left: 20,
-    color: '#D8B16A',
-    opacity: 0.15,
-    fontSize: 30,
-  },
-
-  petal1: {
-    position: 'absolute',
-    top: 180,
-    left: 100,
-    width: 7,
-    height: 10,
-    borderRadius: 8,
-    backgroundColor: '#E98591',
-    transform: [{ rotate: '35deg' }],
-  },
-
-  petal2: {
-    position: 'absolute',
-    top: 400,
-    right: 55,
-    width: 6,
-    height: 9,
-    borderRadius: 8,
-    backgroundColor: '#D8B16A',
-    transform: [{ rotate: '-25deg' }],
-  },
-
-  petal3: {
-    position: 'absolute',
-    top: 750,
-    left: 45,
-    width: 7,
-    height: 10,
-    borderRadius: 8,
-    backgroundColor: '#E98591',
-    transform: [{ rotate: '50deg' }],
-  },
-
-  petal4: {
-    position: 'absolute',
-    bottom: 280,
-    right: 65,
-    width: 6,
-    height: 9,
-    borderRadius: 8,
-    backgroundColor: '#D8B16A',
-  },
-
-  // SELO JAPONÊS
-
-  seal: {
-    position: 'absolute',
-    top: 28,
-    right: 27,
-    width: 52,
-    height: 64,
-    borderWidth: 2,
-    borderColor: '#C94B55',
-    backgroundColor: '#8F202D',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 4,
-    transform: [{ rotate: '5deg' }],
-    elevation: 5,
-  },
-
-  sealText: {
-    color: '#FFF0D5',
-    fontSize: 27,
-    fontWeight: '900',
-  },
-
-  sealSmall: {
-    color: '#F3D7A0',
-    fontSize: 8,
-    letterSpacing: 2,
+    top: 550,
+    right: 12,
+    color: '#D4B46A',
+    fontSize: 35,
+    opacity: 0.12,
   },
 
   // CABEÇALHO
+  header: {
+    width: '100%',
+    alignItems: 'center',
+  },
 
-  smallTitle: {
-    color: '#D8B16A',
+  kicker: {
+    color: '#D4B46A',
     fontSize: 10,
     fontWeight: '900',
     letterSpacing: 2,
-    marginBottom: 10,
+    marginBottom: 12,
   },
 
   title: {
-    color: '#F7EDE0',
+    color: '#F2F6FA',
     fontSize: 35,
     fontWeight: '900',
   },
 
-  titleDivider: {
+  divider: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
     gap: 12,
-    marginTop: 13,
+    marginTop: 15,
   },
 
-  dividerLine: {
-    width: 42,
+  line: {
+    width: 45,
     height: 1,
-    backgroundColor: '#9B5B46',
+    backgroundColor: '#398BA8',
   },
 
-  dividerSymbol: {
-    fontSize: 20,
+  dividerIcon: {
+    color: '#D4B46A',
+    fontSize: 16,
   },
 
   subtitle: {
-    color: '#C5B7AC',
-    fontSize: 14,
-    textAlign: 'center',
+    color: '#AABAC9',
+    fontSize: 13,
     lineHeight: 22,
-    marginTop: 15,
+    textAlign: 'center',
+    marginTop: 16,
     maxWidth: 310,
   },
 
   // AVATAR
-
   avatarContainer: {
     alignItems: 'center',
-    marginTop: 27,
-    marginBottom: 25,
-    position: 'relative',
-  },
-
-  avatarGlow: {
-    position: 'absolute',
-    width: 150,
-    height: 150,
-    borderRadius: 80,
-    backgroundColor: '#7D2933',
-    opacity: 0.32,
+    marginTop: 30,
+    marginBottom: 28,
   },
 
   avatar: {
     width: 115,
     height: 115,
     borderRadius: 60,
-    backgroundColor: '#291719',
-    borderWidth: 3,
-    borderColor: '#C94B55',
+    backgroundColor: '#142C42',
+    borderWidth: 2,
+    borderColor: '#398BA8',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#E85D68',
-    shadowOpacity: 0.35,
-    shadowRadius: 20,
-    elevation: 10,
+    elevation: 8,
   },
 
-  avatarText: {
-    fontSize: 59,
+  avatarIcon: {
+    fontSize: 58,
   },
 
-  online: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 13,
-    backgroundColor: '#211719',
-    borderWidth: 1,
-    borderColor: '#56342F',
-    paddingHorizontal: 13,
-    paddingVertical: 7,
-    borderRadius: 20,
-  },
-
-  onlineDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 5,
-    backgroundColor: '#D8B16A',
-    marginRight: 7,
-  },
-
-  onlineText: {
-    color: '#D8BFA9',
+  avatarTitle: {
+    color: '#D4B46A',
     fontSize: 11,
+    fontWeight: '900',
+    letterSpacing: 2,
+    marginTop: 15,
   },
 
-  // PERFIL
+  avatarSubtitle: {
+    color: '#AABAC9',
+    fontSize: 11,
+    marginTop: 6,
+  },
 
+  // CARTÃO DO PERFIL
   profileCard: {
     width: '100%',
-    backgroundColor: '#211719',
-    borderRadius: 20,
+    backgroundColor: '#122437',
+    borderRadius: 18,
     padding: 19,
     borderWidth: 1,
-    borderColor: '#56342F',
-    elevation: 3,
-  },
-
-  profileHeading: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    borderColor: '#294B64',
   },
 
   cardKicker: {
-    color: '#D8B16A',
-    fontSize: 10,
-    fontWeight: '800',
+    color: '#D4B46A',
+    fontSize: 9,
+    fontWeight: '900',
     letterSpacing: 2,
-    marginBottom: 7,
   },
 
-  cardTitle: {
-    color: '#F7EDE0',
-    fontSize: 21,
+  profileTitle: {
+    color: '#F2F6FA',
+    fontSize: 22,
     fontWeight: '900',
+    marginTop: 8,
   },
 
-  miniSeal: {
-    width: 43,
-    height: 43,
-    backgroundColor: '#8F202D',
-    borderWidth: 1,
-    borderColor: '#C94B55',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-  },
-
-  miniSealText: {
-    color: '#FFF0D5',
-    fontSize: 23,
-    fontWeight: '900',
-  },
-
-  cardDescription: {
-    color: '#C5B7AC',
-    fontSize: 12.5,
+  description: {
+    color: '#AABAC9',
+    fontSize: 12,
     lineHeight: 20,
-    marginTop: 14,
-    marginBottom: 17,
+    marginTop: 13,
+    marginBottom: 15,
   },
 
   infoLine: {
@@ -556,23 +532,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 13,
     borderTopWidth: 1,
-    borderTopColor: '#49302C',
+    borderTopColor: '#294357',
   },
 
-  iconBox: {
-    width: 44,
-    height: 44,
-    borderRadius: 12,
-    backgroundColor: '#382022',
-    borderWidth: 1,
-    borderColor: '#855048',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 12,
-  },
-
-  icon: {
-    fontSize: 22,
+  infoIcon: {
+    fontSize: 25,
+    marginRight: 13,
   },
 
   infoContent: {
@@ -580,162 +545,286 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    color: '#C09872',
+    color: '#D4B46A',
     fontSize: 9,
     fontWeight: '900',
     letterSpacing: 1,
   },
 
   value: {
-    color: '#F7EDE0',
+    color: '#F2F6FA',
     fontSize: 13,
-    fontWeight: '600',
     marginTop: 4,
   },
 
-  infoKanji: {
-    color: '#D8B16A',
-    fontSize: 12,
-    marginLeft: 5,
-  },
-
   // INTERESSES
-
-  capabilitiesCard: {
+  section: {
     width: '100%',
-    backgroundColor: '#211719',
-    borderRadius: 19,
+    backgroundColor: '#122437',
     padding: 19,
-    marginTop: 18,
+    borderRadius: 18,
     borderWidth: 1,
-    borderColor: '#56342F',
+    borderColor: '#294B64',
+    marginTop: 18,
   },
 
   sectionKicker: {
-    color: '#D8B16A',
+    color: '#D4B46A',
     fontSize: 9,
-    fontWeight: '800',
+    fontWeight: '900',
     letterSpacing: 2,
-    marginBottom: 7,
   },
 
-  capabilitiesTitle: {
-    color: '#F7EDE0',
+  sectionTitle: {
+    color: '#F2F6FA',
     fontSize: 19,
     fontWeight: '900',
+    marginTop: 8,
     marginBottom: 15,
   },
 
-  tagsRow: {
+  tags: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 9,
   },
 
   tag: {
-    backgroundColor: '#382022',
+    backgroundColor: '#1B3A52',
     borderWidth: 1,
-    borderColor: '#855048',
-    borderRadius: 20,
-    paddingHorizontal: 12,
+    borderColor: '#39718D',
+    paddingHorizontal: 11,
     paddingVertical: 9,
+    borderRadius: 20,
   },
 
   tagText: {
-    color: '#F0D7C4',
+    color: '#DCEAF3',
     fontSize: 11,
     fontWeight: '700',
   },
 
-  // FRASE
-
-  quoteCard: {
+  // ONU
+  unCard: {
     width: '100%',
-    backgroundColor: '#1D1416',
-    borderRadius: 19,
-    padding: 22,
-    marginTop: 18,
-    alignItems: 'center',
+    backgroundColor: '#122437',
+    borderRadius: 20,
+    padding: 18,
+    marginTop: 20,
     borderWidth: 1,
-    borderColor: '#674037',
-    overflow: 'hidden',
+    borderColor: '#39718D',
   },
 
-  quoteKanji: {
-    color: '#E85D68',
-    fontSize: 27,
+  unKicker: {
+    color: '#D4B46A',
+    fontSize: 9,
     fontWeight: '900',
-    letterSpacing: 2,
+    letterSpacing: 1.5,
+  },
+
+  unTitle: {
+    color: '#F2F6FA',
+    fontSize: 21,
+    fontWeight: '900',
+    marginTop: 10,
+  },
+
+  unAbbreviation: {
+    color: '#65B7D0',
+    fontSize: 10,
+    fontWeight: '800',
+    marginTop: 7,
+    letterSpacing: 1,
+  },
+
+  unImage: {
+    width: '100%',
+    height: 155,
+    backgroundColor: '#EAF1F5',
+    borderRadius: 12,
+    marginTop: 17,
+  },
+
+  unBadge: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#1B3A52',
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    borderRadius: 6,
+    marginTop: 14,
+  },
+
+  unBadgeText: {
+    color: '#65B7D0',
+    fontSize: 8,
+    fontWeight: '900',
+  },
+
+  unDescription: {
+    color: '#C0CDD7',
+    fontSize: 12,
+    lineHeight: 21,
+    marginTop: 15,
+  },
+
+  dataBox: {
+    backgroundColor: '#0D1D2C',
+    borderRadius: 12,
+    padding: 13,
+    marginTop: 17,
+  },
+
+  dataItem: {
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#263C4D',
+  },
+
+  dataLabel: {
+    color: '#D4B46A',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 1,
+  },
+
+  dataValue: {
+    color: '#F2F6FA',
+    fontSize: 13,
+    fontWeight: '700',
+    marginTop: 5,
+  },
+
+  objectivesTitle: {
+    color: '#F2F6FA',
+    fontSize: 16,
+    fontWeight: '900',
+    marginTop: 20,
+    marginBottom: 10,
+  },
+
+  objective: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 9,
+  },
+
+  objectiveIcon: {
+    fontSize: 20,
+    marginRight: 11,
+  },
+
+  objectiveText: {
+    color: '#C0CDD7',
+    fontSize: 12,
+    flex: 1,
+    lineHeight: 18,
+  },
+
+  button: {
+    backgroundColor: '#245C78',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    padding: 14,
+    borderRadius: 9,
+    overflow: 'hidden',
+    fontWeight: '900',
+    fontSize: 11,
+    marginTop: 20,
+    letterSpacing: 1,
+  },
+
+  source: {
+    color: '#8195A6',
+    fontSize: 9,
+    marginTop: 12,
     textAlign: 'center',
   },
 
-  quoteTranslation: {
-    color: '#D8B16A',
-    fontSize: 9,
+  // FRASE FINAL
+  quoteCard: {
+    width: '100%',
+    backgroundColor: '#122437',
+    borderRadius: 18,
+    padding: 22,
+    alignItems: 'center',
+    marginTop: 20,
+    borderWidth: 1,
+    borderColor: '#294B64',
+  },
+
+  quoteIcon: {
+    fontSize: 35,
+  },
+
+  quoteTitle: {
+    color: '#D4B46A',
+    fontSize: 11,
+    fontWeight: '900',
     letterSpacing: 2,
-    marginTop: 8,
+    marginTop: 10,
   },
 
   quoteLine: {
     width: 45,
     height: 2,
-    backgroundColor: '#C94B55',
-    marginVertical: 15,
+    backgroundColor: '#398BA8',
+    marginVertical: 17,
   },
 
-  quote: {
-    color: '#F5E9DE',
+  quoteText: {
+    color: '#F2F6FA',
     fontSize: 14,
-    fontStyle: 'italic',
-    lineHeight: 23,
+    lineHeight: 24,
     textAlign: 'center',
+    fontStyle: 'italic',
   },
 
-  author: {
-    color: '#AE978A',
-    fontSize: 11,
-    marginTop: 13,
-  },
-
-  quoteFlower: {
-    fontSize: 22,
-    marginTop: 13,
+  quoteAuthor: {
+    color: '#8FA9BA',
+    fontSize: 10,
+    marginTop: 15,
   },
 
   // RODAPÉ
-
   footer: {
+    width: '100%',
     alignItems: 'center',
-    marginTop: 28,
-    paddingTop: 20,
+    marginTop: 32,
+    paddingTop: 23,
     borderTopWidth: 1,
-    borderTopColor: '#50312D',
+    borderTopColor: '#294357',
   },
 
-  footerJapanese: {
-    color: '#E85D68',
-    fontSize: 24,
+  footerIcon: {
+    fontSize: 30,
+  },
+
+  footerTitle: {
+    color: '#F2F6FA',
+    fontSize: 15,
     fontWeight: '900',
-    letterSpacing: 3,
+    letterSpacing: 2,
+    marginTop: 10,
   },
 
-  footerText: {
-    color: '#C5B7AC',
-    fontSize: 12,
-    marginTop: 8,
+  footerSubtitle: {
+    color: '#8FA9BA',
+    fontSize: 9,
     textAlign: 'center',
+    marginTop: 8,
   },
 
   footerLine: {
     width: 35,
     height: 2,
-    backgroundColor: '#D8B16A',
-    marginVertical: 15,
+    backgroundColor: '#D4B46A',
+    marginVertical: 17,
   },
 
   footerSmall: {
-    color: '#8F7469',
+    color: '#71899B',
     fontSize: 9,
     letterSpacing: 2,
   },
+
 });
