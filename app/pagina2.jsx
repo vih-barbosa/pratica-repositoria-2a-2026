@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   View,
@@ -10,103 +11,260 @@ import {
 
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { WebView } from 'react-native-webview';
 
 /**
- * @typedef {Object} Categoria
- * @property {string} nome
- * @property {string} descricao
- * @property {React.ComponentProps<typeof Ionicons>['name']} icon
- * @property {string} cor
- * @property {string} artigo
+ * Camadas e temas geográficos
  */
-
-/** @type {Categoria[]} */
 const categorias = [
   {
     nome: 'Multipolaridade Mundial',
-    descricao: 'A disputa de influência entre as grandes potências.',
+    descricao: 'Explore a localização e a influência das grandes potências.',
     icon: 'globe-outline',
     cor: '#E5EDF7',
     artigo: 'Multipolaridade',
   },
   {
-    nome: 'Estados Unidos e China',
-    descricao: 'Rivalidade tecnológica, comercial e militar.',
-    icon: 'business-outline',
+    nome: 'Fronteiras Internacionais',
+    descricao: 'Conheça os limites territoriais entre os países.',
+    icon: 'map-outline',
     cor: '#E9EEF8',
-    artigo: 'Relações entre China e Estados Unidos',
+    artigo: 'Fronteiras internacionais',
   },
   {
-    nome: 'Guerra na Ucrânia',
-    descricao: 'O conflito e seus impactos na segurança europeia.',
+    nome: 'Conflitos Territoriais',
+    descricao: 'Entenda disputas territoriais e regiões estratégicas.',
     icon: 'shield-outline',
     cor: '#F5E9E4',
-    artigo: 'Guerra Russo-Ucraniana',
+    artigo: 'Disputas territoriais',
   },
   {
-    nome: 'Oriente Médio',
-    descricao: 'Conflitos, alianças e disputas regionais.',
-    icon: 'location-outline',
+    nome: 'Rotas Comerciais',
+    descricao: 'Explore os corredores marítimos e comerciais do mundo.',
+    icon: 'boat-outline',
     cor: '#F5EEDC',
-    artigo: 'Conflito israelo-palestino',
+    artigo: 'Rotas comerciais internacionais',
   },
   {
-    nome: 'Economia Global',
-    descricao: 'Comércio internacional, tarifas e sanções.',
-    icon: 'trending-up-outline',
+    nome: 'Recursos Naturais',
+    descricao: 'Localização de regiões com recursos estratégicos.',
+    icon: 'leaf-outline',
     cor: '#E4F1EB',
-    artigo: 'Economia internacional',
+    artigo: 'Recursos naturais',
   },
   {
-    nome: 'Sul Global e BRICS',
-    descricao: 'O crescimento da influência dos países emergentes.',
+    nome: 'Organizações Internacionais',
+    descricao: 'Conheça a distribuição geográfica das organizações.',
     icon: 'people-outline',
     cor: '#EDE8F5',
-    artigo: 'BRICS',
+    artigo: 'Organizações internacionais',
   },
   {
     nome: 'Geopolítica do Brasil',
-    descricao: 'A posição brasileira no cenário internacional.',
+    descricao: 'Explore a posição brasileira na América do Sul.',
     icon: 'flag-outline',
     cor: '#E4F1E8',
     artigo: 'Política externa do Brasil',
   },
   {
-    nome: 'Crises Internacionais',
-    descricao: 'Sudão, Mar Vermelho e disputas territoriais.',
-    icon: 'warning-outline',
+    nome: 'Regiões Estratégicas',
+    descricao: 'Conheça áreas importantes para a política mundial.',
+    icon: 'location-outline',
     cor: '#F6E8E5',
-    artigo: 'Crise do Sudão',
+    artigo: 'Regiões estratégicas mundiais',
   },
 ];
 
+/**
+ * MAPA OPENSTREETMAP + LEAFLET
+ */
+const mapaHTML = `
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+}
+
+.leaflet-popup-content {
+  font-size: 13px;
+  color: #193447;
+}
+
+.leaflet-control-layers {
+  border-radius: 10px !important;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+const map = L.map('map', {
+  zoomControl: true,
+  worldCopyJump: true
+}).setView([10, 0], 2);
+
+// CAMADA PADRÃO
+const padrao = L.tileLayer(
+  'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }
+);
+
+// CAMADA CICLÍSTICA
+const ciclista = L.tileLayer(
+  'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
+  {
+    maxZoom: 20,
+    attribution: '&copy; CyclOSM & OpenStreetMap contributors'
+  }
+);
+
+// CAMADA HUMANITÁRIA
+const humanitaria = L.tileLayer(
+  'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+  {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors, HOT'
+  }
+);
+
+// ADICIONAR MAPA
+padrao.addTo(map);
+
+// CONTROLE DE CAMADAS
+L.control.layers({
+  'Mapa padrão': padrao,
+  'Mapa ciclístico': ciclista,
+  'Mapa humanitário': humanitaria
+}).addTo(map);
+
+// MARCADORES GEOPOLÍTICOS
+const paises = [
+  {
+    nome: 'Brasil',
+    regiao: 'América do Sul',
+    coords: [-14.235, -51.925]
+  },
+  {
+    nome: 'Estados Unidos',
+    regiao: 'América do Norte',
+    coords: [37.0902, -95.7129]
+  },
+  {
+    nome: 'China',
+    regiao: 'Ásia',
+    coords: [35.8617, 104.1954]
+  },
+  {
+    nome: 'Rússia',
+    regiao: 'Europa e Ásia',
+    coords: [61.524, 105.3188]
+  },
+  {
+    nome: 'Índia',
+    regiao: 'Ásia',
+    coords: [20.5937, 78.9629]
+  },
+  {
+    nome: 'Alemanha',
+    regiao: 'Europa',
+    coords: [51.1657, 10.4515]
+  },
+  {
+    nome: 'Japão',
+    regiao: 'Ásia',
+    coords: [36.2048, 138.2529]
+  },
+  {
+    nome: 'África do Sul',
+    regiao: 'África',
+    coords: [-30.5595, 22.9375]
+  }
+];
+
+paises.forEach(pais => {
+  L.marker(pais.coords)
+    .addTo(map)
+    .bindPopup(
+      '<b>' + pais.nome + '</b><br>' +
+      pais.regiao
+    );
+});
+
+// AJUSTE DO MAPA
+setTimeout(() => {
+  map.invalidateSize();
+}, 300);
+
+</script>
+
+</body>
+</html>
+`;
+
 export default function Pagina2() {
+
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
+
       {/* APRESENTAÇÃO */}
 
       <Text style={styles.eyebrow}>
-        RELAÇÕES INTERNACIONAIS
+        GEOGRAFIA E RELAÇÕES INTERNACIONAIS
       </Text>
 
       <Text style={styles.title}>
-        Geopolítica{' \n'}
-        Mundial.
+        Atlas{' \n'}
+        Geopolítico.
       </Text>
 
       <Text style={styles.subtitle}>
-        Entenda as disputas de poder, os conflitos,
-        as alianças e as transformações que estão
-        moldando o cenário internacional.
+        Explore o mundo por meio de mapas interativos,
+        informações geográficas e elementos que ajudam
+        a compreender as relações de poder entre os países.
       </Text>
 
       {/* BANNER */}
 
       <View style={styles.banner}>
+
         <Image
           source={{
             uri: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1000',
@@ -116,39 +274,112 @@ export default function Pagina2() {
         />
 
         <View style={styles.bannerOverlay}>
+
           <Text style={styles.bannerSmall}>
-            O TABULEIRO GLOBAL
+            OPENSTREETMAP
           </Text>
 
           <Text style={styles.bannerTitle}>
-            Um mundo em transformação.
+            O mundo em um só mapa.
           </Text>
 
           <Text style={styles.bannerDescription}>
-            Poder, diplomacia, economia e conflitos internacionais.
+            Explore territórios, países e regiões estratégicas.
+          </Text>
+
+        </View>
+      </View>
+
+      {/* MAPA INTERATIVO */}
+
+      <View style={styles.heading}>
+
+        <View>
+          <Text style={styles.sectionTitle}>
+            Mapa Mundial
+          </Text>
+
+          <Text style={styles.sectionDescription}>
+            Explore o planeta de forma interativa.
           </Text>
         </View>
+
+        <Ionicons
+          name="earth-outline"
+          size={25}
+          color="#B08B4E"
+        />
+
+      </View>
+
+      <View style={styles.mapCard}>
+
+        <WebView
+          originWhitelist={['*']}
+          source={{ html: mapaHTML }}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          scrollEnabled={false}
+          style={styles.map}
+          onError={(event) => {
+            console.error('Erro no mapa:', event.nativeEvent);
+          }}
+        />
+
+      </View>
+
+      <Text style={styles.mapCaption}>
+        Dados cartográficos © OpenStreetMap contributors.
+      </Text>
+
+      {/* CAMADAS */}
+
+      <View style={styles.layerInfo}>
+
+        <Ionicons
+          name="layers-outline"
+          size={24}
+          color="#D4AD62"
+        />
+
+        <View style={styles.layerContent}>
+
+          <Text style={styles.layerTitle}>
+            Diferentes camadas geográficas
+          </Text>
+
+          <Text style={styles.layerDescription}>
+            Utilize o controle no canto superior do mapa
+            para alternar entre as visualizações disponíveis:
+            padrão, ciclística e humanitária.
+          </Text>
+
+        </View>
+
       </View>
 
       {/* CATEGORIAS */}
 
       <View style={styles.heading}>
+
         <View>
           <Text style={styles.sectionTitle}>
-            Temas em destaque
+            Temas geográficos
           </Text>
 
           <Text style={styles.sectionDescription}>
-            Conheça as principais dinâmicas mundiais.
+            Conheça os principais elementos do cenário mundial.
           </Text>
         </View>
 
         <Text style={styles.count}>
           08 TEMAS
         </Text>
+
       </View>
 
       {categorias.map((item) => (
+
         <Pressable
           key={item.nome}
           style={({ pressed }) => [
@@ -162,20 +393,24 @@ export default function Pagina2() {
             })
           }
         >
+
           <View
             style={[
               styles.iconBox,
               { backgroundColor: item.cor },
             ]}
           >
+
             <Ionicons
               name={item.icon}
               size={24}
               color="#244B61"
             />
+
           </View>
 
           <View style={styles.cardContent}>
+
             <Text style={styles.cardTitle}>
               {item.nome}
             </Text>
@@ -183,6 +418,7 @@ export default function Pagina2() {
             <Text style={styles.cardDescription}>
               {item.descricao}
             </Text>
+
           </View>
 
           <Ionicons
@@ -190,12 +426,15 @@ export default function Pagina2() {
             size={20}
             color="#8796A1"
           />
+
         </Pressable>
+
       ))}
 
       {/* CONTEXTO GLOBAL */}
 
       <View style={styles.infoCard}>
+
         <Ionicons
           name="earth-outline"
           size={27}
@@ -203,35 +442,37 @@ export default function Pagina2() {
         />
 
         <View style={styles.infoContent}>
+
           <Text style={styles.infoTitle}>
-            Um cenário multipolar
+            O mundo e suas conexões
           </Text>
 
           <Text style={styles.infoText}>
-            O poder mundial está cada vez mais distribuído
-            entre diferentes países e blocos econômicos.
-            Estados Unidos, China, Rússia e outras potências
-            influenciam as decisões internacionais.
+            A geografia permite compreender como a localização,
+            as fronteiras, os recursos naturais e as rotas
+            comerciais influenciam as relações internacionais.
           </Text>
+
         </View>
+
       </View>
 
       {/* BRASIL */}
 
       <View style={styles.brazilCard}>
+
         <Text style={styles.brazilLabel}>
           DESTAQUE ESPECIAL
         </Text>
 
         <Text style={styles.brazilTitle}>
-          O Brasil no mundo
+          O Brasil no mapa mundial
         </Text>
 
         <Text style={styles.brazilDescription}>
-          O Brasil busca ampliar sua participação nas
-          relações internacionais, fortalecer parcerias
-          comerciais e manter autonomia diplomática
-          diante das disputas entre as grandes potências.
+          Localizado na América do Sul, o Brasil possui
+          dimensões continentais, importantes recursos naturais
+          e uma posição estratégica nas relações internacionais.
         </Text>
 
         <Pressable
@@ -248,6 +489,7 @@ export default function Pagina2() {
             })
           }
         >
+
           <Text style={styles.brazilButtonText}>
             Conhecer mais
           </Text>
@@ -257,12 +499,15 @@ export default function Pagina2() {
             size={17}
             color="#FFFFFF"
           />
+
         </Pressable>
+
       </View>
 
-      {/* AVISO */}
+      {/* FONTE DOS DADOS */}
 
       <View style={styles.note}>
+
         <Ionicons
           name="information-circle-outline"
           size={22}
@@ -270,23 +515,29 @@ export default function Pagina2() {
         />
 
         <Text style={styles.noteText}>
-          A geopolítica está em constante transformação.
-          Consulte fontes atualizadas para acompanhar
-          acontecimentos, negociações e conflitos.
+          Este mapa utiliza dados cartográficos colaborativos
+          do OpenStreetMap. Os marcadores apresentados são
+          referências geográficas ilustrativas.
         </Text>
+
       </View>
 
       {/* RODAPÉ */}
 
       <Text style={styles.footer}>
-        GEOPOLÍTICA MUNDIAL • RELAÇÕES INTERNACIONAIS
+        ATLAS GEOPOLÍTICO • OPENSTREETMAP
       </Text>
 
     </ScrollView>
   );
 }
 
+/**
+ * ESTILIZAÇÃO
+ */
+
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#F3F6F8',
@@ -386,6 +637,54 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '900',
     letterSpacing: 1,
+  },
+
+  mapCard: {
+    height: 390,
+    borderRadius: 18,
+    overflow: 'hidden',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5EAEE',
+    marginBottom: 9,
+  },
+
+  map: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+
+  mapCaption: {
+    color: '#8796A1',
+    fontSize: 10,
+    marginBottom: 20,
+  },
+
+  layerInfo: {
+    backgroundColor: '#193D50',
+    borderRadius: 17,
+    padding: 18,
+    flexDirection: 'row',
+    gap: 13,
+    marginBottom: 28,
+    alignItems: 'flex-start',
+  },
+
+  layerContent: {
+    flex: 1,
+  },
+
+  layerTitle: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+
+  layerDescription: {
+    color: '#D5E1E8',
+    fontSize: 11,
+    lineHeight: 18,
+    marginTop: 6,
   },
 
   card: {
@@ -533,4 +832,5 @@ const styles = StyleSheet.create({
     marginTop: 30,
     letterSpacing: 1,
   },
+
 });

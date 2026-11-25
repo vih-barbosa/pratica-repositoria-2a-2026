@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Image,
-  ActivityIndicator,
-  Linking,
-  TouchableOpacity,
+import {View,Text,StyleSheet, ScrollView,Image, ActivityIndicator,Linking,TouchableOpacity,
 } from 'react-native';
+
 import { Ionicons } from '@expo/vector-icons';
+import { WebView } from 'react-native-webview';
 
-/**
- * @typedef {Object} Valor
- * @property {React.ComponentProps<typeof Ionicons>['name']} icon
- * @property {string} titulo
- * @property {string} descricao
- */
 
-/** @type {Valor[]} */
 const valores = [
   {
     icon: 'globe-outline',
@@ -185,39 +172,64 @@ const mapaHTML = `
  * Página principal
    */
 export default function Pagina3() {
+
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [erroNews, setErroNews] = useState(false);
 
-  // Buscar dados da API GDELT
+  // Buscar notícias da API GDELT
+  async function buscarGDELT(url) {
+    try {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Erro HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Erro ao buscar dados do GDELT:', error);
+      throw error;
+    }
+  }
+
   useEffect(() => {
-    async function fetchGdeltNews() {
+    async function carregarNoticias() {
       try {
-        // Consultando artigos recentes sobre geopolítica em formato JSON
-        const response = await fetch(
-          'https://api.gdeltproject.org/api/v2/doc/doc?query=geopolitics&mode=artlist&maxrecords=5&format=json'
-        );
-        const data = await response.json();
-        if (data && data.articles) {
-          setNews(data.articles);
-        }
+        setLoading(true);
+        setErroNews(false);
+
+        const url =
+          'https://api.gdeltproject.org/api/v2/doc/doc' +
+          '?query=geopolitics&mode=ArtList&format=json&maxrecords=10&sort=HybridRel';
+
+        const data = await buscarGDELT(url);
+        setNews(Array.isArray(data.articles) ? data.articles : []);
       } catch (error) {
-        console.error('Erro ao buscar dados do GDELT:', error);
+        setErroNews(true);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchGdeltNews();
+    carregarNoticias();
+    carregarNoticias();
   }, []);
 
   return (
+
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
+
       {/* APRESENTAÇÃO */}
-      <Text style={styles.eyebrow}>SOBRE A GEOPOLÍTICA</Text>
+
+      <Text style={styles.eyebrow}>
+        SOBRE A GEOPOLÍTICA
+      </Text>
 
       <Text style={styles.title}>
         Entender o mundo é compreender suas relações de poder.
@@ -229,7 +241,9 @@ export default function Pagina3() {
       </Text>
 
       {/* IMAGEM DE DESTAQUE */}
+
       <View style={styles.imageCard}>
+
         <Image
           source={{
             uri: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1000',
@@ -239,16 +253,24 @@ export default function Pagina3() {
         />
 
         <View style={styles.imageOverlay}>
-          <Text style={styles.imageLabel}>CENÁRIO INTERNACIONAL</Text>
+
+          <Text style={styles.imageLabel}>
+            CENÁRIO INTERNACIONAL
+          </Text>
 
           <Text style={styles.imageTitle}>
             Um mundo conectado por interesses e desafios.
           </Text>
+
         </View>
+
       </View>
 
       {/* SOBRE O TEMA */}
-      <Text style={styles.sectionTitle}>O que é Geopolítica?</Text>
+
+      <Text style={styles.sectionTitle}>
+        O que é Geopolítica?
+      </Text>
 
       <Text style={styles.paragraph}>
         A geopolítica é a área de estudo que analisa como a localização
@@ -269,88 +291,228 @@ export default function Pagina3() {
         transformações mundiais.
       </Text>
 
-      {/* NOTÍCIAS AO VIVO DO GDELT */}
-      <Text style={styles.sectionTitle}>Radar Global (GDELT)</Text>
+      {/* NOTÍCIAS GDELT */}
+
+      <Text style={styles.sectionTitle}>
+        Radar Global (GDELT)
+      </Text>
+
       <Text style={styles.paragraph}>
-        Acompanhe em tempo real as últimas menções e notícias globais sobre
-        geopolítica extraídas da API do GDELT.
+        Acompanhe notícias internacionais extraídas da API do GDELT.
       </Text>
 
       {loading ? (
+
         <View style={styles.loaderContainer}>
-          <ActivityIndicator size="large" color="#D1AD69" />
-          <Text style={styles.loaderText}>Carregando dados globais...</Text>
+
+          <ActivityIndicator
+            size="large"
+            color="#D1AD69"
+          />
+
+          <Text style={styles.loaderText}>
+            Carregando dados globais...
+          </Text>
+
         </View>
+
+      ) : erroNews ? (
+
+        <View style={styles.newsCard}>
+          <Text style={styles.newsTitle}>
+            Não foi possível carregar as notícias. Tente novamente mais tarde.
+          </Text>
+        </View>
+
+      ) : news.length === 0 ? (
+
+        <View style={styles.newsCard}>
+          <Text style={styles.newsTitle}>
+            Nenhuma notícia encontrada no momento.
+          </Text>
+        </View>
+
       ) : (
+
         news.map((item, index) => (
+
           <TouchableOpacity
-            key={index}
+            key={item.url || index}
             style={styles.newsCard}
-            onPress={() => item.url && Linking.openURL(item.url)}
+            onPress={() => {
+              if (item.url) {
+                Linking.openURL(item.url);
+              }
+            }}
+            disabled={!item.url}
           >
+
             <View style={styles.newsHeader}>
-              <Ionicons name="newspaper-outline" size={18} color="#D1AD69" />
-              <Text style={styles.newsDomain}>{item.domain || 'Notícia Global'}</Text>
+
+              <Ionicons
+                name="newspaper-outline"
+                size={18}
+                color="#D1AD69"
+              />
+
+              <Text style={styles.newsDomain}>
+                {item.domain || 'Notícia Global'}
+              </Text>
+
             </View>
-            <Text style={styles.newsTitle}>{item.title}</Text>
-            <Text style={styles.newsDate}>{item.seendate ? `${item.seendate.substring(6,8)}/${item.seendate.substring(4,6)}/${item.seendate.substring(0,4)}` : ''}</Text>
+
+            <Text style={styles.newsTitle}>
+              {item.title}
+            </Text>
+
+            <Text style={styles.newsDate}>
+              {item.seendate
+                ? `${item.seendate.substring(6, 8)}/${item.seendate.substring(4, 6)}/${item.seendate.substring(0, 4)}`
+                : ''}
+            </Text>
+
           </TouchableOpacity>
+
         ))
+
       )}
 
+      {/* MAPA OPENSTREETMAP */}
+
+      <Text style={styles.sectionTitle}>
+        Mapa Geopolítico Mundial
+      </Text>
+
+      <Text style={styles.paragraph}>
+        Explore o cenário internacional por meio de um mapa interativo.
+        Visualize países, regiões e diferentes camadas geográficas.
+      </Text>
+
+      <View style={styles.mapCard}>
+
+        <WebView
+          originWhitelist={['*']}
+          source={{
+            html: mapaHTML
+          }}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          scrollEnabled={false}
+          style={styles.map}
+          onError={(event) => {
+            console.error('Erro no mapa:', event.nativeEvent);
+          }}
+        />
+
+      </View>
+
+      <Text style={styles.mapCaption}>
+        Fonte cartográfica: OpenStreetMap contributors.
+      </Text>
+
       {/* PRINCIPAIS ELEMENTOS */}
-      <Text style={styles.sectionTitle}>Principais elementos da geopolítica</Text>
+
+      <Text style={styles.sectionTitle}>
+        Principais elementos da geopolítica
+      </Text>
 
       {valores.map((item) => (
-        <View style={styles.valueCard} key={item.titulo}>
+
+        <View
+          style={styles.valueCard}
+          key={item.titulo}
+        >
+
           <View style={styles.valueIcon}>
-            <Ionicons name={item.icon} size={24} color="#D1AD69" />
+
+            <Ionicons
+              name={item.icon}
+              size={24}
+              color="#D1AD69"
+            />
+
           </View>
 
           <View style={styles.valueContent}>
-            <Text style={styles.valueTitle}>{item.titulo}</Text>
 
-            <Text style={styles.valueDescription}>{item.descricao}</Text>
+            <Text style={styles.valueTitle}>
+              {item.titulo}
+            </Text>
+
+            <Text style={styles.valueDescription}>
+              {item.descricao}
+            </Text>
+
           </View>
+
         </View>
+
       ))}
 
       {/* BRASIL */}
-      <View style={styles.brazilCard}>
-        <View style={styles.brazilHeader}>
-          <Ionicons name="flag-outline" size={25} color="#D1AD69" />
 
-          <Text style={styles.brazilLabel}>DESTAQUE INTERNACIONAL</Text>
+      <View style={styles.brazilCard}>
+
+        <View style={styles.brazilHeader}>
+
+          <Ionicons
+            name="flag-outline"
+            size={25}
+            color="#D1AD69"
+          />
+
+          <Text style={styles.brazilLabel}>
+            DESTAQUE INTERNACIONAL
+          </Text>
+
         </View>
 
-        <Text style={styles.brazilTitle}>O Brasil no cenário mundial</Text>
+        <Text style={styles.brazilTitle}>
+          O Brasil no cenário mundial
+        </Text>
 
         <Text style={styles.brazilDescription}>
           O Brasil possui importância estratégica na América Latina e no mundo.
           Sua economia, seus recursos naturais, sua participação nos BRICS e sua
           atuação diplomática contribuem para sua presença internacional.
         </Text>
+
       </View>
 
       {/* FRASE FINAL */}
+
       <View style={styles.quoteCard}>
-        <Ionicons name="earth-outline" size={32} color="#D1AD69" />
+
+        <Ionicons
+          name="earth-outline"
+          size={32}
+          color="#D1AD69"
+        />
 
         <Text style={styles.quote}>
           "Compreender a geopolítica é entender que as decisões de um país
           podem transformar a realidade de todo o planeta."
         </Text>
+
       </View>
 
       {/* RODAPÉ */}
+
       <Text style={styles.footer}>
         GEOPOLÍTICA MUNDIAL • RELAÇÕES INTERNACIONAIS
       </Text>
+
     </ScrollView>
+
   );
+
 }
 
+/**
+ * ESTILIZAÇÃO
+ */
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#F3F6F8',
@@ -485,6 +647,27 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 
+  mapCard: {
+    height: 380,
+    borderRadius: 18,
+    overflow: 'hidden',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5EAEE',
+    marginBottom: 10,
+  },
+
+  map: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+
+  mapCaption: {
+    color: '#8796A1',
+    fontSize: 10,
+    marginBottom: 17,
+  },
+
   valueCard: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -582,4 +765,5 @@ const styles = StyleSheet.create({
     marginTop: 27,
     letterSpacing: 1,
   },
+
 });
