@@ -1,830 +1,447 @@
-
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   Image,
+  ActivityIndicator,
   Linking,
+  TouchableOpacity,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
+/**
+ * @typedef {Object} Valor
+ * @property {React.ComponentProps<typeof Ionicons>['name']} icon
+ * @property {string} titulo
+ * @property {string} descricao
+ */
+
+/** @type {Valor[]} */
+const valores = [
+  {
+    icon: 'globe-outline',
+    titulo: 'Ordem mundial',
+    descricao:
+      'Compreender como os países se organizam e disputam influência no cenário internacional.',
+  },
+  {
+    icon: 'handshake-outline',
+    titulo: 'Relações internacionais',
+    descricao:
+      'Conhecer alianças, acordos diplomáticos e relações entre diferentes nações.',
+  },
+  {
+    icon: 'shield-outline',
+    titulo: 'Segurança global',
+    descricao:
+      'Entender conflitos, disputas territoriais e os desafios para a paz mundial.',
+  },
+  {
+    icon: 'trending-up-outline',
+    titulo: 'Economia e poder',
+    descricao:
+      'Analisar como o comércio, os recursos naturais e a tecnologia influenciam os países.',
+  },
+];
 
 export default function Pagina3() {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const abrirONU = () => {
-    Linking.openURL(
-      'https://pt.wikipedia.org/wiki/Organiza%C3%A7%C3%A3o_das_Na%C3%A7%C3%B5es_Unidas'
-    );
-  };
+  // Buscar dados da API GDELT
+  useEffect(() => {
+    async function fetchGdeltNews() {
+      try {
+        // Consultando artigos recentes sobre geopolítica em formato JSON
+        const response = await fetch(
+          'https://api.gdeltproject.org/api/v2/doc/doc?query=geopolitics&mode=artlist&maxrecords=5&format=json'
+        );
+        const data = await response.json();
+        if (data && data.articles) {
+          setNews(data.articles);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar dados do GDELT:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchGdeltNews();
+  }, []);
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      showsVerticalScrollIndicator={false}
+    >
+      {/* APRESENTAÇÃO */}
+      <Text style={styles.eyebrow}>SOBRE A GEOPOLÍTICA</Text>
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}
-      >
+      <Text style={styles.title}>
+        Entender o mundo é compreender suas relações de poder.
+      </Text>
 
-        {/* FUNDO */}
-        <Text style={styles.bg1}>🌐</Text>
-        <Text style={styles.bg2}>WORLD</Text>
-        <Text style={styles.bg3}>POLITICS</Text>
-        <Text style={styles.bg4}>🌍</Text>
-        <Text style={styles.bg5}>ONU</Text>
+      <Text style={styles.subtitle}>
+        Conheça os interesses, as alianças e os conflitos que influenciam as
+        decisões dos países e transformam o cenário internacional.
+      </Text>
 
-        {/* CABEÇALHO */}
-        <View style={styles.header}>
+      {/* IMAGEM DE DESTAQUE */}
+      <View style={styles.imageCard}>
+        <Image
+          source={{
+            uri: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1000',
+          }}
+          style={styles.image}
+          resizeMode="cover"
+        />
 
-          <Text style={styles.kicker}>
-            🌐 RELAÇÕES INTERNACIONAIS
+        <View style={styles.imageOverlay}>
+          <Text style={styles.imageLabel}>CENÁRIO INTERNACIONAL</Text>
+
+          <Text style={styles.imageTitle}>
+            Um mundo conectado por interesses e desafios.
           </Text>
-
-          <Text style={styles.title}>
-            Meu Perfil
-          </Text>
-
-          <View style={styles.divider}>
-            <View style={styles.line} />
-            <Text style={styles.dividerIcon}>◆</Text>
-            <View style={styles.line} />
-          </View>
-
-          <Text style={styles.subtitle}>
-            Conheça os principais temas, organizações
-            e acontecimentos que moldam a política
-            e o cenário internacional.
-          </Text>
-
         </View>
+      </View>
 
-        {/* AVATAR */}
-        <View style={styles.avatarContainer}>
+      {/* SOBRE O TEMA */}
+      <Text style={styles.sectionTitle}>O que é Geopolítica?</Text>
 
-          <View style={styles.avatar}>
-            <Text style={styles.avatarIcon}>🌍</Text>
-          </View>
+      <Text style={styles.paragraph}>
+        A geopolítica é a área de estudo que analisa como a localização
+        geográfica, os recursos naturais, a economia, a política e o poder
+        influenciam as relações entre os países.
+      </Text>
 
-          <Text style={styles.avatarTitle}>
-            ANALISTA GLOBAL
-          </Text>
+      <Text style={styles.paragraph}>
+        Ela ajuda a compreender as disputas territoriais, os conflitos
+        internacionais, as alianças entre governos e as estratégias utilizadas
+        pelas grandes potências para ampliar sua influência.
+      </Text>
 
-          <Text style={styles.avatarSubtitle}>
-            Explorador da geopolítica mundial
-          </Text>
+      <Text style={styles.paragraph}>
+        Atualmente, países como Estados Unidos, China e Rússia possuem grande
+        influência nas decisões internacionais. Ao mesmo tempo, organizações e
+        grupos de países, como a ONU e os BRICS, também participam das
+        transformações mundiais.
+      </Text>
 
+      {/* NOTÍCIAS AO VIVO DO GDELT */}
+      <Text style={styles.sectionTitle}>Radar Global (GDELT)</Text>
+      <Text style={styles.paragraph}>
+        Acompanhe em tempo real as últimas menções e notícias globais sobre
+        geopolítica extraídas da API do GDELT.
+      </Text>
+
+      {loading ? (
+        <View style={styles.loaderContainer}>
+          <ActivityIndicator size="large" color="#D1AD69" />
+          <Text style={styles.loaderText}>Carregando dados globais...</Text>
         </View>
-
-        {/* PERFIL */}
-        <View style={styles.profileCard}>
-
-          <Text style={styles.cardKicker}>
-            PERFIL INTERNACIONAL
-          </Text>
-
-          <Text style={styles.profileTitle}>
-            Geopolítica Mundial
-          </Text>
-
-          <Text style={styles.description}>
-            A geopolítica estuda as relações entre
-            países, o poder internacional, os
-            territórios e os interesses estratégicos
-            que influenciam o mundo.
-          </Text>
-
-          <View style={styles.infoLine}>
-            <Text style={styles.infoIcon}>🌎</Text>
-            <View style={styles.infoContent}>
-              <Text style={styles.label}>ÁREA DE ESTUDO</Text>
-              <Text style={styles.value}>
-                Política internacional
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.infoLine}>
-            <Text style={styles.infoIcon}>🤝</Text>
-            <View style={styles.infoContent}>
-              <Text style={styles.label}>RELAÇÕES</Text>
-              <Text style={styles.value}>
-                Diplomacia entre países
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.infoLine}>
-            <Text style={styles.infoIcon}>⚖️</Text>
-            <View style={styles.infoContent}>
-              <Text style={styles.label}>TEMA CENTRAL</Text>
-              <Text style={styles.value}>
-                Poder e equilíbrio mundial
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.infoLine}>
-            <Text style={styles.infoIcon}>🕊️</Text>
-            <View style={styles.infoContent}>
-              <Text style={styles.label}>OBJETIVO</Text>
-              <Text style={styles.value}>
-                Compreender o cenário global
-              </Text>
-            </View>
-          </View>
-
-        </View>
-
-        {/* INTERESSES */}
-        <View style={styles.section}>
-
-          <Text style={styles.sectionKicker}>
-            CONHECIMENTO GLOBAL
-          </Text>
-
-          <Text style={styles.sectionTitle}>
-            Áreas da Geopolítica
-          </Text>
-
-          <View style={styles.tags}>
-
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>🌐 Globalização</Text>
-            </View>
-
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>⚔️ Conflitos</Text>
-            </View>
-
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>🤝 Diplomacia</Text>
-            </View>
-
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>💰 Economia</Text>
-            </View>
-
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>🗺️ Territórios</Text>
-            </View>
-
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>🏛️ Organizações</Text>
-            </View>
-
-          </View>
-        </View>
-
-        {/* ORGANIZAÇÃO DAS NAÇÕES UNIDAS */}
-        <View style={styles.unCard}>
-
-          <Text style={styles.unKicker}>
-            ORGANIZAÇÃO INTERNACIONAL
-          </Text>
-
-          <Text style={styles.unTitle}>
-            Organização das Nações Unidas
-          </Text>
-
-          <Text style={styles.unAbbreviation}>
-            ONU • UNITED NATIONS
-          </Text>
-
-          {/* IMAGEM DA API */}
-          <Image
-            source={{
-              uri: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/langpt-330px-Flag_of_the_United_Nations.svg.png?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail',
-            }}
-            style={styles.unImage}
-            resizeMode="contain"
-          />
-
-          <View style={styles.unBadge}>
-            <Text style={styles.unBadgeText}>
-              ORGANIZAÇÃO INTERGOVERNAMENTAL
-            </Text>
-          </View>
-
-          <Text style={styles.unDescription}>
-            A Organização das Nações Unidas (ONU)
-            é uma organização internacional criada
-            para promover a cooperação entre países,
-            preservar a paz e a segurança mundial
-            e defender os direitos humanos.
-          </Text>
-
-          {/* DADOS DA API */}
-          <View style={styles.dataBox}>
-
-            <View style={styles.dataItem}>
-              <Text style={styles.dataLabel}>FUNDAÇÃO</Text>
-              <Text style={styles.dataValue}>
-                24 de outubro de 1945
-              </Text>
-            </View>
-
-            <View style={styles.dataItem}>
-              <Text style={styles.dataLabel}>ESTADOS-MEMBROS</Text>
-              <Text style={styles.dataValue}>
-                193 países
-              </Text>
-            </View>
-
-            <View style={styles.dataItem}>
-              <Text style={styles.dataLabel}>SEDE PRINCIPAL</Text>
-              <Text style={styles.dataValue}>
-                Nova Iorque, EUA
-              </Text>
-            </View>
-
-            <View style={styles.dataItem}>
-              <Text style={styles.dataLabel}>CRIAÇÃO</Text>
-              <Text style={styles.dataValue}>
-                Após a Segunda Guerra Mundial
-              </Text>
-            </View>
-
-          </View>
-
-          {/* OBJETIVOS */}
-          <Text style={styles.objectivesTitle}>
-            Principais objetivos
-          </Text>
-
-          <View style={styles.objective}>
-            <Text style={styles.objectiveIcon}>🕊️</Text>
-            <Text style={styles.objectiveText}>
-              Manter a paz e a segurança internacional.
-            </Text>
-          </View>
-
-          <View style={styles.objective}>
-            <Text style={styles.objectiveIcon}>⚖️</Text>
-            <Text style={styles.objectiveText}>
-              Promover os direitos humanos.
-            </Text>
-          </View>
-
-          <View style={styles.objective}>
-            <Text style={styles.objectiveIcon}>🌱</Text>
-            <Text style={styles.objectiveText}>
-              Incentivar o desenvolvimento sustentável.
-            </Text>
-          </View>
-
-          <View style={styles.objective}>
-            <Text style={styles.objectiveIcon}>🤝</Text>
-            <Text style={styles.objectiveText}>
-              Fortalecer a cooperação internacional.
-            </Text>
-          </View>
-
-          <View style={styles.objective}>
-            <Text style={styles.objectiveIcon}>🚑</Text>
-            <Text style={styles.objectiveText}>
-              Oferecer ajuda humanitária em crises.
-            </Text>
-          </View>
-
-          {/* LINK DA WIKIPÉDIA */}
-          <Text
-            style={styles.button}
-            onPress={abrirONU}
+      ) : (
+        news.map((item, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.newsCard}
+            onPress={() => item.url && Linking.openURL(item.url)}
           >
-            CONSULTAR NA WIKIPÉDIA →
-          </Text>
+            <View style={styles.newsHeader}>
+              <Ionicons name="newspaper-outline" size={18} color="#D1AD69" />
+              <Text style={styles.newsDomain}>{item.domain || 'Notícia Global'}</Text>
+            </View>
+            <Text style={styles.newsTitle}>{item.title}</Text>
+            <Text style={styles.newsDate}>{item.seendate ? `${item.seendate.substring(6,8)}/${item.seendate.substring(4,6)}/${item.seendate.substring(0,4)}` : ''}</Text>
+          </TouchableOpacity>
+        ))
+      )}
 
-          <Text style={styles.source}>
-            Fonte: Wikipédia • Organização das Nações Unidas
-          </Text>
+      {/* PRINCIPAIS ELEMENTOS */}
+      <Text style={styles.sectionTitle}>Principais elementos da geopolítica</Text>
 
+      {valores.map((item) => (
+        <View style={styles.valueCard} key={item.titulo}>
+          <View style={styles.valueIcon}>
+            <Ionicons name={item.icon} size={24} color="#D1AD69" />
+          </View>
+
+          <View style={styles.valueContent}>
+            <Text style={styles.valueTitle}>{item.titulo}</Text>
+
+            <Text style={styles.valueDescription}>{item.descricao}</Text>
+          </View>
+        </View>
+      ))}
+
+      {/* BRASIL */}
+      <View style={styles.brazilCard}>
+        <View style={styles.brazilHeader}>
+          <Ionicons name="flag-outline" size={25} color="#D1AD69" />
+
+          <Text style={styles.brazilLabel}>DESTAQUE INTERNACIONAL</Text>
         </View>
 
-        {/* FRASE FINAL */}
-        <View style={styles.quoteCard}>
+        <Text style={styles.brazilTitle}>O Brasil no cenário mundial</Text>
 
-          <Text style={styles.quoteIcon}>🌐</Text>
+        <Text style={styles.brazilDescription}>
+          O Brasil possui importância estratégica na América Latina e no mundo.
+          Sua economia, seus recursos naturais, sua participação nos BRICS e sua
+          atuação diplomática contribuem para sua presença internacional.
+        </Text>
+      </View>
 
-          <Text style={styles.quoteTitle}>
-            UM MUNDO CONECTADO
-          </Text>
+      {/* FRASE FINAL */}
+      <View style={styles.quoteCard}>
+        <Ionicons name="earth-outline" size={32} color="#D1AD69" />
 
-          <View style={styles.quoteLine} />
+        <Text style={styles.quote}>
+          "Compreender a geopolítica é entender que as decisões de um país
+          podem transformar a realidade de todo o planeta."
+        </Text>
+      </View>
 
-          <Text style={styles.quoteText}>
-            "Compreender o mundo é compreender
-            as relações entre os povos,
-            as nações e suas histórias."
-          </Text>
-
-          <Text style={styles.quoteAuthor}>
-            — Reflexão geopolítica
-          </Text>
-
-        </View>
-
-        {/* RODAPÉ */}
-        <View style={styles.footer}>
-
-          <Text style={styles.footerIcon}>
-            🌍
-          </Text>
-
-          <Text style={styles.footerTitle}>
-            GEOPOLÍTICA MUNDIAL
-          </Text>
-
-          <Text style={styles.footerSubtitle}>
-            Conhecimento • Política • Relações Internacionais
-          </Text>
-
-          <View style={styles.footerLine} />
-
-          <Text style={styles.footerSmall}>
-            UM OLHAR SOBRE O MUNDO
-          </Text>
-
-        </View>
-
-      </ScrollView>
-    </View>
+      {/* RODAPÉ */}
+      <Text style={styles.footer}>
+        GEOPOLÍTICA MUNDIAL • RELAÇÕES INTERNACIONAIS
+      </Text>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
-    backgroundColor: '#091522',
+    backgroundColor: '#F3F6F8',
   },
 
   content: {
-    alignItems: 'center',
-    paddingHorizontal: 22,
-    paddingTop: 65,
-    paddingBottom: 40,
-    overflow: 'hidden',
+    padding: 23,
+    paddingTop: 62,
+    paddingBottom: 45,
   },
 
-  // FUNDO
-  bg1: {
-    position: 'absolute',
-    top: 120,
-    left: 8,
-    fontSize: 48,
-    opacity: 0.12,
-  },
-
-  bg2: {
-    position: 'absolute',
-    top: 350,
-    right: 10,
-    color: '#48A9C5',
-    fontSize: 24,
-    opacity: 0.12,
-    fontWeight: '900',
-  },
-
-  bg3: {
-    position: 'absolute',
-    top: 700,
-    left: 12,
-    color: '#48A9C5',
-    fontSize: 25,
-    opacity: 0.12,
-  },
-
-  bg4: {
-    position: 'absolute',
-    top: 950,
-    right: 15,
-    fontSize: 38,
-    opacity: 0.12,
-  },
-
-  bg5: {
-    position: 'absolute',
-    top: 550,
-    right: 12,
-    color: '#D4B46A',
-    fontSize: 35,
-    opacity: 0.12,
-  },
-
-  // CABEÇALHO
-  header: {
-    width: '100%',
-    alignItems: 'center',
-  },
-
-  kicker: {
-    color: '#D4B46A',
+  eyebrow: {
+    color: '#B08B4E',
     fontSize: 10,
     fontWeight: '900',
     letterSpacing: 2,
-    marginBottom: 12,
   },
 
   title: {
-    color: '#F2F6FA',
-    fontSize: 35,
+    color: '#193447',
+    fontSize: 31,
     fontWeight: '900',
-  },
-
-  divider: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    marginTop: 15,
-  },
-
-  line: {
-    width: 45,
-    height: 1,
-    backgroundColor: '#398BA8',
-  },
-
-  dividerIcon: {
-    color: '#D4B46A',
-    fontSize: 16,
+    lineHeight: 39,
+    marginTop: 12,
   },
 
   subtitle: {
-    color: '#AABAC9',
-    fontSize: 13,
-    lineHeight: 22,
-    textAlign: 'center',
-    marginTop: 16,
-    maxWidth: 310,
+    color: '#61727F',
+    fontSize: 14,
+    lineHeight: 23,
+    marginTop: 12,
   },
 
-  // AVATAR
-  avatarContainer: {
-    alignItems: 'center',
-    marginTop: 30,
-    marginBottom: 28,
+  imageCard: {
+    height: 225,
+    borderRadius: 20,
+    overflow: 'hidden',
+    marginVertical: 27,
+    backgroundColor: '#193D50',
   },
 
-  avatar: {
-    width: 115,
-    height: 115,
-    borderRadius: 60,
-    backgroundColor: '#142C42',
-    borderWidth: 2,
-    borderColor: '#398BA8',
-    alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 8,
-  },
-
-  avatarIcon: {
-    fontSize: 58,
-  },
-
-  avatarTitle: {
-    color: '#D4B46A',
-    fontSize: 11,
-    fontWeight: '900',
-    letterSpacing: 2,
-    marginTop: 15,
-  },
-
-  avatarSubtitle: {
-    color: '#AABAC9',
-    fontSize: 11,
-    marginTop: 6,
-  },
-
-  // CARTÃO DO PERFIL
-  profileCard: {
+  image: {
     width: '100%',
-    backgroundColor: '#122437',
-    borderRadius: 18,
-    padding: 19,
-    borderWidth: 1,
-    borderColor: '#294B64',
+    height: '100%',
+    position: 'absolute',
   },
 
-  cardKicker: {
-    color: '#D4B46A',
+  imageOverlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 20,
+    backgroundColor: 'rgba(12, 35, 53, 0.64)',
+  },
+
+  imageLabel: {
+    color: '#E3C58C',
     fontSize: 9,
     fontWeight: '900',
-    letterSpacing: 2,
+    letterSpacing: 1.8,
   },
 
-  profileTitle: {
-    color: '#F2F6FA',
+  imageTitle: {
+    color: '#FFFFFF',
     fontSize: 22,
     fontWeight: '900',
-    marginTop: 8,
-  },
-
-  description: {
-    color: '#AABAC9',
-    fontSize: 12,
-    lineHeight: 20,
-    marginTop: 13,
-    marginBottom: 15,
-  },
-
-  infoLine: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 13,
-    borderTopWidth: 1,
-    borderTopColor: '#294357',
-  },
-
-  infoIcon: {
-    fontSize: 25,
-    marginRight: 13,
-  },
-
-  infoContent: {
-    flex: 1,
-  },
-
-  label: {
-    color: '#D4B46A',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 1,
-  },
-
-  value: {
-    color: '#F2F6FA',
-    fontSize: 13,
-    marginTop: 4,
-  },
-
-  // INTERESSES
-  section: {
-    width: '100%',
-    backgroundColor: '#122437',
-    padding: 19,
-    borderRadius: 18,
-    borderWidth: 1,
-    borderColor: '#294B64',
-    marginTop: 18,
-  },
-
-  sectionKicker: {
-    color: '#D4B46A',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 2,
+    lineHeight: 29,
+    marginTop: 9,
   },
 
   sectionTitle: {
-    color: '#F2F6FA',
-    fontSize: 19,
+    color: '#193447',
+    fontSize: 21,
     fontWeight: '900',
+    marginBottom: 13,
+    marginTop: 13,
+  },
+
+  paragraph: {
+    color: '#61727F',
+    fontSize: 13,
+    lineHeight: 23,
+    textAlign: 'justify',
+    marginBottom: 13,
+  },
+
+  loaderContainer: {
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  loaderText: {
+    color: '#61727F',
+    fontSize: 12,
     marginTop: 8,
-    marginBottom: 15,
   },
 
-  tags: {
+  newsCard: {
+    backgroundColor: '#FFFFFF',
+    padding: 15,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#E5EAEE',
+    marginBottom: 11,
+  },
+
+  newsHeader: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 9,
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 6,
   },
 
-  tag: {
-    backgroundColor: '#1B3A52',
-    borderWidth: 1,
-    borderColor: '#39718D',
-    paddingHorizontal: 11,
-    paddingVertical: 9,
-    borderRadius: 20,
-  },
-
-  tagText: {
-    color: '#DCEAF3',
+  newsDomain: {
+    color: '#B08B4E',
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
 
-  // ONU
-  unCard: {
-    width: '100%',
-    backgroundColor: '#122437',
-    borderRadius: 20,
-    padding: 18,
-    marginTop: 20,
+  newsTitle: {
+    color: '#193447',
+    fontSize: 13,
+    fontWeight: '600',
+    lineHeight: 18,
+  },
+
+  newsDate: {
+    color: '#8796A1',
+    fontSize: 10,
+    marginTop: 6,
+    textAlign: 'right',
+  },
+
+  valueCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 13,
+    padding: 15,
+    borderRadius: 16,
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#39718D',
+    borderColor: '#E5EAEE',
+    marginBottom: 11,
   },
 
-  unKicker: {
-    color: '#D4B46A',
+  valueIcon: {
+    width: 47,
+    height: 47,
+    backgroundColor: '#193D50',
+    borderRadius: 13,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  valueContent: {
+    flex: 1,
+  },
+
+  valueTitle: {
+    color: '#193447',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+
+  valueDescription: {
+    color: '#7A8993',
+    fontSize: 11,
+    lineHeight: 18,
+    marginTop: 5,
+  },
+
+  brazilCard: {
+    backgroundColor: '#193D50',
+    padding: 20,
+    borderRadius: 18,
+    marginTop: 20,
+  },
+
+  brazilHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+
+  brazilLabel: {
+    color: '#D1AD69',
     fontSize: 9,
     fontWeight: '900',
     letterSpacing: 1.5,
   },
 
-  unTitle: {
-    color: '#F2F6FA',
+  brazilTitle: {
+    color: '#FFFFFF',
     fontSize: 21,
     fontWeight: '900',
-    marginTop: 10,
+    marginTop: 13,
   },
 
-  unAbbreviation: {
-    color: '#65B7D0',
-    fontSize: 10,
-    fontWeight: '800',
-    marginTop: 7,
-    letterSpacing: 1,
-  },
-
-  unImage: {
-    width: '100%',
-    height: 155,
-    backgroundColor: '#EAF1F5',
-    borderRadius: 12,
-    marginTop: 17,
-  },
-
-  unBadge: {
-    alignSelf: 'flex-start',
-    backgroundColor: '#1B3A52',
-    paddingHorizontal: 10,
-    paddingVertical: 7,
-    borderRadius: 6,
-    marginTop: 14,
-  },
-
-  unBadgeText: {
-    color: '#65B7D0',
-    fontSize: 8,
-    fontWeight: '900',
-  },
-
-  unDescription: {
-    color: '#C0CDD7',
+  brazilDescription: {
+    color: '#D5E1E8',
     fontSize: 12,
     lineHeight: 21,
-    marginTop: 15,
+    marginTop: 9,
   },
 
-  dataBox: {
-    backgroundColor: '#0D1D2C',
-    borderRadius: 12,
-    padding: 13,
-    marginTop: 17,
-  },
-
-  dataItem: {
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#263C4D',
-  },
-
-  dataLabel: {
-    color: '#D4B46A',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 1,
-  },
-
-  dataValue: {
-    color: '#F2F6FA',
-    fontSize: 13,
-    fontWeight: '700',
-    marginTop: 5,
-  },
-
-  objectivesTitle: {
-    color: '#F2F6FA',
-    fontSize: 16,
-    fontWeight: '900',
-    marginTop: 20,
-    marginBottom: 10,
-  },
-
-  objective: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 9,
-  },
-
-  objectiveIcon: {
-    fontSize: 20,
-    marginRight: 11,
-  },
-
-  objectiveText: {
-    color: '#C0CDD7',
-    fontSize: 12,
-    flex: 1,
-    lineHeight: 18,
-  },
-
-  button: {
-    backgroundColor: '#245C78',
-    color: '#FFFFFF',
-    textAlign: 'center',
-    padding: 14,
-    borderRadius: 9,
-    overflow: 'hidden',
-    fontWeight: '900',
-    fontSize: 11,
-    marginTop: 20,
-    letterSpacing: 1,
-  },
-
-  source: {
-    color: '#8195A6',
-    fontSize: 9,
-    marginTop: 12,
-    textAlign: 'center',
-  },
-
-  // FRASE FINAL
   quoteCard: {
-    width: '100%',
-    backgroundColor: '#122437',
+    backgroundColor: '#E7EDF1',
+    padding: 23,
     borderRadius: 18,
-    padding: 22,
-    alignItems: 'center',
     marginTop: 20,
-    borderWidth: 1,
-    borderColor: '#294B64',
-  },
-
-  quoteIcon: {
-    fontSize: 35,
-  },
-
-  quoteTitle: {
-    color: '#D4B46A',
-    fontSize: 11,
-    fontWeight: '900',
-    letterSpacing: 2,
-    marginTop: 10,
-  },
-
-  quoteLine: {
-    width: 45,
-    height: 2,
-    backgroundColor: '#398BA8',
-    marginVertical: 17,
-  },
-
-  quoteText: {
-    color: '#F2F6FA',
-    fontSize: 14,
-    lineHeight: 24,
-    textAlign: 'center',
-    fontStyle: 'italic',
-  },
-
-  quoteAuthor: {
-    color: '#8FA9BA',
-    fontSize: 10,
-    marginTop: 15,
-  },
-
-  // RODAPÉ
-  footer: {
-    width: '100%',
     alignItems: 'center',
-    marginTop: 32,
-    paddingTop: 23,
-    borderTopWidth: 1,
-    borderTopColor: '#294357',
   },
 
-  footerIcon: {
-    fontSize: 30,
-  },
-
-  footerTitle: {
-    color: '#F2F6FA',
+  quote: {
+    color: '#193447',
     fontSize: 15,
-    fontWeight: '900',
-    letterSpacing: 2,
-    marginTop: 10,
+    lineHeight: 24,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginTop: 13,
+    fontWeight: '600',
   },
 
-  footerSubtitle: {
-    color: '#8FA9BA',
+  footer: {
+    color: '#8796A1',
     fontSize: 9,
     textAlign: 'center',
-    marginTop: 8,
+    marginTop: 27,
+    letterSpacing: 1,
   },
-
-  footerLine: {
-    width: 35,
-    height: 2,
-    backgroundColor: '#D4B46A',
-    marginVertical: 17,
-  },
-
-  footerSmall: {
-    color: '#71899B',
-    fontSize: 9,
-    letterSpacing: 2,
-  },
-
 });

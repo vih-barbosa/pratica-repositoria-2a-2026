@@ -1,749 +1,536 @@
-
 import React from 'react';
 import {
-  Text,
   View,
+  Text,
   StyleSheet,
   ScrollView,
+  Pressable,
+  Image,
 } from 'react-native';
 
-const assuntos = [
+import { router } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+
+/**
+ * @typedef {Object} Categoria
+ * @property {string} nome
+ * @property {string} descricao
+ * @property {React.ComponentProps<typeof Ionicons>['name']} icon
+ * @property {string} cor
+ * @property {string} artigo
+ */
+
+/** @type {Categoria[]} */
+const categorias = [
   {
-    icon: '🌐',
-    categoria: 'RELAÇÕES INTERNACIONAIS',
-    titulo: 'Diplomacia Mundial',
-    descricao:
-      'Entenda como os países negociam acordos, estabelecem alianças e resolvem divergências.',
-    cor: '#287CB8',
+    nome: 'Multipolaridade Mundial',
+    descricao: 'A disputa de influência entre as grandes potências.',
+    icon: 'globe-outline',
+    cor: '#E5EDF7',
+    artigo: 'Multipolaridade',
   },
   {
-    icon: '🏛️',
-    categoria: 'ORGANIZAÇÕES INTERNACIONAIS',
-    titulo: 'ONU e OTAN',
-    descricao:
-      'Conheça o papel das organizações internacionais na segurança, cooperação e política mundial.',
-    cor: '#4775C7',
+    nome: 'Estados Unidos e China',
+    descricao: 'Rivalidade tecnológica, comercial e militar.',
+    icon: 'business-outline',
+    cor: '#E9EEF8',
+    artigo: 'Relações entre China e Estados Unidos',
   },
   {
-    icon: '⚔️',
-    categoria: 'CONFLITOS INTERNACIONAIS',
-    titulo: 'Guerras e Tensões',
-    descricao:
-      'Compreenda as causas históricas, territoriais e políticas dos conflitos entre países.',
-    cor: '#C95757',
+    nome: 'Guerra na Ucrânia',
+    descricao: 'O conflito e seus impactos na segurança europeia.',
+    icon: 'shield-outline',
+    cor: '#F5E9E4',
+    artigo: 'Guerra Russo-Ucraniana',
   },
   {
-    icon: '💰',
-    categoria: 'ECONOMIA GLOBAL',
-    titulo: 'Poder Econômico',
-    descricao:
-      'Descubra como comércio, energia, recursos naturais e investimentos influenciam o poder mundial.',
-    cor: '#C49A42',
+    nome: 'Oriente Médio',
+    descricao: 'Conflitos, alianças e disputas regionais.',
+    icon: 'location-outline',
+    cor: '#F5EEDC',
+    artigo: 'Conflito israelo-palestino',
   },
   {
-    icon: '🗺️',
-    categoria: 'GEOGRAFIA POLÍTICA',
-    titulo: 'Fronteiras e Territórios',
-    descricao:
-      'Explore disputas territoriais, fronteiras, soberania e mudanças no mapa político mundial.',
-    cor: '#369A83',
+    nome: 'Economia Global',
+    descricao: 'Comércio internacional, tarifas e sanções.',
+    icon: 'trending-up-outline',
+    cor: '#E4F1EB',
+    artigo: 'Economia internacional',
   },
   {
-    icon: '🤝',
-    categoria: 'ALIANÇAS E BLOCOS',
-    titulo: 'Blocos Econômicos',
-    descricao:
-      'Conheça grupos como BRICS, União Europeia e Mercosul e sua influência internacional.',
-    cor: '#8B69BD',
+    nome: 'Sul Global e BRICS',
+    descricao: 'O crescimento da influência dos países emergentes.',
+    icon: 'people-outline',
+    cor: '#EDE8F5',
+    artigo: 'BRICS',
+  },
+  {
+    nome: 'Geopolítica do Brasil',
+    descricao: 'A posição brasileira no cenário internacional.',
+    icon: 'flag-outline',
+    cor: '#E4F1E8',
+    artigo: 'Política externa do Brasil',
+  },
+  {
+    nome: 'Crises Internacionais',
+    descricao: 'Sudão, Mar Vermelho e disputas territoriais.',
+    icon: 'warning-outline',
+    cor: '#F6E8E5',
+    artigo: 'Crise do Sudão',
   },
 ];
 
 export default function Pagina2() {
   return (
-    <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}
-      >
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      showsVerticalScrollIndicator={false}
+    >
+      {/* APRESENTAÇÃO */}
 
-        {/* ELEMENTOS DECORATIVOS */}
-        <Text style={styles.bg1}>🌍</Text>
-        <Text style={styles.bg2}>⚖</Text>
-        <Text style={styles.bg3}>🌐</Text>
-        <Text style={styles.bg4}>✦</Text>
-        <Text style={styles.bg5}>🗺</Text>
-        <Text style={styles.bg6}>🏛</Text>
+      <Text style={styles.eyebrow}>
+        RELAÇÕES INTERNACIONAIS
+      </Text>
 
-        {/* CABEÇALHO */}
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.logo}>WORLD EXPLORER</Text>
-            <Text style={styles.logoSub}>
-              GEOPOLÍTICA GLOBAL
+      <Text style={styles.title}>
+        Geopolítica{' \n'}
+        Mundial.
+      </Text>
+
+      <Text style={styles.subtitle}>
+        Entenda as disputas de poder, os conflitos,
+        as alianças e as transformações que estão
+        moldando o cenário internacional.
+      </Text>
+
+      {/* BANNER */}
+
+      <View style={styles.banner}>
+        <Image
+          source={{
+            uri: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=1000',
+          }}
+          style={styles.bannerImage}
+          resizeMode="cover"
+        />
+
+        <View style={styles.bannerOverlay}>
+          <Text style={styles.bannerSmall}>
+            O TABULEIRO GLOBAL
+          </Text>
+
+          <Text style={styles.bannerTitle}>
+            Um mundo em transformação.
+          </Text>
+
+          <Text style={styles.bannerDescription}>
+            Poder, diplomacia, economia e conflitos internacionais.
+          </Text>
+        </View>
+      </View>
+
+      {/* CATEGORIAS */}
+
+      <View style={styles.heading}>
+        <View>
+          <Text style={styles.sectionTitle}>
+            Temas em destaque
+          </Text>
+
+          <Text style={styles.sectionDescription}>
+            Conheça as principais dinâmicas mundiais.
+          </Text>
+        </View>
+
+        <Text style={styles.count}>
+          08 TEMAS
+        </Text>
+      </View>
+
+      {categorias.map((item) => (
+        <Pressable
+          key={item.nome}
+          style={({ pressed }) => [
+            styles.card,
+            pressed && styles.cardPressed,
+          ]}
+          onPress={() =>
+            router.push({
+              pathname: '/pagina5',
+              params: { pais: item.artigo },
+            })
+          }
+        >
+          <View
+            style={[
+              styles.iconBox,
+              { backgroundColor: item.cor },
+            ]}
+          >
+            <Ionicons
+              name={item.icon}
+              size={24}
+              color="#244B61"
+            />
+          </View>
+
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>
+              {item.nome}
+            </Text>
+
+            <Text style={styles.cardDescription}>
+              {item.descricao}
             </Text>
           </View>
 
-          <View style={styles.headerIcon}>
-            <Text style={styles.headerEmoji}>🌐</Text>
-          </View>
-        </View>
+          <Ionicons
+            name="chevron-forward"
+            size={20}
+            color="#8796A1"
+          />
+        </Pressable>
+      ))}
 
-        {/* ÍCONE PRINCIPAL */}
-        <View style={styles.iconCircle}>
-          <Text style={styles.mainIcon}>🌍</Text>
-        </View>
+      {/* CONTEXTO GLOBAL */}
 
-        {/* TÍTULO */}
-        <Text style={styles.kicker}>
-          ✦ POLÍTICA • PODER • TERRITÓRIO ✦
+      <View style={styles.infoCard}>
+        <Ionicons
+          name="earth-outline"
+          size={27}
+          color="#D4AD62"
+        />
+
+        <View style={styles.infoContent}>
+          <Text style={styles.infoTitle}>
+            Um cenário multipolar
+          </Text>
+
+          <Text style={styles.infoText}>
+            O poder mundial está cada vez mais distribuído
+            entre diferentes países e blocos econômicos.
+            Estados Unidos, China, Rússia e outras potências
+            influenciam as decisões internacionais.
+          </Text>
+        </View>
+      </View>
+
+      {/* BRASIL */}
+
+      <View style={styles.brazilCard}>
+        <Text style={styles.brazilLabel}>
+          DESTAQUE ESPECIAL
         </Text>
 
-        <Text style={styles.title}>
-          Geopolítica
+        <Text style={styles.brazilTitle}>
+          O Brasil no mundo
         </Text>
 
-        <View style={styles.titleDivider}>
-          <View style={styles.dividerLine} />
-          <Text style={styles.dividerSymbol}>🌐</Text>
-          <View style={styles.dividerLine} />
-        </View>
-
-        <Text style={styles.subtitle}>
-          Entenda as relações de poder entre os países,
-          os conflitos internacionais e os acontecimentos
-          que transformam o cenário mundial.
+        <Text style={styles.brazilDescription}>
+          O Brasil busca ampliar sua participação nas
+          relações internacionais, fortalecer parcerias
+          comerciais e manter autonomia diplomática
+          diante das disputas entre as grandes potências.
         </Text>
 
-        {/* DESTAQUE */}
-        <View style={styles.highlight}>
-          <Text style={styles.highlightIcon}>🌎</Text>
-
-          <Text style={styles.highlightKicker}>
-            ENTENDA O MUNDO
+        <Pressable
+          style={({ pressed }) => [
+            styles.brazilButton,
+            pressed && styles.buttonPressed,
+          ]}
+          onPress={() =>
+            router.push({
+              pathname: '/pagina5',
+              params: {
+                pais: 'Política externa do Brasil',
+              },
+            })
+          }
+        >
+          <Text style={styles.brazilButtonText}>
+            Conhecer mais
           </Text>
 
-          <Text style={styles.highlightTitle}>
-            O poder vai muito além das fronteiras.
-          </Text>
+          <Ionicons
+            name="arrow-forward"
+            size={17}
+            color="#FFFFFF"
+          />
+        </Pressable>
+      </View>
 
-          <Text style={styles.highlightText}>
-            A geopolítica estuda como território,
-            economia, recursos naturais e decisões
-            políticas influenciam as relações entre
-            as nações.
-          </Text>
-        </View>
+      {/* AVISO */}
 
-        {/* INDICADORES */}
-        <View style={styles.stats}>
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>195</Text>
-            <Text style={styles.statLabel}>Países</Text>
-          </View>
+      <View style={styles.note}>
+        <Ionicons
+          name="information-circle-outline"
+          size={22}
+          color="#315F78"
+        />
 
-          <View style={styles.statDivider} />
+        <Text style={styles.noteText}>
+          A geopolítica está em constante transformação.
+          Consulte fontes atualizadas para acompanhar
+          acontecimentos, negociações e conflitos.
+        </Text>
+      </View>
 
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>7</Text>
-            <Text style={styles.statLabel}>Continentes</Text>
-          </View>
+      {/* RODAPÉ */}
 
-          <View style={styles.statDivider} />
+      <Text style={styles.footer}>
+        GEOPOLÍTICA MUNDIAL • RELAÇÕES INTERNACIONAIS
+      </Text>
 
-          <View style={styles.statItem}>
-            <Text style={styles.statNumber}>ONU</Text>
-            <Text style={styles.statLabel}>Cooperação</Text>
-          </View>
-        </View>
-
-        {/* ASSUNTOS */}
-        <View style={styles.sectionHeader}>
-          <View>
-            <Text style={styles.sectionKicker}>
-              CONHECIMENTO GLOBAL
-            </Text>
-
-            <Text style={styles.sectionTitle}>
-              Temas importantes
-            </Text>
-          </View>
-
-          <Text style={styles.sectionIcon}>📚</Text>
-        </View>
-
-        {assuntos.map((item, index) => (
-          <View style={styles.card} key={index}>
-            <View
-              style={[
-                styles.cardIconBox,
-                { borderColor: item.cor },
-              ]}
-            >
-              <Text style={styles.cardIcon}>
-                {item.icon}
-              </Text>
-            </View>
-
-            <View style={styles.cardContent}>
-              <Text
-                style={[
-                  styles.cardKicker,
-                  { color: item.cor },
-                ]}
-              >
-                {item.categoria}
-              </Text>
-
-              <Text style={styles.cardTitle}>
-                {item.titulo}
-              </Text>
-
-              <Text style={styles.cardText}>
-                {item.descricao}
-              </Text>
-            </View>
-          </View>
-        ))}
-
-        {/* PAÍSES INFLUENTES */}
-        <View style={styles.sectionHeader}>
-          <View>
-            <Text style={styles.sectionKicker}>
-              CENÁRIO INTERNACIONAL
-            </Text>
-
-            <Text style={styles.sectionTitle}>
-              Atores globais
-            </Text>
-          </View>
-
-          <Text style={styles.sectionIcon}>🏳️</Text>
-        </View>
-
-        <View style={styles.countryGrid}>
-          <View style={styles.countryCard}>
-            <Text style={styles.flag}>🇺🇸</Text>
-            <Text style={styles.countryName}>Estados Unidos</Text>
-            <Text style={styles.countryInfo}>América do Norte</Text>
-          </View>
-
-          <View style={styles.countryCard}>
-            <Text style={styles.flag}>🇨🇳</Text>
-            <Text style={styles.countryName}>China</Text>
-            <Text style={styles.countryInfo}>Ásia</Text>
-          </View>
-
-          <View style={styles.countryCard}>
-            <Text style={styles.flag}>🇷🇺</Text>
-            <Text style={styles.countryName}>Rússia</Text>
-            <Text style={styles.countryInfo}>Europa e Ásia</Text>
-          </View>
-
-          <View style={styles.countryCard}>
-            <Text style={styles.flag}>🇧🇷</Text>
-            <Text style={styles.countryName}>Brasil</Text>
-            <Text style={styles.countryInfo}>América do Sul</Text>
-          </View>
-
-          <View style={styles.countryCard}>
-            <Text style={styles.flag}>🇮🇳</Text>
-            <Text style={styles.countryName}>Índia</Text>
-            <Text style={styles.countryInfo}>Ásia</Text>
-          </View>
-
-          <View style={styles.countryCard}>
-            <Text style={styles.flag}>🇩🇪</Text>
-            <Text style={styles.countryName}>Alemanha</Text>
-            <Text style={styles.countryInfo}>Europa</Text>
-          </View>
-        </View>
-
-        {/* FRASE FINAL */}
-        <View style={styles.quoteCard}>
-          <Text style={styles.quoteIcon}>⚖️</Text>
-
-          <Text style={styles.quoteTitle}>
-            O mundo está conectado.
-          </Text>
-
-          <View style={styles.quoteLine} />
-
-          <Text style={styles.quoteText}>
-            Compreender a geopolítica é compreender
-            como as decisões de hoje influenciam
-            o futuro das nações.
-          </Text>
-
-          <Text style={styles.quoteAuthor}>
-            CONHECIMENTO • POLÍTICA • MUNDO
-          </Text>
-        </View>
-
-        {/* RODAPÉ */}
-        <View style={styles.footer}>
-          <Text style={styles.footerIcon}>🌐</Text>
-
-          <Text style={styles.footerTitle}>
-            WORLD EXPLORER
-          </Text>
-
-          <Text style={styles.footerText}>
-            Conheça o mundo além das fronteiras.
-          </Text>
-
-          <View style={styles.footerLine} />
-
-          <Text style={styles.footerSmall}>
-            GEOPOLÍTICA • ECONOMIA • RELAÇÕES GLOBAIS
-          </Text>
-        </View>
-
-      </ScrollView>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0B1421',
+    backgroundColor: '#F3F6F8',
   },
 
   content: {
-    paddingHorizontal: 20,
-    paddingTop: 55,
+    padding: 23,
+    paddingTop: 62,
     paddingBottom: 40,
-    overflow: 'hidden',
   },
 
-  // FUNDO
-
-  bg1: {
-    position: 'absolute',
-    top: 140,
-    left: -5,
-    fontSize: 48,
-    opacity: 0.08,
-  },
-
-  bg2: {
-    position: 'absolute',
-    top: 370,
-    right: 10,
-    fontSize: 38,
-    color: '#D8B16A',
-    opacity: 0.12,
-  },
-
-  bg3: {
-    position: 'absolute',
-    top: 700,
-    left: 5,
-    fontSize: 42,
-    opacity: 0.08,
-  },
-
-  bg4: {
-    position: 'absolute',
-    top: 950,
-    right: 20,
-    fontSize: 30,
-    color: '#42B8E8',
-    opacity: 0.15,
-  },
-
-  bg5: {
-    position: 'absolute',
-    top: 1200,
-    left: 10,
-    fontSize: 38,
-    opacity: 0.08,
-  },
-
-  bg6: {
-    position: 'absolute',
-    bottom: 100,
-    right: 10,
-    fontSize: 35,
-    opacity: 0.08,
-  },
-
-  // CABEÇALHO
-
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 35,
-  },
-
-  logo: {
-    color: '#FFFFFF',
-    fontSize: 16,
+  eyebrow: {
+    color: '#B08B4E',
+    fontSize: 10,
     fontWeight: '900',
     letterSpacing: 2,
-  },
-
-  logoSub: {
-    color: '#42B8E8',
-    fontSize: 9,
-    letterSpacing: 2,
-    marginTop: 5,
-    fontWeight: '800',
-  },
-
-  headerIcon: {
-    width: 45,
-    height: 45,
-    borderRadius: 14,
-    backgroundColor: '#1B3045',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  headerEmoji: {
-    fontSize: 25,
-  },
-
-  // ÍCONE
-
-  iconCircle: {
-    width: 85,
-    height: 85,
-    borderRadius: 45,
-    backgroundColor: '#17334A',
-    borderWidth: 2,
-    borderColor: '#42B8E8',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 18,
-    alignSelf: 'center',
-  },
-
-  mainIcon: {
-    fontSize: 43,
-  },
-
-  // TÍTULO
-
-  kicker: {
-    color: '#42B8E8',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 2,
-    textAlign: 'center',
-    marginBottom: 10,
   },
 
   title: {
-    color: '#FFFFFF',
-    fontSize: 32,
+    color: '#193447',
+    fontSize: 36,
     fontWeight: '900',
-    textAlign: 'center',
-  },
-
-  titleDivider: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-    marginTop: 13,
-  },
-
-  dividerLine: {
-    width: 48,
-    height: 1,
-    backgroundColor: '#4775C7',
-  },
-
-  dividerSymbol: {
-    fontSize: 19,
+    marginTop: 9,
+    lineHeight: 43,
   },
 
   subtitle: {
-    color: '#A8B7C7',
-    fontSize: 13,
-    lineHeight: 22,
-    textAlign: 'center',
-    marginTop: 16,
-    marginBottom: 25,
-  },
-
-  // DESTAQUE
-
-  highlight: {
-    backgroundColor: '#17334A',
-    borderRadius: 19,
-    padding: 21,
-    borderWidth: 1,
-    borderColor: '#2B5C78',
-    marginBottom: 22,
-  },
-
-  highlightIcon: {
-    fontSize: 32,
-  },
-
-  highlightKicker: {
-    color: '#42B8E8',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 2,
-    marginTop: 12,
-  },
-
-  highlightTitle: {
-    color: '#FFFFFF',
-    fontSize: 20,
-    fontWeight: '900',
-    lineHeight: 27,
-    marginTop: 8,
-  },
-
-  highlightText: {
-    color: '#B8C9D8',
-    fontSize: 12,
-    lineHeight: 21,
+    color: '#61727F',
+    fontSize: 14,
+    lineHeight: 23,
     marginTop: 10,
+    marginBottom: 23,
   },
 
-  // ESTATÍSTICAS
-
-  stats: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#142438',
-    borderRadius: 16,
-    paddingVertical: 20,
-    marginBottom: 32,
-    borderWidth: 1,
-    borderColor: '#263C52',
+  banner: {
+    height: 195,
+    borderRadius: 19,
+    overflow: 'hidden',
+    marginBottom: 30,
+    backgroundColor: '#193D50',
   },
 
-  statItem: {
-    alignItems: 'center',
+  bannerImage: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
   },
 
-  statNumber: {
-    color: '#42B8E8',
-    fontSize: 22,
+  bannerOverlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 19,
+    backgroundColor: 'rgba(12, 35, 53, 0.66)',
+  },
+
+  bannerSmall: {
+    color: '#E3C58C',
+    fontSize: 9,
     fontWeight: '900',
+    letterSpacing: 1.7,
   },
 
-  statLabel: {
-    color: '#9EB0C2',
-    fontSize: 10,
-    marginTop: 5,
-  },
-
-  statDivider: {
-    width: 1,
-    height: 35,
-    backgroundColor: '#34485C',
-  },
-
-  // SEÇÕES
-
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 17,
+  bannerTitle: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: '900',
     marginTop: 8,
   },
 
-  sectionKicker: {
-    color: '#42B8E8',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 2,
-    marginBottom: 6,
+  bannerDescription: {
+    color: '#E5EDF2',
+    fontSize: 11,
+    marginTop: 6,
+  },
+
+  heading: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
   },
 
   sectionTitle: {
-    color: '#FFFFFF',
+    color: '#193447',
     fontSize: 21,
     fontWeight: '900',
   },
 
-  sectionIcon: {
-    fontSize: 27,
+  sectionDescription: {
+    color: '#8796A1',
+    fontSize: 11,
+    marginTop: 5,
   },
 
-  // CARDS
+  count: {
+    color: '#B08B4E',
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 1,
+  },
 
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#142438',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5EAEE',
     borderRadius: 16,
     padding: 14,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#263C52',
+    marginBottom: 11,
+    gap: 13,
   },
 
-  cardIconBox: {
-    width: 55,
-    height: 58,
+  cardPressed: {
+    opacity: 0.75,
+  },
+
+  iconBox: {
+    width: 49,
+    height: 49,
     borderRadius: 13,
-    backgroundColor: '#20374D',
-    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 13,
-  },
-
-  cardIcon: {
-    fontSize: 27,
   },
 
   cardContent: {
     flex: 1,
   },
 
-  cardKicker: {
-    fontSize: 8,
-    fontWeight: '900',
-    letterSpacing: 1,
-    marginBottom: 5,
-  },
-
   cardTitle: {
-    color: '#FFFFFF',
+    color: '#193447',
     fontSize: 14,
-    fontWeight: '900',
-    marginBottom: 5,
+    fontWeight: 'bold',
   },
 
-  cardText: {
-    color: '#A8B7C7',
-    fontSize: 11,
-    lineHeight: 17,
-  },
-
-  // PAÍSES
-
-  countryGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-
-  countryCard: {
-    width: '48%',
-    backgroundColor: '#142438',
-    borderRadius: 15,
-    padding: 15,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#263C52',
-  },
-
-  flag: {
-    fontSize: 30,
-    marginBottom: 9,
-  },
-
-  countryName: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: '900',
-  },
-
-  countryInfo: {
-    color: '#42B8E8',
+  cardDescription: {
+    color: '#7A8993',
     fontSize: 10,
+    lineHeight: 16,
     marginTop: 5,
   },
 
-  // FRASE
-
-  quoteCard: {
-    backgroundColor: '#17334A',
-    borderRadius: 18,
-    padding: 23,
-    alignItems: 'center',
-    marginTop: 22,
-    borderWidth: 1,
-    borderColor: '#2B5C78',
+  infoCard: {
+    backgroundColor: '#193D50',
+    borderRadius: 17,
+    padding: 18,
+    flexDirection: 'row',
+    gap: 13,
+    marginTop: 18,
+    alignItems: 'flex-start',
   },
 
-  quoteIcon: {
-    fontSize: 32,
+  infoContent: {
+    flex: 1,
   },
 
-  quoteTitle: {
+  infoTitle: {
     color: '#FFFFFF',
-    fontSize: 19,
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+
+  infoText: {
+    color: '#D5E1E8',
+    fontSize: 11,
+    lineHeight: 18,
+    marginTop: 6,
+  },
+
+  brazilCard: {
+    backgroundColor: '#E4EFE8',
+    borderRadius: 18,
+    padding: 20,
+    marginTop: 20,
+    borderWidth: 1,
+    borderColor: '#D4E4D9',
+  },
+
+  brazilLabel: {
+    color: '#498064',
+    fontSize: 9,
     fontWeight: '900',
-    textAlign: 'center',
-    marginTop: 12,
+    letterSpacing: 1.8,
   },
 
-  quoteLine: {
-    width: 42,
-    height: 2,
-    backgroundColor: '#42B8E8',
-    marginVertical: 15,
-  },
-
-  quoteText: {
-    color: '#C4D2DE',
-    fontSize: 13,
-    lineHeight: 22,
-    textAlign: 'center',
-  },
-
-  quoteAuthor: {
-    color: '#42B8E8',
-    fontSize: 8,
+  brazilTitle: {
+    color: '#193D32',
+    fontSize: 22,
     fontWeight: '900',
-    letterSpacing: 1.5,
-    marginTop: 17,
-    textAlign: 'center',
+    marginTop: 9,
   },
 
-  // RODAPÉ
+  brazilDescription: {
+    color: '#5C7567',
+    fontSize: 12,
+    lineHeight: 20,
+    marginTop: 9,
+  },
+
+  brazilButton: {
+    backgroundColor: '#245B50',
+    borderRadius: 11,
+    paddingVertical: 12,
+    paddingHorizontal: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    gap: 9,
+    marginTop: 16,
+  },
+
+  buttonPressed: {
+    opacity: 0.8,
+  },
+
+  brazilButtonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 12,
+  },
+
+  note: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    backgroundColor: '#E8EFF4',
+    borderRadius: 13,
+    padding: 15,
+    marginTop: 20,
+  },
+
+  noteText: {
+    flex: 1,
+    color: '#526978',
+    fontSize: 11,
+    lineHeight: 18,
+  },
 
   footer: {
-    alignItems: 'center',
-    marginTop: 35,
-    paddingTop: 23,
-    borderTopWidth: 1,
-    borderTopColor: '#293D51',
-  },
-
-  footerIcon: {
-    fontSize: 34,
-  },
-
-  footerTitle: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '900',
-    letterSpacing: 3,
-    marginTop: 10,
-  },
-
-  footerText: {
-    color: '#8FA7BD',
-    fontSize: 10,
-    marginTop: 8,
-  },
-
-  footerLine: {
-    width: 40,
-    height: 2,
-    backgroundColor: '#42B8E8',
-    marginVertical: 16,
-  },
-
-  footerSmall: {
-    color: '#62798F',
-    fontSize: 8,
-    letterSpacing: 1.5,
+    color: '#8796A1',
+    fontSize: 9,
     textAlign: 'center',
+    marginTop: 30,
+    letterSpacing: 1,
   },
 });

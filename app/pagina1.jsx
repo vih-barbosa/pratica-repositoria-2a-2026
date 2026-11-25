@@ -7,7 +7,10 @@ import {
   ScrollView,
   Image,
   StatusBar,
+  Pressable,
 } from 'react-native';
+
+import { router } from 'expo-router';
 
 const paises = [
   {
@@ -63,11 +66,10 @@ export default function Pagina1() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
       >
-
         {/* CABEÇALHO */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.logo}>WORLD EXPLORER 🌎</Text>
+            <Text style={styles.logoText}>WORLD EXPLORER 🌎</Text>
             <Text style={styles.subtitle}>
               Descubra o nosso planeta
             </Text>
@@ -78,28 +80,30 @@ export default function Pagina1() {
           </View>
         </View>
 
-        {/* TÍTULO PRINCIPAL */}
+        {/* TÍTULO */}
         <View style={styles.intro}>
           <Text style={styles.introSmall}>
             EXPLORE • CONHEÇA • DESCUBRA
           </Text>
 
           <Text style={styles.title}>
-            O mundo{'\n'}
-            <Text style={styles.titleBlue}>espera por você.</Text>
+            O mundo{' \n'}
+            <Text style={styles.titleBlue}>
+              espera por você.
+            </Text>
           </Text>
 
           <Text style={styles.description}>
-            Uma viagem pelos países, culturas e
-            paisagens mais incríveis do planeta.
+            Uma viagem pelos países, culturas e paisagens
+            mais incríveis do planeta.
           </Text>
         </View>
 
-        {/* IMAGEM DO PLANETA */}
+        {/* IMAGEM */}
         <View style={styles.imageContainer}>
           <Image
             source={{
-              uri: 'https://img.nsctotal.com.br/wp-content/uploads/2023/10/Globo-terrestre_Banco-de-Imagens.jpg',
+              uri: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=1000',
             }}
             style={styles.globeImage}
             resizeMode="cover"
@@ -130,7 +134,7 @@ export default function Pagina1() {
           <View style={styles.statDivider} />
 
           <View style={styles.statItem}>
-            <Text style={styles.statNumber}>7</Text>
+            <Text style={styles.statNumber}>6</Text>
             <Text style={styles.statLabel}>Continentes</Text>
           </View>
 
@@ -148,45 +152,47 @@ export default function Pagina1() {
             <Text style={styles.sectionSmall}>
               EXPLORE O PLANETA
             </Text>
+
             <Text style={styles.sectionTitle}>
               Continentes
             </Text>
           </View>
+
           <Text style={styles.sectionIcon}>🗺️</Text>
         </View>
 
         <View style={styles.continentGrid}>
-          <View style={[styles.continentCard, {backgroundColor: '#173E62'}]}>
+          <View style={[styles.continentCard, { backgroundColor: '#173E62' }]}>
             <Text style={styles.continentEmoji}>🌎</Text>
             <Text style={styles.continentName}>América</Text>
             <Text style={styles.continentInfo}>Norte, Central e Sul</Text>
           </View>
 
-          <View style={[styles.continentCard, {backgroundColor: '#254B3C'}]}>
+          <View style={[styles.continentCard, { backgroundColor: '#254B3C' }]}>
             <Text style={styles.continentEmoji}>🌍</Text>
             <Text style={styles.continentName}>África</Text>
             <Text style={styles.continentInfo}>Diversidade cultural</Text>
           </View>
 
-          <View style={[styles.continentCard, {backgroundColor: '#493B65'}]}>
+          <View style={[styles.continentCard, { backgroundColor: '#493B65' }]}>
             <Text style={styles.continentEmoji}>🌏</Text>
             <Text style={styles.continentName}>Ásia</Text>
             <Text style={styles.continentInfo}>Tradição e tecnologia</Text>
           </View>
 
-          <View style={[styles.continentCard, {backgroundColor: '#654333'}]}>
+          <View style={[styles.continentCard, { backgroundColor: '#654333' }]}>
             <Text style={styles.continentEmoji}>🏰</Text>
             <Text style={styles.continentName}>Europa</Text>
             <Text style={styles.continentInfo}>História e arquitetura</Text>
           </View>
 
-          <View style={[styles.continentCard, {backgroundColor: '#24536B'}]}>
+          <View style={[styles.continentCard, { backgroundColor: '#24536B' }]}>
             <Text style={styles.continentEmoji}>🏝️</Text>
             <Text style={styles.continentName}>Oceania</Text>
             <Text style={styles.continentInfo}>Ilhas e natureza</Text>
           </View>
 
-          <View style={[styles.continentCard, {backgroundColor: '#43515A'}]}>
+          <View style={[styles.continentCard, { backgroundColor: '#43515A' }]}>
             <Text style={styles.continentEmoji}>❄️</Text>
             <Text style={styles.continentName}>Antártida</Text>
             <Text style={styles.continentInfo}>Gelo e pesquisa</Text>
@@ -199,22 +205,30 @@ export default function Pagina1() {
             <Text style={styles.sectionSmall}>
               DESTINOS PELO MUNDO
             </Text>
+
             <Text style={styles.sectionTitle}>
               Países em destaque
             </Text>
           </View>
+
           <Text style={styles.sectionIcon}>✈️</Text>
         </View>
 
-        {paises.map((pais, index) => (
-          <View
-            key={index}
+        {paises.map((pais) => (
+          <Pressable
+            key={pais.nome}
             style={styles.countryCard}
+            onPress={() =>
+              router.push({
+                pathname: '/pagina5',
+                params: { pais: pais.nome },
+              })
+            }
           >
             <View
               style={[
                 styles.countryAccent,
-                {backgroundColor: pais.cor},
+                { backgroundColor: pais.cor },
               ]}
             />
 
@@ -239,7 +253,7 @@ export default function Pagina1() {
             </View>
 
             <Text style={styles.countryArrow}>›</Text>
-          </View>
+          </Pressable>
         ))}
 
         {/* CURIOSIDADE */}
@@ -279,7 +293,6 @@ export default function Pagina1() {
             EXPLORE THE WORLD • 2026
           </Text>
         </View>
-
       </ScrollView>
     </View>
   );
@@ -304,11 +317,12 @@ const styles = StyleSheet.create({
     marginBottom: 38,
   },
 
-  logo: {
+  logoText: {
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '900',
     letterSpacing: 2,
+    marginBottom: 13,
   },
 
   subtitle: {
