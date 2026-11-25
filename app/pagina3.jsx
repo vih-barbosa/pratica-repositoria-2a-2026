@@ -46,6 +46,144 @@ const valores = [
   },
 ];
 
+
+const mapaHTML = `
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Inicializar mapa mundial
+    const map = L.map('map', {
+      zoomControl: true,
+      worldCopyJump: true
+    }).setView([0, 0], 2);
+
+    // Camada padrão OpenStreetMap
+    const padrao = L.tileLayer(
+      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }
+    );
+
+    // Camada ciclística
+    const ciclista = L.tileLayer(
+      'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
+      {
+        maxZoom: 20,
+        attribution: '&copy; CyclOSM & OpenStreetMap contributors'
+      }
+    );
+
+    // Camada humanitária
+    const humanitaria = L.tileLayer(
+      'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+      {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors, HOT'
+      }
+    );
+
+    // Adicionar camada padrão
+    padrao.addTo(map);
+
+    // Controle de camadas
+    const camadas = {
+      'Padrão': padrao,
+      'Ciclístico': ciclista,
+      'Humanitário': humanitaria
+    };
+
+    L.control.layers(camadas).addTo(map);
+
+    // Marcador do Brasil
+    L.marker([-14.235, -51.925])
+      .addTo(map)
+      .bindPopup('<b>Brasil</b><br>América do Sul');
+
+    // Marcadores de países importantes
+    const paises = [
+      {
+        nome: 'Estados Unidos',
+        coordenadas: [37.0902, -95.7129]
+      },
+      {
+        nome: 'China',
+        coordenadas: [35.8617, 104.1954]
+      },
+      {
+        nome: 'Rússia',
+        coordenadas: [61.524, 105.3188]
+      },
+      {
+        nome: 'Reino Unido',
+        coordenadas: [55.3781, -3.436]
+      },
+      {
+        nome: 'Índia',
+        coordenadas: [20.5937, 78.9629]
+      }
+    ];
+
+    paises.forEach(function(pais) {
+      L.marker(pais.coordenadas)
+        .addTo(map)
+        .bindPopup('<b>' + pais.nome + '</b>');
+    });
+
+    // Ajustar mapa após carregar
+    setTimeout(function() {
+      map.invalidateSize();
+    }, 300);
+
+  </script>
+
+</body>
+</html>
+`;
+
+/**
+ * Página principal
+   */
 export default function Pagina3() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
