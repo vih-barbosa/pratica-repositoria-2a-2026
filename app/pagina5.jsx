@@ -1,6 +1,4 @@
-
-import { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -15,16 +13,22 @@ import {
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
+/**
+ * @typedef {Object} ResultadoBusca
+ * @property {{title: string, key: string}[]} [pages]
+ */
+
 export default function Pagina5() {
   const { pais } = useLocalSearchParams();
-
-  const [dados, setDados] = useState(null);
-  const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState('');
 
   const termo = Array.isArray(pais)
     ? pais[0]
     : pais || 'Geopolítica Mundial';
+
+  const [dados, setDados] = useState(null);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState('');
+  const [tentativa, setTentativa] = useState(0);
 
   useEffect(() => {
     let ativo = true;
@@ -35,37 +39,54 @@ export default function Pagina5() {
         setErro('');
         setDados(null);
 
-        const nome = encodeURIComponent(
-          termo.trim().replace(/ /g, '_')
-        );
+        const buscaUrl =
+          `https://pt.wikipedia.org/w/rest.php/v1/search/page?q=${encodeURIComponent(termo)}&limit=1`;
 
-        const url =
-          `https://pt.wikipedia.org/api/rest_v1/page/summary/${nome}`;
+        const respostaBusca = await fetch(buscaUrl);
 
-        const resposta = await fetch(url, {
-          headers: {
-            Accept: 'application/json',
-          },
-        });
-
-        if (!resposta.ok) {
+        if (!respostaBusca.ok) {
           throw new Error(
-            resposta.status === 404
-              ? 'Não encontramos esse artigo. Experimente outro assunto.'
-              : 'Não foi possível acessar a enciclopédia. Tente novamente.'
+            'Não foi possível pesquisar o assunto. Verifique sua conexão.'
           );
         }
 
-        const resultado = await resposta.json();
+        /** @type {ResultadoBusca} */
+        const resultadoBusca = await respostaBusca.json();
+        const pagina = resultadoBusca.pages?.[0];
+
+        if (!pagina) {
+          throw new Error(
+            'Não encontramos um artigo sobre esse assunto. Tente outro tema.'
+          );
+        }
+
+        const titulo = pagina.title.replace(/ /g, '_');
+        const resumoUrl =
+          `https://pt.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(titulo)}`;
+
+        const respostaResumo = await fetch(resumoUrl);
+
+        if (!respostaResumo.ok) {
+          throw new Error(
+            'Encontramos o assunto, mas não foi possível carregar o artigo.'
+          );
+        }
+
+        const resultado = await respostaResumo.json();
+
+        if (!resultado.title) {
+          throw new Error('O artigo não possui informações disponíveis.');
+        }
 
         if (ativo) {
           setDados(resultado);
         }
-
       } catch (error) {
         if (ativo) {
           setErro(
-            error.message || 'Ocorreu um erro na pesquisa.'
+            error instanceof Error
+              ? error.message
+              : 'Ocorreu um erro inesperado. Tente novamente.'
           );
         }
       } finally {
@@ -77,12 +98,15 @@ export default function Pagina5() {
 
     if (termo.trim()) {
       buscarInformacoes();
+    } else {
+      setErro('Nenhum assunto foi informado.');
+      setCarregando(false);
     }
 
     return () => {
       ativo = false;
     };
-  }, [termo]);
+  }, [termo, tentativa]);
 
   // CARREGAMENTO
 
@@ -107,7 +131,7 @@ export default function Pagina5() {
         </Text>
 
         <Text style={styles.loadingText}>
-          Consultando dados sobre {termo}...
+          Pesquisando artigos sobre {termo}...
         </Text>
       </View>
     );
@@ -136,14 +160,29 @@ export default function Pagina5() {
 
         <Pressable
           style={styles.button}
-          onPress={() => router.replace('/pagina4')}
+          onPress={() => setTentativa((valor) => valor + 1)}
         >
           <Text style={styles.buttonText}>
-            Voltar para pesquisa
+            Tentar novamente
           </Text>
 
           <Ionicons
-            name="arrow-forward"
+            name="refresh-outline"
+            size={18}
+            color="#FFFFFF"
+          />
+        </Pressable>
+
+        <Pressable
+          style={[styles.button, styles.backErrorButton]}
+          onPress={() => router.back()}
+        >
+          <Text style={styles.buttonText}>
+            Voltar
+          </Text>
+
+          <Ionicons
+            name="arrow-back"
             size={18}
             color="#FFFFFF"
           />
@@ -151,6 +190,8 @@ export default function Pagina5() {
       </View>
     );
   }
+
+  // DADOS DO ARTIGO
 
   const imagem =
     dados.originalimage?.source ||
@@ -165,11 +206,12 @@ export default function Pagina5() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
+
       {/* CABEÇALHO */}
 
       <View style={styles.header}>
         <Pressable
-          onPress={() => router.replace('/pagina4')}
+          onPress={() => router.back()}
           style={styles.backButton}
         >
           <Ionicons
@@ -199,7 +241,7 @@ export default function Pagina5() {
       {/* IDENTIFICAÇÃO */}
 
       <Text style={styles.eyebrow}>
-        <Text>ARTIGO • CENÁRIO INTERNACIONAL</Text>
+        ARTIGO • CENÁRIO INTERNACIONAL
       </Text>
 
       <Text style={styles.title}>
@@ -364,6 +406,7 @@ export default function Pagina5() {
       <Text style={styles.source}>
         Conteúdo obtido através da API da Wikipédia.
       </Text>
+
     </ScrollView>
   );
 }
@@ -629,6 +672,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
     marginTop: 22,
+  },
+
+  backErrorButton: {
+    backgroundColor: '#526978',
+    marginTop: 12,
   },
 
   buttonText: {
